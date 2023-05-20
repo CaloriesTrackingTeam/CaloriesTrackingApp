@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/loginTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories Tracking"
+        android:textColor="#45D14A"
+        android:textSize="33sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop = "true"
+        android:layout_centerHorizontal = "true"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/loginFaceButton"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/loginTextView1"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#4267B2"
+        android:text="Login with Facebook"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:id="@+id/loginGoogleButton"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/loginFaceButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#C5C5C5"
+        android:text="Login with Google"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>
