@@ -31,6 +31,7 @@
         android:backgroundTint="#4267B2"
         android:text="Login with Facebook"
         android:textSize="20dp"
+        
         />
 
     <Button
