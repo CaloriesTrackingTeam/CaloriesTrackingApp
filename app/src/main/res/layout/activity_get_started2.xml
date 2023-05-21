@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Calories Tracking"
         android:textColor="#45D14A"
-        android:textSize="33sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:layout_alignParentTop = "true"
         android:layout_centerHorizontal = "true"
@@ -47,7 +47,7 @@
         android:layout_below="@id/startedTextView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="With amazing inbuit tools you can track"
+        android:text="With amazing inbuit tools you"
         android:textAlignment="center"
         android:textSize="17sp"
         android:textColor="@color/black"/>
@@ -56,7 +56,7 @@
         android:id="@+id/startedTextView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="your progress."
+        android:text="can track your progress."
         android:textAlignment="center"
         android:textSize="17sp"
         android:layout_below="@id/startedTextView3"
@@ -79,13 +79,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:text="Already have an account?"
         android:textSize="16sp"
         android:textColor="@color/black"
         android:layout_below="@id/startedButton2"/>
 
-    <TextView
-        android:id="@+id/startedTextView6"
+    <Button
+        android:id="@+id/loginButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -93,5 +94,7 @@
         android:textColor="#52BC41"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_below="@id/startedTextView5" />
+        android:layout_below="@id/startedTextView5"
+        android:backgroundTint="@color/white"/>
+
 </RelativeLayout>

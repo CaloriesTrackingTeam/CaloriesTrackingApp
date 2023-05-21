@@ -15,11 +15,19 @@ public class GetStarted1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn = (Button)findViewById(R.id.startedButton1);
+        Button btn2 = (Button)findViewById(R.id.loginButton1);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GetStarted1Activity.this, GetStarted2Activity.class));
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GetStarted1Activity.this, LoginActivity.class));
             }
         });
 
