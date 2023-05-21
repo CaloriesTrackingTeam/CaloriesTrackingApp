@@ -17,12 +17,13 @@ public class Register1Activity extends AppCompatActivity {
         Button btnNext = (Button) findViewById(R.id.registerButton1);
         Button btnLogin = (Button) findViewById(R.id.loginButton);
 
-        /*btnNext.setOnClickListener(new View.OnClickListener() {
+        // to second Register Activity
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Register1Activity.this, Register2Activity.class));
             }
-        });*/
+        });
 
         // to Login Activity
         btnLogin.setOnClickListener(new View.OnClickListener() {

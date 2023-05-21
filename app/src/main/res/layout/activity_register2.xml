@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".Register1Activity">
+    tools:context=".Register2Activity">
 
     <TextView
         android:id="@+id/registerTextView1"
@@ -18,8 +18,7 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_alignParentTop = "true"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/registerTextView2"
@@ -28,7 +27,7 @@
         android:layout_below="@+id/registerTextView1"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
-        android:text="The basics"
+        android:text="Input your information"
         android:textSize="25dp"
         android:textStyle="bold"
         android:textColor="@color/black"/>
@@ -40,7 +39,7 @@
         android:layout_below="@id/registerTextView2"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:text="Let's start with the basics. Note: you"
+        android:text="Enter the following of information"
         android:textAlignment="center"
         android:textSize="19dp"
         android:textColor="#858484"/>
@@ -50,89 +49,112 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:text="can change these details later"
+        android:text="to caculate your BMI and kcal/day"
         android:textAlignment="center"
         android:textSize="19dp"
         android:layout_below="@id/registerTextView3"
         android:textColor="#858484"/>
 
     <TextView
-        android:id="@+id/registerTextView5"
+        android:id="@+id/registerHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:text="Full Name"
+        android:layout_marginTop="15dp"
+        android:text="Height (cm)"
         android:textAlignment="center"
         android:textSize="19dp"
         android:layout_below="@+id/registerTextView4"
         android:textColor="#858484"/>
 
     <EditText
-        android:id="@+id/editTextFullName"
+        android:id="@+id/editTextHeight"
         android:layout_width="285dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="Your full name"
+        android:layout_marginTop="5dp"
+        android:hint="Your Height"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerTextView5"/>
+        android:layout_below="@+id/registerHeight"/>
 
     <TextView
-        android:id="@+id/registerTextView6"
+        android:id="@+id/registerWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="Email Address"
+        android:layout_marginTop="15dp"
+        android:text="Weight (kg)"
         android:textAlignment="center"
         android:textSize="19dp"
-        android:layout_below="@+id/editTextFullName"
+        android:layout_below="@+id/editTextHeight"
         android:textColor="#858484"/>
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextWeight"
         android:layout_width="285dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="Your Email Address"
+        android:layout_marginTop="5dp"
+        android:hint="Your Weight"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerTextView6"/>
+        android:layout_below="@+id/registerWeight"/>
 
     <TextView
-        android:id="@+id/registerTextView7"
+        android:id="@+id/registerAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="Password"
+        android:layout_marginTop="15dp"
+        android:text="Age"
         android:textAlignment="center"
         android:textSize="19dp"
-        android:layout_below="@+id/editTextEmail"
+        android:layout_below="@+id/editTextWeight"
         android:textColor="#858484"/>
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextAge"
         android:layout_width="285dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="Your Password"
-        android:inputType="textPassword"
+        android:layout_marginTop="5dp"
+        android:hint="Your Age"
+        android:inputType="number"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerTextView7"/>
+        android:layout_below="@+id/registerAge"/>
+
+    <TextView
+        android:id="@+id/registerSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+        android:text="Sex"
+        android:textAlignment="center"
+        android:textSize="19dp"
+        android:layout_below="@+id/editTextAge"
+        android:textColor="#858484"/>
+
+    <Spinner
+        android:id="@+id/spinnerSex"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/registerSex"
+        android:textColor="@color/black"/>
 
     <Button
-        android:id="@+id/registerButton1"
+        android:id="@+id/registerButton2"
         android:layout_width="285dp"
         android:layout_height="77dp"
-        android:layout_below="@id/editTextPassword"
+        android:layout_below="@id/spinnerSex"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="15dp"
         android:backgroundTint="#FF9386"
         android:text="Next"
         android:textSize="24sp" />
@@ -146,7 +168,7 @@
         android:text="Don't have an account?"
         android:textSize="16sp"
         android:textColor="@color/black"
-        android:layout_below="@id/registerButton1"/>
+        android:layout_below="@id/registerButton2"/>
 
     <Button
         android:id="@+id/loginButton"
