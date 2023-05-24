@@ -71,12 +71,13 @@
         android:id="@+id/editTextHeight"
         android:layout_width="285dp"
         android:layout_height="50dp"
+        android:layout_below="@+id/registerHeight"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="5dp"
-        android:hint="Your Height"
-        android:textSize="19dp"
+        android:layout_marginTop="6dp"
+        android:hint="    Your Height"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerHeight"/>
+        android:textSize="19dp"
+        android:background="@drawable/form_input"/>
 
     <TextView
         android:id="@+id/registerWeight"
@@ -96,10 +97,11 @@
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="5dp"
-        android:hint="Your Weight"
+        android:hint="    Your Weight"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerWeight"/>
+        android:layout_below="@+id/registerWeight"
+        android:background="@drawable/form_input"/>
 
     <TextView
         android:id="@+id/registerAge"
@@ -119,11 +121,12 @@
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="5dp"
-        android:hint="Your Age"
+        android:hint="    Your Age"
         android:inputType="number"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerAge"/>
+        android:layout_below="@+id/registerAge"
+        android:background="@drawable/form_input"/>
 
     <TextView
         android:id="@+id/registerSex"

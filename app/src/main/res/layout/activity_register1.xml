@@ -74,10 +74,11 @@
         android:layout_height="60dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:hint="Your full name"
+        android:hint="    Your full name"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerTextView5"/>
+        android:layout_below="@+id/registerTextView5"
+        android:background="@drawable/form_input"/>
 
     <TextView
         android:id="@+id/registerTextView6"
@@ -97,10 +98,11 @@
         android:layout_height="60dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:hint="Your Email Address"
+        android:hint="    Your Email Address"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerTextView6"/>
+        android:layout_below="@+id/registerTextView6"
+        android:background="@drawable/form_input"/>
 
     <TextView
         android:id="@+id/registerTextView7"
@@ -120,11 +122,12 @@
         android:layout_height="60dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
-        android:hint="Your Password"
+        android:hint="    Your Password"
         android:inputType="textPassword"
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_below="@+id/registerTextView7"/>
+        android:layout_below="@+id/registerTextView7"
+        android:background="@drawable/form_input"/>
 
     <Button
         android:id="@+id/registerButton1"

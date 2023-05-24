@@ -21,28 +21,31 @@
         android:layout_marginTop="20dp"
         />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginFaceButton"
         android:layout_width="285dp"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/loginTextView1"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#4267B2"
+        android:backgroundTint="#1877F2"
         android:text="Login with Facebook"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_login_google"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginGoogleButton"
         android:layout_width="285dp"
         android:layout_height="60dp"
         android:layout_below="@+id/loginFaceButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#C5C5C5"
+        android:backgroundTint="#FFFFFF"
         android:text="Login with Google"
         android:textSize="20dp"
-        android:textColor="@color/black"/>
+        android:textColor="#8C8C8C"
+        android:background="@drawable/button_login_google"/>
 
     <TextView
         android:id="@+id/or"
@@ -72,9 +75,10 @@
         android:layout_height="60dp"
         android:layout_marginLeft="61dp"
         android:inputType="textEmailAddress"
-        android:hint="Your Email Address"
+        android:hint="    Your Email Address"
         android:textSize="20dp"
-        android:layout_below="@+id/textemailaddress"/>
+        android:layout_below="@+id/textemailaddress"
+        android:background="@drawable/form_input"/>
 
     <TextView
         android:id="@+id/textpassword"
@@ -93,9 +97,10 @@
         android:layout_height="60dp"
         android:layout_marginLeft="61dp"
         android:inputType="textPassword"
-        android:hint="Your Password"
+        android:hint="    Your Password"
         android:textSize="20dp"
-        android:layout_below="@+id/textpassword"/>
+        android:layout_below="@+id/textpassword"
+        android:background="@drawable/form_input"/>
 
     <Button
         android:id="@+id/forgotpasswordButton"
@@ -107,7 +112,8 @@
         android:textSize="16dp"
         android:textStyle="italic"
         android:textColor="#858484"
-        android:backgroundTint="@color/white"/>
+        android:backgroundTint="@color/white"
+        />
 
     <Button
         android:id="@+id/loginButton"
