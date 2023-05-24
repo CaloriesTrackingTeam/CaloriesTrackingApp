@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/platinum"
+    android:padding="16dp"
+    tools:context=".UserHomePageActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/circularProgressIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progress="25"
+                app:indicatorColor="@color/emerald_green"
+                app:indicatorSize="180dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:trackColor="@color/celadon"
+                app:trackCornerRadius="8dp"
+                app:trackThickness="7dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="2683"
+                android:textColor="@color/emerald_green"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
+                app:layout_constraintHorizontal_bias="0.492"
+                app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
+                app:layout_constraintTop_toTopOf="@+id/circularProgressIndicator" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="need"
+                android:textColor="@color/emerald_green"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/circularProgressIndicator"
+                app:layout_constraintEnd_toEndOf="@+id/circularProgressIndicator"
+                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/linearProgressIndicator2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:progress="15"
+                app:indicatorColor="@color/emerald_green"
+                app:layout_constraintEnd_toStartOf="@+id/linearProgressIndicator4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/circularProgressIndicator"
+                app:trackColor="@color/celadon"
+                app:trackCornerRadius="2dp"
+                app:trackThickness="8dp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/linearProgressIndicator3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:progress="15"
+                app:indicatorColor="@color/emerald_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/linearProgressIndicator4"
+                app:layout_constraintTop_toBottomOf="@+id/circularProgressIndicator"
+                app:trackColor="@color/celadon"
+                app:trackCornerRadius="2dp"
+                app:trackThickness="8dp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/linearProgressIndicator4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:progress="15"
+                app:indicatorColor="@color/emerald_green"
+                app:layout_constraintEnd_toStartOf="@+id/linearProgressIndicator3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/linearProgressIndicator2"
+                app:layout_constraintTop_toBottomOf="@+id/circularProgressIndicator"
+                app:trackColor="@color/celadon"
+                app:trackCornerRadius="2dp"
+                app:trackThickness="8dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
