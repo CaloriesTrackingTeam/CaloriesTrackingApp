@@ -49,12 +49,12 @@ public class LoginActivity extends AppCompatActivity {
         });*/
 
         // to Forgot Password activity
-        /*btnForgot.setOnClickListener(new View.OnClickListener() {
+        btnForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, [...].class));
+                startActivity(new Intent(LoginActivity.this, Forgot_Password_3.class));
             }
-        });*/
+        });
 
         // to register activity
         btnSignUp.setOnClickListener(new View.OnClickListener() {

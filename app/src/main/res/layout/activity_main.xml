@@ -18,14 +18,18 @@
         android:textStyle="bold"
         android:layout_alignParentTop = "true"
         android:layout_centerHorizontal = "true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="40dp"/>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="272dp"
         android:layout_height="270dp"
         android:layout_below="@+id/startedTextView1"
-        android:layout_centerHorizontal="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="68dp"
         android:src="@drawable/get_started" />
 
     <TextView
@@ -34,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Eat Healthy"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -69,7 +73,7 @@
         android:layout_height="77dp"
         android:layout_below="@id/startedTextView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#FF9386"
         android:text="Get  Started"
         android:textSize="24sp" />
