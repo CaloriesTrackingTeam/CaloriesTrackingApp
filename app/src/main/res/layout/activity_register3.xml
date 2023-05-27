@@ -1,9 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Register3Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What is your target?"
+            android:textColor="#45D14A"
+            android:textSize="25dp"
+            android:textStyle="bold|italic"
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_losingWeight"
+            android:layout_width="324dp"
+            android:layout_height="100dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/button_target">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Losing Weight"
+                    android:textColor="#577752"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage your weight by eating smart"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_KeepWeight"
+            android:layout_width="324dp"
+            android:layout_height="100dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="42dp"
+            android:background="@drawable/button_target">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keep Weight"
+                android:textColor="#577752"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Optimal for your health"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_GainWeight"
+            android:layout_width="324dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="42dp"
+            android:background="@drawable/button_target"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="8dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Gain Weight "
+                android:textColor="#577752"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:text="Gain weight and eat clean"
+                android:textColor="#000000"
+                android:textSize="15dp" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="285dp"
+            android:layout_height="77dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="84dp"
+            android:backgroundTint="#FF9386"
+            android:text="Next"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/startedTextView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:text="Already Have An Account?"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/loginLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:text="Log In"
+                android:textColor="#91C789"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -16,14 +16,7 @@
         tools:targetApi="31">
         <activity
             android:name=".Find_Food"
-            android:exported="true" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+            android:exported="false" >
         </activity>
         <activity
             android:name=".Forgot_Password_4"
@@ -33,7 +26,8 @@
             android:exported="false" />
         <activity
             android:name=".Register3Activity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".Register2Activity"
             android:exported="false" />
@@ -51,12 +45,14 @@
             android:exported="false" />
         <activity
             android:name=".GetStarted1Activity"
-            android:exported="false">    <!--mở cmt là true-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:exported="true"> <!--true -->
+          
+          <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+                  
         </activity>
     </application>
 
