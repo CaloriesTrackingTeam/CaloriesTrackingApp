@@ -20,7 +20,7 @@ public class GetStarted3Activity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GetStarted3Activity.this, Register1Activity.class));
+                startActivity(new Intent(GetStarted3Activity.this, LoginActivity.class));
             }
         });
 
