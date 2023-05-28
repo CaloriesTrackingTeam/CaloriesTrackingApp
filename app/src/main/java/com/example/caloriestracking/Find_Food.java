@@ -22,6 +22,7 @@ import java.util.List;
 
 public class Find_Food extends AppCompatActivity {
 
+    BottomNavigationView btv;
     RecyclerView rcv;
     List<Food> list;
 
@@ -30,13 +31,43 @@ public class Find_Food extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_food);
 
-        BottomNavigationView btv = findViewById(R.id.bottom_nav);
+        setupNavBottom();
+
+        setupRecycleView();
+
+        setupIconClick();
+
+    }
+
+    private void setupIconClick() {
+        //set up search icon click
+        ImageView iconSearch = findViewById(R.id.iconSearch);
+        iconSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterByName();
+            }
+        });
+    }
+
+    private void setupRecycleView() {
+        //set up reccyle view
+        rcv = findViewById(R.id.rcv_Food);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
+        rcv.setLayoutManager(gridLayoutManager);
+
+        FoodAdapter foodAdapter = new FoodAdapter(getListFood());
+        rcv.setAdapter(foodAdapter);
+    }
+
+    private void setupNavBottom() {
+        btv = findViewById(R.id.bottom_nav);
         btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.ac_home){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Food.this, Home.class));
                 } else if(item.getItemId() == R.id.ac_search){
                     System.out.println("btv_ac_search_click");
                     //startActivity(new Intent(Find_Food.this, [home].class));
@@ -46,25 +77,11 @@ public class Find_Food extends AppCompatActivity {
                 }else if(item.getItemId() == R.id.ac_user_page){
                     System.out.println("btv_ac_user_page_click");
                     //startActivity(new Intent(Find_Food.this, [home].class));
+                }else if(item.getItemId() == R.id.ac_predict){
+                    System.out.println("btv_ac_ac_predict_click");
+                    //startActivity(new Intent(Find_Food.this, [home].class));
                 }
                 return true;
-            }
-        });
-
-        //set up reccyle view
-        rcv = findViewById(R.id.rcv_Food);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
-        rcv.setLayoutManager(gridLayoutManager);
-
-        FoodAdapter foodAdapter = new FoodAdapter(getListFood());
-        rcv.setAdapter(foodAdapter);
-
-        //set up search icon click
-        ImageView iconSearch = findViewById(R.id.iconSearch);
-        iconSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                filterByName();
             }
         });
     }
