@@ -29,6 +29,12 @@ public class Food {
 
     //--------------------------------------------------------
 
+    public Food(String foodName, double foodCalories, double foodWeight) {
+        this.foodName = foodName;
+        this.foodCalories = foodCalories;
+        this.foodWeight = foodWeight;
+    }
+
     public Food(String foodName) {
         this.foodName = foodName;
     }

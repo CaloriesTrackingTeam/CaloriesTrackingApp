@@ -96,13 +96,13 @@
         android:id="@+id/editTextEmail"
         android:layout_width="285dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="    Your Email Address"
-        android:textSize="19dp"
-        android:textColor="@color/black"
         android:layout_below="@+id/registerTextView6"
-        android:background="@drawable/form_input"/>
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/form_input"
+        android:hint="    Your Email Address"
+        android:textColor="@color/black"
+        android:textSize="19dp" />
 
     <TextView
         android:id="@+id/registerTextView7"
