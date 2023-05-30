@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +43,7 @@ public class Find_Favorite_Food extends AppCompatActivity {
                     //startActivity(new Intent(Find_Food.this, [home].class));
                 }else if(item.getItemId() == R.id.ac_user_page){
                     System.out.println("btv_ac_user_page_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Favorite_Food.this, User_Profile_Activity.class));
                 }
                 return true;
             }
