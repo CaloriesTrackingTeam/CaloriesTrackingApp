@@ -2,168 +2,202 @@ package com.example.caloriestracking;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.format.Time;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.caloriestracking.adapter.ExercisekHomeAdapter;
-import com.example.caloriestracking.adapter.FoodAdapter;
-import com.example.caloriestracking.adapter.FoodHomeAdapter;
-import com.example.caloriestracking.model.Exercisek;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
-import java.time.DateTimeException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
-public class Home extends AppCompatActivity {
-    TextView NumberReceived, NumberCaloriesNeed, NumberConsumed, NumberCarbs, NumberFat, NumberWaterNeed,
-            NumberCaloBreakfast, NumberCaloDinner, NumberCaloActivities, NumberGoal
-            , NumberProtein, today;
-    ImageView btnAddBreakfast, btnAddDinner, btnAddActivities;
-    BottomNavigationView btv;
-    RecyclerView rcvBreakfast, rcvDinner, rcvActivities;
-    List<Exercisek> listExecise;
-    List<Food> listBreakfast;
-    List<Food> listDinner, list;
+public class DetailFoodToday extends AppCompatActivity {
 
+    ImageView ArrowBack, tymFood, FoodPicture;
+    TextView calory_minute_food, gramCarbsFood, gramProteinFood, gramFatFood, foodDesciption,
+            food_How_to_cook, TvHowToBurnOut;
+    BottomNavigationView btv;
+    Button buttonChose;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    List<Food> list;
+    Food foodDetail;
+    String LIST_FOOD;   //để nhận bik save list food nào
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_detail_food_today);
 
         list = getListFood();
-        findByID_Element();
+
+        findById_Ele();
 
         setupNavBottom();
 
-        setupRecycleView();
-        
-        setAddClick();
-        
-        caculateInfoCalories();
-    }
-
-    private void caculateInfoCalories() {
-        double carbs = 0, protein = 0, fat = 0;
-        //calo breakfast
-        double totalBreakfast = 0;
-        for (Food item: listBreakfast) {
-            totalBreakfast += item.getFoodCalories();
-            if(item.getFoodCarbs() != 0) carbs += item.getFoodCarbs();
-            if(item.getFoodProtein() != 0) protein += item.getFoodProtein();
-            if(item.getFoodFat() != 0) fat += item.getFoodFat();
+        //intent get id of food --> find  food by id
+        //map all dta in screen
+        Intent intent = getIntent();
+        if(intent != null){
+            String idFoodClick = intent.getStringExtra("ID_FOOD_CLICK");
+            LIST_FOOD = intent.getStringExtra("LIST_FOOD");
+            int id = Integer.parseInt(idFoodClick);
+            Food food = getFoodById(id);
+            if(food != null){
+                foodDetail = food;
+                mapDataToscreen();
+            }
         }
-        NumberCaloBreakfast.setText(totalBreakfast + "");
 
-        //calo Dinner
-        double totalDinner = 0;
-        for (Food item: listDinner) {
-            totalDinner += item.getFoodCalories();
-            if(item.getFoodCarbs() != 0) carbs += item.getFoodCarbs();
-            if(item.getFoodProtein() != 0) protein += item.getFoodProtein();
-            if(item.getFoodFat() != 0) fat += item.getFoodFat();
-        }
-        NumberCaloDinner.setText(totalDinner + "");
-
-        //calo Activities
-        double totalActivities = 0;
-        for (Exercisek item: listExecise) {
-            totalActivities += item.getExerciseCalories();
-        }
-        NumberCaloActivities.setText(totalActivities + "");
-
-        //receive: đã nhận (lượng calo đã ăn vào)
-        double totalReceive = totalDinner + totalBreakfast;
-        NumberReceived.setText(totalReceive + "");
-
-        //consumed: tiêu thụ (lượng calo đã ăn vào)
-        double totalconsumed = totalReceive - totalActivities;
-        NumberConsumed.setText(totalconsumed + "");
-
-        carbs = Math.ceil(carbs * Math.pow(10, 1)) / Math.pow(10, 1);
-        protein = Math.ceil(protein * Math.pow(10, 1)) / Math.pow(10, 1);
-        fat = Math.ceil(fat * Math.pow(10, 1)) / Math.pow(10, 1);
-
-        //num carbs
-        NumberCarbs.setText(carbs + "");
-        //number protetin
-        NumberProtein.setText(protein + "");
-        //number fat
-        NumberFat.setText(fat + "");
-    }
-
-    private void setAddClick() {
-        btnAddBreakfast.setOnClickListener(new View.OnClickListener() {
+        //click ArrowBack
+        ArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(Home.this, "btnAddBreakfast", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Home.this, DetailFoodToday.class);
-                intent.putExtra("LIST_FOOD", "breakfast");  //truyen2 để nhận bik thêm food vào list nào
-                intent.putExtra("ID_FOOD_CLICK", "1");
+                startActivity(new Intent(DetailFoodToday.this, Home.class));
+            }
+        });
+
+        //tymFood - > to save favorite
+        tymFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //save id food to share reference
+                saveFoodIdToListFoodFavourite();
+                startActivity(new Intent(DetailFoodToday.this, Home.class));
+            }
+        });
+
+        //click button chose
+        buttonChose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailFoodToday.this, Home.class);
+                if(LIST_FOOD.equals("breakfast")){
+                    saveFoodIdToListFoodBreakfastToday();
+                }
                 startActivity(intent);
             }
         });
-
-        btnAddActivities.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(Home.this, "btnAddActivities", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(Home.this, [...].class);
-//                startActivity(intent);
-            }
-        });
-
-        btnAddDinner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(Home.this, "btnAddDinner", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(Home.this, [...].class);
-//                startActivity(intent);
-            }
-        });
     }
 
-    private void setupRecycleView() {
-        //---------list breakfast
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rcvBreakfast.setLayoutManager(linearLayoutManager);
-        FoodHomeAdapter foodAdapterBreakfast = new FoodHomeAdapter(getListFoodBreakfast(), this);
-        rcvBreakfast.setAdapter(foodAdapterBreakfast);
+    private void saveFoodIdToListFoodFavourite() {
+        String listFavo = sharedPreferences.getString("LIST_FOOD_FAVORITE", "");
 
-        //---------list dinner
-        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this);
-        rcvDinner.setLayoutManager(linearLayoutManager2);
-        FoodHomeAdapter foodAdapterDinner = new FoodHomeAdapter(getListDinner(), this);
-        rcvDinner.setAdapter(foodAdapterDinner);
+        if(listFavo != null){
+            if(listFavo.trim().length() > 0){
+                if(listFavo.charAt(0) == ' '){
+                    listFavo = listFavo.substring(1);
+                }
+                //list có data r
+                String[] listId = listFavo.split(" ");
+                boolean same = false;
+                for (String id: listId) {
+                    if(id.equals(foodDetail.getFoodID() + "")){
+                        same = true;
+                    }
+                }
 
-        //------list Execise
-        LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(this);
-        rcvActivities.setLayoutManager(linearLayoutManager3);
-        ExercisekHomeAdapter exercisekHomeAdapter = new ExercisekHomeAdapter(getListExercise(), this);
-        rcvActivities.setAdapter(exercisekHomeAdapter);
+                if(same == false){
+                    listFavo += " " + foodDetail.getFoodID();
+                    editor.putString("LIST_FOOD_FAVORITE", listFavo);
+                    editor.commit();
+                    Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "Food "+foodDetail.getFoodName()+" already in favourite Food", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                //list chua có gì
+                listFavo += " " + foodDetail.getFoodID();
+                editor.putString("LIST_FOOD_FAVORITE", listFavo);
+                editor.commit();
+                Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    private void saveFoodIdToListFoodBreakfastToday() {
+        String listToday = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY", "");
+
+        if(listToday != null){
+            if(listToday.trim().length() > 0){
+                if(listToday.charAt(0) == ' '){
+                    listToday = listToday.substring(1);
+                }
+                //list có data r
+                String[] listId = listToday.split(" ");
+                boolean same = false;
+                for (String id: listId) {
+                    if(id.equals(foodDetail.getFoodID() + "")){
+                        same = true;
+                    }
+                }
+
+                //vì có thể ăn 1 món 2 lần nên ko check trùng
+                listToday += " " + foodDetail.getFoodID();
+                editor.putString("LIST_FOOD_BREAKFAST_TODAY", listToday);
+                editor.commit();
+                Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for breakfast", Toast.LENGTH_SHORT).show();
+
+//                if(same == false){
+//
+//                }else{
+//                    Toast.makeText(this, "Food "+foodDetail.getFoodName()+" already in favourite Food", Toast.LENGTH_SHORT).show();
+//                }
+            }else{
+                //list chua có gì
+                listToday += " " + foodDetail.getFoodID();
+                editor.putString("LIST_FOOD_BREAKFAST_TODAY", listToday);
+                editor.commit();
+                Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for breakfast", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
-    private List<Exercisek> getListExercise() {
-        listExecise = new ArrayList<>();
+    private void mapDataToscreen() {
+        calory_minute_food.setText(foodDetail.getFoodCalories() + " calo/ " + foodDetail.getFoodWeight() + " gram");
+        Picasso.get().load(foodDetail.getFoodAvatar()).into(FoodPicture);
+        gramCarbsFood.setText(foodDetail.getFoodCarbs() + "");
+        gramProteinFood.setText(foodDetail.getFoodProtein() + "");
+        gramFatFood.setText(foodDetail.getFoodFat() + "");
+        foodDesciption.setText(foodDetail.getFoodDescription());
+        food_How_to_cook.setText(foodDetail.getRecipe());
 
-        return listExecise;
+    }
+
+    public Food getFoodById(int id){
+        for (Food item: list) {
+            if(item.getFoodID() == id)
+                return item;
+        }
+        return null;
+    }
+
+    private void findById_Ele() {
+        ArrowBack = findViewById(R.id.ArrowBack);
+        tymFood = findViewById(R.id.tymFood);
+        FoodPicture = findViewById(R.id.FoodPicture);
+
+        calory_minute_food = findViewById(R.id.calory_minute_food);
+        gramCarbsFood = findViewById(R.id.gramCarbsFood);
+        gramProteinFood = findViewById(R.id.gramProteinFood);
+        gramFatFood = findViewById(R.id.gramFatFood);
+        foodDesciption = findViewById(R.id.foodDesciption);
+        food_How_to_cook = findViewById(R.id.food_How_to_cook);
+        TvHowToBurnOut = findViewById(R.id.TvHowToBurnOut);
+
+        buttonChose = findViewById(R.id.buttonChose);
+
+        sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
+        editor = sharedPreferences.edit();
     }
 
     private List<Food> getListFood() {
@@ -367,87 +401,6 @@ public class Home extends AppCompatActivity {
 
         return list;
     }
-
-    private List<Food> getListFoodBreakfast() {
-        listBreakfast = new ArrayList<>();
-
-        String listToday = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY", "");
-
-        if(listToday != null) {
-            if(listToday.trim().length() > 0){
-                if(listToday.charAt(0) == ' '){
-                    listToday = listToday.substring(1);
-                }
-                //list có data r
-                String[] listId = listToday.split(" ");
-                for (String id: listId) {
-                    Food f = getFoodById(Integer.parseInt(id));
-                    listBreakfast.add(f);
-                }
-            }
-        }
-        return listBreakfast;
-    }
-
-    public Food getFoodById(int id){
-        for (Food item: list) {
-            if(item.getFoodID() == id)
-                return item;
-        }
-        return null;
-    }
-
-    private List<Food> getListDinner() {
-        listDinner = new ArrayList<>();
-
-        return listDinner;
-    }
-
-    private void findByID_Element() {
-        NumberReceived = findViewById(R.id.NumberReceived);
-        NumberCaloriesNeed = findViewById(R.id.NumberCaloriesNeed);
-        NumberConsumed = findViewById(R.id.NumberConsumed);
-        NumberCarbs = findViewById(R.id.NumberCarbs);
-        NumberFat = findViewById(R.id.NumberFat);
-        NumberWaterNeed = findViewById(R.id.NumberWaterNeed);
-        NumberCaloBreakfast = findViewById(R.id.NumberCaloBreakfast);
-        NumberCaloDinner = findViewById(R.id.NumberCaloDinner);
-        NumberCaloActivities = findViewById(R.id.NumberCaloActivities);
-        NumberGoal = findViewById(R.id.NumberGoal);
-        NumberProtein = findViewById(R.id.NumberProtein);
-
-        btnAddBreakfast = findViewById(R.id.btnAddBreakfast);
-        btnAddDinner = findViewById(R.id.btnAddDinner);
-        btnAddActivities = findViewById(R.id.btnAddActivities);
-
-        rcvBreakfast = findViewById(R.id.rcvBreakfast);
-        rcvDinner = findViewById(R.id.rcvDinner);
-        rcvActivities = findViewById(R.id.rcvActivities);
-
-        today = findViewById(R.id.today);
-        Calendar cal = Calendar.getInstance();
-        int dayofmonth = cal.get(Calendar.DAY_OF_MONTH);
-        int month = cal.get(Calendar.MONTH);
-
-        String todayNow = dayofmonth + " th" + (month  +1);
-        today.setText(todayNow);
-        sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
-        editor = sharedPreferences.edit();
-
-        String todayINApp = sharedPreferences.getString("TODAY", "");
-        if(todayINApp != null){
-            if(!todayINApp.equals(todayNow)){
-                //qua ngày mới -> reset hết
-                editor.putString("LIST_FOOD_BREAKFAST_TODAY", "");
-                //....còn list dinner, excecise
-                editor.commit();
-            }
-        }
-
-        editor.putString("TODAY", todayNow);
-        editor.commit();
-    }
-
     private void setupNavBottom() {
         btv = findViewById(R.id.bottom_nav);
         btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -455,10 +408,10 @@ public class Home extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.ac_home){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(DetailFoodToday.this, Home.class));
                 } else if(item.getItemId() == R.id.ac_search){
                     System.out.println("btv_ac_search_click");
-                    startActivity(new Intent(Home.this, Find_Food.class));
+                    startActivity(new Intent(DetailFoodToday.this, Find_Food.class));
                 }else if(item.getItemId() == R.id.ac_favorite){
                     System.out.println("btv_ac_favorite_click");
                     //startActivity(new Intent(Find_Food.this, [home].class));
