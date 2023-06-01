@@ -2,7 +2,9 @@ package com.example.caloriestracking;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Build;
@@ -24,6 +26,12 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin = (Button)findViewById(R.id.loginButton);
         Button btnForgot = (Button)findViewById(R.id.forgotpasswordButton);
         Button btnSignUp = (Button)findViewById(R.id.signupButton);
+
+        //create share reference
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("USER_ID", "1");
+        editor.commit();
 
         // to login Facebook activity
         btnFace.setOnClickListener(new View.OnClickListener() {
