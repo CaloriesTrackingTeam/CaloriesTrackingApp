@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
@@ -23,21 +21,22 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailFood extends AppCompatActivity {
-    ImageView ArrowBack, tymFood, FoodPicture;
+public class DetailFoodFavourite extends AppCompatActivity {
+
+    ImageView ArrowBack, FoodPicture;
     TextView calory_minute_food, gramCarbsFood, gramProteinFood, gramFatFood, foodDesciption,
             food_How_to_cook, TvHowToBurnOut;
     BottomNavigationView btv;
-    Button buttonFavorite;
+    Button buttonDeleteFoodFavo;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     List<Food> list;
     Food foodDetail;
-
+    String LIST_FOOD;   //để nhận bik save list food nào
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_food);
+        setContentView(R.layout.activity_detail_food_favourite);
 
         list = getListFood();
 
@@ -50,6 +49,7 @@ public class DetailFood extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null){
             String idFoodClick = intent.getStringExtra("ID_FOOD_CLICK");
+            LIST_FOOD = intent.getStringExtra("LIST_FOOD");
             int id = Integer.parseInt(idFoodClick);
             Food food = getFoodById(id);
             if(food != null){
@@ -62,66 +62,54 @@ public class DetailFood extends AppCompatActivity {
         ArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DetailFood.this, Find_Food.class));
+                //startActivity(new Intent(DetailFoodFavourite.this, [List favourite food].class));
             }
         });
 
-        //tymFood
-        tymFood.setOnClickListener(new View.OnClickListener() {
+        //click button buttonDeleteFoodFavo
+        buttonDeleteFoodFavo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //save id food to share reference
-                saveFoodIdToListFoodFavourite();
-                //startActivity(new Intent(DetailFood.this, Home.class));
-            }
-        });
-
-        //click button favourite
-        buttonFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailFood.this, Home.class);
-                saveFoodIdToListFoodFavourite();
+                Intent intent = new Intent(DetailFoodFavourite.this, Home.class);
+                deleteFoodIdToListFoodfavo();
                 startActivity(intent);
             }
         });
+
     }
+    private void deleteFoodIdToListFoodfavo() {
+        String listfavo = sharedPreferences.getString("LIST_FOOD_FAVORITE", "");
 
-    private void saveFoodIdToListFoodFavourite() {
-        String listFavo = sharedPreferences.getString("LIST_FOOD_FAVORITE", "");
-
-        if(listFavo != null){
-            if(listFavo.trim().length() > 0){
-                if(listFavo.charAt(0) == ' '){
-                    listFavo = listFavo.substring(1);
+        if(listfavo != null){
+            if(listfavo.trim().length() > 0){
+                if(listfavo.charAt(0) == ' '){
+                    listfavo = listfavo.substring(1);
                 }
+
                 //list có data r
-                String[] listId = listFavo.split(" ");
-                boolean same = false;
+                String[] listId = listfavo.split(" ");
+                List<String> stringList = new ArrayList<>();
                 for (String id: listId) {
-                    if(id.equals(foodDetail.getFoodID() + "")){
-                        same = true;
-                    }
+                    //add vào stringList cho dễ delete
+                    stringList.add(id);
                 }
-
-                if(same == false){
-                    listFavo += " " + foodDetail.getFoodID();
-                    editor.putString("LIST_FOOD_FAVORITE", listFavo);
-                    editor.commit();
-                    Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(this, "Food "+foodDetail.getFoodName()+" already in favourite Food", Toast.LENGTH_SHORT).show();
+                //delete food id in list
+                if(stringList.contains(foodDetail.getFoodID() + "")){
+                    stringList.remove(foodDetail.getFoodID() + "");
                 }
-            }else{
-                //list chua có gì
-                listFavo += " " + foodDetail.getFoodID();
-                editor.putString("LIST_FOOD_FAVORITE", listFavo);
+                //create list favo again
+                listfavo = "";
+                for (String id: stringList) {
+                    listfavo += " " + id;
+                }
+                //share lên sharereference lại
+                editor.putString("LIST_FOOD_FAVORITE", listfavo);
                 editor.commit();
-                Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "delete "+foodDetail.getFoodName()+" from favourite success", Toast.LENGTH_SHORT).show();
+
             }
         }
     }
-
     private void mapDataToscreen() {
         calory_minute_food.setText(foodDetail.getFoodCalories() + " calo/ " + foodDetail.getFoodWeight() + " gram");
         Picasso.get().load(foodDetail.getFoodAvatar()).into(FoodPicture);
@@ -132,7 +120,6 @@ public class DetailFood extends AppCompatActivity {
         food_How_to_cook.setText(foodDetail.getRecipe());
 
     }
-
     public Food getFoodById(int id){
         for (Food item: list) {
             if(item.getFoodID() == id)
@@ -140,10 +127,8 @@ public class DetailFood extends AppCompatActivity {
         }
         return null;
     }
-
     private void findById_Ele() {
         ArrowBack = findViewById(R.id.ArrowBack);
-        tymFood = findViewById(R.id.tymFood);
         FoodPicture = findViewById(R.id.FoodPicture);
 
         calory_minute_food = findViewById(R.id.calory_minute_food);
@@ -154,12 +139,11 @@ public class DetailFood extends AppCompatActivity {
         food_How_to_cook = findViewById(R.id.food_How_to_cook);
         TvHowToBurnOut = findViewById(R.id.TvHowToBurnOut);
 
-        buttonFavorite = findViewById(R.id.buttonFavorite);
+        buttonDeleteFoodFavo = findViewById(R.id.buttonDeleteFoodFavo);
 
         sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
         editor = sharedPreferences.edit();
     }
-
     private List<Food> getListFood() {
         list = new ArrayList<>();
         list.add(new Food(1,
@@ -368,10 +352,10 @@ public class DetailFood extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.ac_home){
                     System.out.println("btv_ac_favorite_click");
-                    startActivity(new Intent(DetailFood.this, Home.class));
+                    startActivity(new Intent(DetailFoodFavourite.this, Home.class));
                 } else if(item.getItemId() == R.id.ac_search){
                     System.out.println("btv_ac_search_click");
-                    //startActivity(new Intent(Home.this, Find_Food.class));
+                    startActivity(new Intent(DetailFoodFavourite.this, Find_Food.class));
                 }else if(item.getItemId() == R.id.ac_favorite){
                     System.out.println("btv_ac_favorite_click");
                     //startActivity(new Intent(Find_Food.this, [home].class));

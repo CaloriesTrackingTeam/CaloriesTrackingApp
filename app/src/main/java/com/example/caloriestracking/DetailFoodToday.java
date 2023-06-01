@@ -50,7 +50,10 @@ public class DetailFoodToday extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null){
             String idFoodClick = intent.getStringExtra("ID_FOOD_CLICK");
-            LIST_FOOD = intent.getStringExtra("LIST_FOOD");
+            LIST_FOOD = sharedPreferences.getString("LIST_FOOD", "");
+            if(LIST_FOOD.equals("")){
+                startActivity(new Intent(DetailFoodToday.this, Home.class));
+            }
             int id = Integer.parseInt(idFoodClick);
             Food food = getFoodById(id);
             if(food != null){
@@ -84,10 +87,50 @@ public class DetailFoodToday extends AppCompatActivity {
                 Intent intent = new Intent(DetailFoodToday.this, Home.class);
                 if(LIST_FOOD.equals("breakfast")){
                     saveFoodIdToListFoodBreakfastToday();
+                }else if(LIST_FOOD.equals("dinner")){
+                    saveFoodIdToListFoodDinnerToday();
                 }
                 startActivity(intent);
             }
         });
+    }
+
+    private void saveFoodIdToListFoodDinnerToday() {
+        String listToday = sharedPreferences.getString("LIST_FOOD_DINNER_TODAY", "");
+
+        if(listToday != null){
+            if(listToday.trim().length() > 0){
+                if(listToday.charAt(0) == ' '){
+                    listToday = listToday.substring(1);
+                }
+                //list có data r
+                String[] listId = listToday.split(" ");
+//                boolean same = false;
+//                for (String id: listId) {
+//                    if(id.equals(foodDetail.getFoodID() + "")){
+//                        same = true;
+//                    }
+//                }
+
+                //vì có thể ăn 1 món 2 lần nên ko check trùng
+                listToday += " " + foodDetail.getFoodID();
+                editor.putString("LIST_FOOD_DINNER_TODAY", listToday);
+                editor.commit();
+                Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for dinner", Toast.LENGTH_SHORT).show();
+
+//                if(same == false){
+//
+//                }else{
+//                    Toast.makeText(this, "Food "+foodDetail.getFoodName()+" already in favourite Food", Toast.LENGTH_SHORT).show();
+//                }
+            }else{
+                //list chua có gì
+                listToday += " " + foodDetail.getFoodID();
+                editor.putString("LIST_FOOD_DINNER_TODAY", listToday);
+                editor.commit();
+                Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for dinner", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void saveFoodIdToListFoodFavourite() {
