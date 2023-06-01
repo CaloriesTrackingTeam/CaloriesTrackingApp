@@ -42,7 +42,7 @@ public class User_Profile_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("editbtn lick");
-                //startActivity(new Intent(User_Profile_Activity.this, [...].class));
+                startActivity(new Intent(User_Profile_Activity.this, Edit_Profile_Activity.class));
             }
         });
 
@@ -69,7 +69,7 @@ public class User_Profile_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("helpbtn lick");
-                //startActivity(new Intent(User_Profile_Activity.this, [...].class));
+                startActivity(new Intent(User_Profile_Activity.this, Help_Center_Activity.class));
             }
         });
 

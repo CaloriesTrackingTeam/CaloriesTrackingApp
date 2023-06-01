@@ -59,7 +59,7 @@ public class User_Setting_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("helpbtn lick");
-                //startActivity(new Intent(User_Setting_Activity.this, [...].class));
+                startActivity(new Intent(User_Setting_Activity.this, Help_Center_Activity.class));
             }
         });
 

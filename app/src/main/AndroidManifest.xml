@@ -15,6 +15,12 @@
         android:theme="@style/Theme.CaloriesTracking"
         tools:targetApi="31">
         <activity
+            android:name=".Sent_Email_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Help_Center_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Edit_Profile_Activity"
             android:exported="false" />
         <activity
