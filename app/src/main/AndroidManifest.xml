@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CaloriesTracking"
         tools:targetApi="31">
         <activity
+            android:name=".Edit_Profile_Activity"
+            android:exported="false" />
+        <activity
             android:name=".User_Setting_Activity"
             android:exported="false" />
         <activity
