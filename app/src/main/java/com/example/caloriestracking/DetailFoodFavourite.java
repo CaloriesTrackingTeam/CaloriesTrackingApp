@@ -2,104 +2,148 @@ package com.example.caloriestracking;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.caloriestracking.adapter.FoodAdapter;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Find_Food extends AppCompatActivity {
+public class DetailFoodFavourite extends AppCompatActivity {
 
+    ImageView ArrowBack, FoodPicture;
+    TextView calory_minute_food, gramCarbsFood, gramProteinFood, gramFatFood, foodDesciption,
+            food_How_to_cook, TvHowToBurnOut;
     BottomNavigationView btv;
-    RecyclerView rcv;
+    Button buttonDeleteFoodFavo;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     List<Food> list;
-
+    Food foodDetail;
+    String LIST_FOOD;   //để nhận bik save list food nào
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_food);
+        setContentView(R.layout.activity_detail_food_favourite);
+
+        list = getListFood();
+
+        findById_Ele();
 
         setupNavBottom();
 
-        setupRecycleView();
-
-        setupIconClick();
-
-    }
-
-    private void setupIconClick() {
-        //set up search icon click
-        ImageView iconSearch = findViewById(R.id.iconSearch);
-        iconSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                filterByName();
-            }
-        });
-    }
-
-    private void setupRecycleView() {
-        //set up reccyle view
-        rcv = findViewById(R.id.rcv_Food);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
-        rcv.setLayoutManager(gridLayoutManager);
-
-        FoodAdapter foodAdapter = new FoodAdapter(getListFood(), this);
-        rcv.setAdapter(foodAdapter);
-    }
-
-    private void setupNavBottom() {
-        btv = findViewById(R.id.bottom_nav);
-        btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId() == R.id.ac_home){
-                    System.out.println("btv_ac_favorite_click");
-                    startActivity(new Intent(Find_Food.this, Home.class));
-                } else if(item.getItemId() == R.id.ac_search){
-                    System.out.println("btv_ac_search_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
-                }else if(item.getItemId() == R.id.ac_favorite){
-                    System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
-                }else if(item.getItemId() == R.id.ac_user_page){
-                    System.out.println("btv_ac_user_page_click");
-                    startActivity(new Intent(Find_Food.this, User_Profile_Activity.class));
-                }else if(item.getItemId() == R.id.ac_predict){
-                    System.out.println("btv_ac_ac_predict_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
-                }
-                return true;
-            }
-        });
-    }
-
-    private void filterByName() {
-        EditText edValueSearch = findViewById(R.id.searchValue);
-        String value = edValueSearch.getText().toString();
-        List<Food> listSearch = new ArrayList<>();
-        for (Food item: list) {
-            if(item.getFoodName().toLowerCase().contains(value.toLowerCase())){
-                listSearch.add(item);
+        //intent get id of food --> find  food by id
+        //map all dta in screen
+        Intent intent = getIntent();
+        if(intent != null){
+            String idFoodClick = intent.getStringExtra("ID_FOOD_CLICK");
+            LIST_FOOD = intent.getStringExtra("LIST_FOOD");
+            int id = Integer.parseInt(idFoodClick);
+            Food food = getFoodById(id);
+            if(food != null){
+                foodDetail = food;
+                mapDataToscreen();
             }
         }
 
-        FoodAdapter foodAdapter = new FoodAdapter(listSearch, this);
-        rcv.setAdapter(foodAdapter);
-    }
+        //click ArrowBack
+        ArrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(DetailFoodFavourite.this, [List favourite food].class));
+            }
+        });
 
+        //click button buttonDeleteFoodFavo
+        buttonDeleteFoodFavo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailFoodFavourite.this, Home.class);
+                deleteFoodIdToListFoodfavo();
+                startActivity(intent);
+            }
+        });
+
+    }
+    private void deleteFoodIdToListFoodfavo() {
+        String listfavo = sharedPreferences.getString("LIST_FOOD_FAVORITE", "");
+
+        if(listfavo != null){
+            if(listfavo.trim().length() > 0){
+                if(listfavo.charAt(0) == ' '){
+                    listfavo = listfavo.substring(1);
+                }
+
+                //list có data r
+                String[] listId = listfavo.split(" ");
+                List<String> stringList = new ArrayList<>();
+                for (String id: listId) {
+                    //add vào stringList cho dễ delete
+                    stringList.add(id);
+                }
+                //delete food id in list
+                if(stringList.contains(foodDetail.getFoodID() + "")){
+                    stringList.remove(foodDetail.getFoodID() + "");
+                }
+                //create list favo again
+                listfavo = "";
+                for (String id: stringList) {
+                    listfavo += " " + id;
+                }
+                //share lên sharereference lại
+                editor.putString("LIST_FOOD_FAVORITE", listfavo);
+                editor.commit();
+                Toast.makeText(this, "delete "+foodDetail.getFoodName()+" from favourite success", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+    }
+    private void mapDataToscreen() {
+        calory_minute_food.setText(foodDetail.getFoodCalories() + " calo/ " + foodDetail.getFoodWeight() + " gram");
+        Picasso.get().load(foodDetail.getFoodAvatar()).into(FoodPicture);
+        gramCarbsFood.setText(foodDetail.getFoodCarbs() + "");
+        gramProteinFood.setText(foodDetail.getFoodProtein() + "");
+        gramFatFood.setText(foodDetail.getFoodFat() + "");
+        foodDesciption.setText(foodDetail.getFoodDescription());
+        food_How_to_cook.setText(foodDetail.getRecipe());
+
+    }
+    public Food getFoodById(int id){
+        for (Food item: list) {
+            if(item.getFoodID() == id)
+                return item;
+        }
+        return null;
+    }
+    private void findById_Ele() {
+        ArrowBack = findViewById(R.id.ArrowBack);
+        FoodPicture = findViewById(R.id.FoodPicture);
+
+        calory_minute_food = findViewById(R.id.calory_minute_food);
+        gramCarbsFood = findViewById(R.id.gramCarbsFood);
+        gramProteinFood = findViewById(R.id.gramProteinFood);
+        gramFatFood = findViewById(R.id.gramFatFood);
+        foodDesciption = findViewById(R.id.foodDesciption);
+        food_How_to_cook = findViewById(R.id.food_How_to_cook);
+        TvHowToBurnOut = findViewById(R.id.TvHowToBurnOut);
+
+        buttonDeleteFoodFavo = findViewById(R.id.buttonDeleteFoodFavo);
+
+        sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
+        editor = sharedPreferences.edit();
+    }
     private List<Food> getListFood() {
         list = new ArrayList<>();
         list.add(new Food(1,
@@ -300,5 +344,30 @@ public class Find_Food extends AppCompatActivity {
                 100, 	1, 10.3, 7.3, null));
 
         return list;
+    }
+    private void setupNavBottom() {
+        btv = findViewById(R.id.bottom_nav);
+        btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.ac_home){
+                    System.out.println("btv_ac_favorite_click");
+                    startActivity(new Intent(DetailFoodFavourite.this, Home.class));
+                } else if(item.getItemId() == R.id.ac_search){
+                    System.out.println("btv_ac_search_click");
+                    startActivity(new Intent(DetailFoodFavourite.this, Find_Food.class));
+                }else if(item.getItemId() == R.id.ac_favorite){
+                    System.out.println("btv_ac_favorite_click");
+                    //startActivity(new Intent(Find_Food.this, [home].class));
+                }else if(item.getItemId() == R.id.ac_user_page){
+                    System.out.println("btv_ac_user_page_click");
+                    //startActivity(new Intent(Find_Food.this, [home].class));
+                }else if(item.getItemId() == R.id.ac_predict){
+                    System.out.println("btv_ac_ac_predict_click");
+                    //startActivity(new Intent(Find_Food.this, [home].class));
+                }
+                return true;
+            }
+        });
     }
 }

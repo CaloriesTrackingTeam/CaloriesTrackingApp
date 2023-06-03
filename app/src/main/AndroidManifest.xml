@@ -15,6 +15,7 @@
         android:theme="@style/Theme.CaloriesTracking"
         tools:targetApi="31">
         <activity
+
             android:name=".Buy_Premium_Activity"
             android:exported="false" />
         <activity
@@ -35,6 +36,12 @@
         <activity
             android:name=".User_Profile_Activity"
             android:exported="false" />
+
+            android:name=".ActivityDetailToday"
+            android:exported="false" >
+
+        </activity>
+
         <activity
             android:name=".Find_Favorite_Activity"
             android:exported="false" />
@@ -45,8 +52,38 @@
             android:name=".Find_Food"
             android:exported="false" />
         <activity
+
             android:name=".Home"
             android:exported="false" />
+
+            android:name=".ActivityDetailFavourite"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".ActivityDetail"
+            android:exported="false"></activity>
+        <activity
+            android:name=".DetailFoodFavourite"
+            android:exported="false" />
+        <activity
+            android:name=".DetailFoodToday"
+            android:exported="false" />
+        <activity
+            android:name=".DetailFood"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".Find_Food"
             android:exported="false" />
@@ -79,13 +116,8 @@
             android:exported="false" />
         <activity
             android:name=".GetStarted1Activity"
-            android:exported="true"> <!-- true -->
+            android:exported="false"> <!-- true -->
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

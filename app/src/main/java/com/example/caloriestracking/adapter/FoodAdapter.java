@@ -1,5 +1,9 @@
 package com.example.caloriestracking.adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +14,22 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.caloriestracking.DetailFood;
+import com.example.caloriestracking.Home;
+import com.example.caloriestracking.LoginActivity;
 import com.example.caloriestracking.R;
 import com.example.caloriestracking.model.Food;
 
 import java.util.List;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder>{
-
+    //find food screen
     private List<Food> listFood;
+    private Context context;
 
-    public FoodAdapter(List<Food> listFood) {
+    public FoodAdapter(List<Food> listFood, Context context) {
         this.listFood = listFood;
+        this.context = context;
     }
 
     @NonNull
@@ -39,8 +48,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //....
-                System.out.println("click " + f.getFoodName());
+                System.out.println("click " + f.getFoodName() + "- id:" + f.getFoodID());
+
+                Intent intent = new Intent(context, DetailFood.class);
+                intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
+                context.startActivity(intent);
+
             }
         });
     }

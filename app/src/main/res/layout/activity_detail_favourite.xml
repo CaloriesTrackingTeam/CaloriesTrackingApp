@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ActivityDetailFavourite">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="14">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="#FF9385"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ArrowBack"
+                    android:layout_width="20dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_arrow_left" />
+
+                <TextView
+                    android:id="@+id/NameActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="29dp"
+                    android:text="Plank"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="19dp"
+                android:text="Calorie consumption"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_target"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="8dp">
+
+                <TextView
+                    android:id="@+id/calory_minute_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="319 calo/ 100 gram"
+                    android:textColor="#C3C3C3"
+                    android:textSize="17dp" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <ImageView
+                android:id="@+id/ActivityPicture"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:scaleType="centerCrop"
+                android:src="@color/black"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="19dp"
+                android:text="What does the plank do?"
+                android:textColor="@color/black"
+                android:textSize="21dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/ActivityDesciption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="This is a famous exercise in helping to reduce belly fat because you have to squeeze your abs and glutes very hard to hold the pose for a long time (from 20 seconds to 3 minutes). This training process helps you to have straight abs, strong transverse ribs, strong fat burning, muscle tufts become firm and effective in reducing belly fat."
+                    android:textColor="#767B75"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="19dp"
+                android:text="Directions"
+                android:textColor="@color/black"
+                android:textSize="21dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/ActivityGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="- step1: Lower your body, bring your hands to the floor, and then bend your elbows, hands shoulder width apart, elbows under the shoulders vertically.
+- step2: Your toes are now on the floor, keeping your legs straight and comfortable.
+- step3: Tighten your abs, hips, and buttocks and breathe evenly so you can stay in the pose for a long time.
+- step4: Tighten your abs, hips, and buttocks and breathe evenly so you can stay in the pose for a long time."
+                    android:textColor="#767B75"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/buttonDeleteFavorite"
+                android:layout_width="159dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:backgroundTint="#FF9386"
+                android:text="Delete"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/bottom_nav"
+        app:menu="@menu/menu_bottom_nav"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        />
+
+</LinearLayout>
