@@ -15,6 +15,12 @@
         android:theme="@style/Theme.CaloriesTracking"
         tools:targetApi="31">
         <activity
+            android:name=".Buy_Premium_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Subcriptions_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Sent_Email_Activity"
             android:exported="false" />
         <activity
