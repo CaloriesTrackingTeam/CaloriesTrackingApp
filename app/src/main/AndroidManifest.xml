@@ -15,10 +15,33 @@
         android:theme="@style/Theme.CaloriesTracking"
         tools:targetApi="31">
         <activity
+
+            android:name=".Buy_Premium_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Subcriptions_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Sent_Email_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Help_Center_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Edit_Profile_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".User_Setting_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".User_Profile_Activity"
+            android:exported="false" />
+
             android:name=".ActivityDetailToday"
             android:exported="false" >
 
         </activity>
+
         <activity
             android:name=".Find_Favorite_Activity"
             android:exported="false" />
@@ -29,6 +52,10 @@
             android:name=".Find_Food"
             android:exported="false" />
         <activity
+
+            android:name=".Home"
+            android:exported="false" />
+
             android:name=".ActivityDetailFavourite"
             android:exported="false">
 
@@ -56,6 +83,7 @@
             </intent-filter>
 
         </activity>
+
         <activity
             android:name=".Find_Food"
             android:exported="false" />
@@ -83,7 +111,7 @@
         <activity
             android:name=".GetStarted2Activity"
             android:exported="false" />
-      <activity
+        <activity
             android:name=".Find_Favorite_Food"
             android:exported="false" />
         <activity

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".User_Profile_Activity">
+
+    <TextView
+        android:id="@+id/viewProfileTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop = "true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageUserView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_below="@+id/viewProfileTextView"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/viewUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageUserView"
+        android:layout_marginLeft="50dp"
+        android:text="User Name"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/yourBMIImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_your_bmi"
+        android:layout_below="@id/viewUserName"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:id="@+id/yourBMIButton"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/viewUserName"
+        android:layout_toRightOf="@id/yourBMIImage"
+        android:backgroundTint="@color/white"
+        android:text="Your BMI"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        />
+
+    <ImageView
+        android:id="@+id/editProfileImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_edit_profile"
+        android:layout_below="@id/yourBMIImage"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:id="@+id/editProfileButton"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/yourBMIButton"
+        android:layout_toRightOf="@id/editProfileImage"
+        android:backgroundTint="@color/white"
+        android:text="Edit Profile"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        />
+
+    <ImageView
+        android:id="@+id/subscriptionImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_subcription"
+        android:layout_below="@id/editProfileImage"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:id="@+id/subscriptionButton"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/editProfileButton"
+        android:layout_toRightOf="@id/subscriptionImage"
+        android:backgroundTint="@color/white"
+        android:text="Subscriptions"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        />
+
+    <ImageView
+        android:id="@+id/settingImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_setting"
+        android:layout_below="@id/subscriptionImage"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:id="@+id/settingButton"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/subscriptionButton"
+        android:layout_toRightOf="@id/settingImage"
+        android:backgroundTint="@color/white"
+        android:text="Setting"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        />
+
+    <ImageView
+        android:id="@+id/helpCenterImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_help_center"
+        android:layout_below="@id/settingImage"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:id="@+id/helpCenterButton"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/settingButton"
+        android:layout_toRightOf="@id/helpCenterImage"
+        android:backgroundTint="@color/white"
+        android:text="Help Center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        />
+
+    <ImageView
+        android:id="@+id/logOutImage"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_log_out"
+        android:layout_below="@id/helpCenterImage"
+        android:layout_marginLeft="69dp"
+        />
+    <Button
+        android:id="@+id/logOutButton1"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/helpCenterButton"
+        android:layout_toRightOf="@id/logOutImage"
+        android:backgroundTint="@color/white"
+        android:text="Log Out"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        android:layout_marginLeft="10dp"
+        />
+
+    <!-- Menu -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/bottom_nav2"
+        app:menu="@menu/menu_bottom_nav"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        />
+
+</RelativeLayout>
