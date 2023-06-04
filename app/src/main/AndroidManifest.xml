@@ -15,7 +15,12 @@
         android:theme="@style/Theme.CaloriesTracking"
         tools:targetApi="31">
         <activity
-
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateTargetActivity"
+            android:exported="false" />
+        <activity
             android:name=".Buy_Premium_Activity"
             android:exported="false" />
         <activity
@@ -36,12 +41,9 @@
         <activity
             android:name=".User_Profile_Activity"
             android:exported="false" />
-
+        <activity
             android:name=".ActivityDetailToday"
-            android:exported="false" >
-
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".Find_Favorite_Activity"
             android:exported="false" />
@@ -52,17 +54,14 @@
             android:name=".Find_Food"
             android:exported="false" />
         <activity
-
             android:name=".Home"
             android:exported="false" />
-
+        <activity
             android:name=".ActivityDetailFavourite"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ActivityDetail"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".DetailFoodFavourite"
             android:exported="false" />
@@ -72,21 +71,13 @@
         <activity
             android:name=".DetailFood"
             android:exported="false" />
-        <activity
-            android:name=".Home"
-            android:exported="true" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
 
-        </activity>
-
-        <activity
-            android:name=".Find_Food"
-            android:exported="false" />
         <activity
             android:name=".Forgot_Password_4"
             android:exported="false" />

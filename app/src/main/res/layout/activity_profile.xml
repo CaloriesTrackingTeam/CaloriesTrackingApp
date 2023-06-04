@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/xanh_chuoi_nhe"
+        />
+
+    <LinearLayout
+        android:id="@+id/premium_header"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_img">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/profile_pe">
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bmi_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/premium_header">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Body Mass Index (BMI)"
+            android:layout_below="@+id/premium_header"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="180dp"
+            android:background="@drawable/ic_heart"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bmi_header"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bmi_text">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/profile_shape">
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/water_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/bmi_header">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How much water should you drink?"
+            android:layout_below="@+id/premium_header"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="100dp"
+            android:background="@drawable/ic_heart"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/water_header"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/water_text">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/profile_shape">
+        </ImageView>
+    </LinearLayout>
+
+    <!-- Menu -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/bottom_nav2"
+        app:menu="@menu/menu_bottom_nav"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        />
+
+
+</RelativeLayout>
