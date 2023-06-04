@@ -37,6 +37,7 @@
             android:name=".User_Profile_Activity"
             android:exported="false" />
 
+        <activity
             android:name=".ActivityDetailToday"
             android:exported="false" >
 
@@ -55,7 +56,7 @@
 
             android:name=".Home"
             android:exported="false" />
-
+        <activity
             android:name=".ActivityDetailFavourite"
             android:exported="false">
 
