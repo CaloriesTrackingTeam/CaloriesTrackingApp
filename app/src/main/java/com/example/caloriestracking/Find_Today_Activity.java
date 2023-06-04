@@ -55,7 +55,7 @@ public class Find_Today_Activity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
         rcv.setLayoutManager(gridLayoutManager);
 
-        ActivityAdapter activityAdapter = new ActivityAdapter(getActivityList());
+        ActivityAdapter activityAdapter = new ActivityAdapter(getActivityList(), this);
         rcv.setAdapter(activityAdapter);
 
         //set up search icon click
@@ -78,7 +78,7 @@ public class Find_Today_Activity extends AppCompatActivity {
             }
         }
 
-        ActivityAdapter activityAdapter = new ActivityAdapter(listSearch);
+        ActivityAdapter activityAdapter = new ActivityAdapter(listSearch, this);
         rcv.setAdapter(activityAdapter);
     }
 

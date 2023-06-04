@@ -12,10 +12,12 @@ import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-
+    EditText editTextEmail, editTextPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
 
         LinearLayout btnFace = findViewById(R.id.loginFaceButton);
         LinearLayout btnGoogle = findViewById(R.id.loginGoogleButton);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
         Button btnLogin = (Button)findViewById(R.id.loginButton);
         Button btnForgot = (Button)findViewById(R.id.forgotpasswordButton);
         Button btnSignUp = (Button)findViewById(R.id.signupButton);
@@ -55,7 +59,11 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, Home.class));
+                if(checkLogin()){
+                    startActivity(new Intent(LoginActivity.this, Home.class));
+                }else{
+                    Toast.makeText(LoginActivity.this, "wrong user name or password", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -75,5 +83,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private boolean checkLogin() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        String emailInput = editTextEmail.getText().toString();
+        String pwdInput = editTextPassword.getText().toString();
+
+        String email = sharedPreferences.getString("email", "");
+        String password = sharedPreferences.getString("password", "");
+
+        if(emailInput.equals(email) && pwdInput.equals(password)){
+            return true;
+        }
+        return false;
     }
 }

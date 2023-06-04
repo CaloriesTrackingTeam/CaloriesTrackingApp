@@ -4,13 +4,17 @@ import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.caloriestracking.model.User;
 
 public class Register3Activity extends AppCompatActivity {
 
@@ -59,11 +63,53 @@ public class Register3Activity extends AppCompatActivity {
                 if(target.equals("")){
                     Toast.makeText(Register3Activity.this, "You must choose your TARGET !", Toast.LENGTH_LONG).show();
                 }else{
+                    //save target
+                    SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("target", target + "");
+
+                    editor.commit();
+
+                    //tạo acc
+                    User user = createNewAcc(sharedPreferences);
+
                     Intent intent = new Intent(Register3Activity.this, LoginActivity.class);
                     startActivity(intent);
                 }
             }
         });
+    }
+
+    private User createNewAcc(SharedPreferences sharedPreferences) {
+        //(int userID, String fullName, int age, double weight, double height,
+        // String sex, String target, String avatar, String email, String password,
+        // int role, boolean premium, double carbs, double protein, double fat)
+        String fullName = sharedPreferences.getString("fullName", "");
+        String email = sharedPreferences.getString("email", "");
+        String password = sharedPreferences.getString("password", "");
+        String age = sharedPreferences.getString("age", "");
+        String sex = sharedPreferences.getString("sex", "");
+        String weight = sharedPreferences.getString("weight", "");
+        String height = sharedPreferences.getString("height", "");
+
+        User user  = new User();
+        user.setFullName(fullName);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setAge(Integer.parseInt(age));
+        user.setSex(sex);
+        user.setWeight(Double.parseDouble(weight));
+        user.setHeight(Double.parseDouble(height));
+        user.setTarget(target);
+        user.setRole(0);
+        user.setPremium(false);
+        user.setCarbs(0);
+        user.setProtein(0);
+        user.setFat(0);
+        user.setAvatar("https://nhattientuu.com/wp-content/uploads/2020/08/hinh-anh-cute-72.jpg");
+
+        return user;
     }
 
     private void clicklosingWeightMethod() {

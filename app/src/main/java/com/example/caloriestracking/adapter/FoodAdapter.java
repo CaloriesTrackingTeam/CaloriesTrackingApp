@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.caloriestracking.DetailFood;
+import com.example.caloriestracking.DetailFoodFavourite;
 import com.example.caloriestracking.Home;
 import com.example.caloriestracking.LoginActivity;
 import com.example.caloriestracking.R;
@@ -26,10 +27,18 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     //find food screen
     private List<Food> listFood;
     private Context context;
+    private boolean listfavo;   // direction click to detai favo ro detail normal
 
     public FoodAdapter(List<Food> listFood, Context context) {
         this.listFood = listFood;
         this.context = context;
+        listfavo = false;
+    }
+
+    public FoodAdapter(List<Food> listFood, Context context, boolean listfavo) {
+        this.listFood = listFood;
+        this.context = context;
+        this.listfavo = listfavo;
     }
 
     @NonNull
@@ -50,10 +59,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             public void onClick(View v) {
                 System.out.println("click " + f.getFoodName() + "- id:" + f.getFoodID());
 
-                Intent intent = new Intent(context, DetailFood.class);
-                intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
-                context.startActivity(intent);
-
+                if(listfavo){
+                    Intent intent = new Intent(context, DetailFoodFavourite.class);
+                    intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
+                    context.startActivity(intent);
+                }else{
+                    Intent intent = new Intent(context, DetailFood.class);
+                    intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
+                    context.startActivity(intent);
+                }
             }
         });
     }

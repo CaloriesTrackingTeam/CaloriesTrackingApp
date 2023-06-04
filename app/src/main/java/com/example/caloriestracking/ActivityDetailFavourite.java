@@ -65,7 +65,7 @@ public class ActivityDetailFavourite extends AppCompatActivity {
         ArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(ActivityDetail.this, Find_activity.class));
+                startActivity(new Intent(ActivityDetailFavourite.this, Find_Favorite_Activity.class));
             }
         });
 
@@ -73,9 +73,9 @@ public class ActivityDetailFavourite extends AppCompatActivity {
         buttonDeleteFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(ActivityDetail.this, find_activity.class);
+                Intent intent = new Intent(ActivityDetailFavourite.this, Home.class);
                 deleteActivityIdToListActivityFavourite();
-                //startActivity(intent);
+                startActivity(intent);
             }
         });
 

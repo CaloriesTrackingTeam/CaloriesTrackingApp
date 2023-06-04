@@ -55,7 +55,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="28dp"
         android:background="@drawable/button_target"
-        android:layout_below="@+id/viewUserName">
+        android:layout_below="@+id/viewUserName"
+        android:backgroundTint="#F4F9F3">
 
         <TextView
             android:layout_width="wrap_content"

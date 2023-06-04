@@ -686,7 +686,7 @@ public class Home extends AppCompatActivity {
                     startActivity(new Intent(Home.this, Find_Food.class));
                 }else if(item.getItemId() == R.id.ac_favorite){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Home.this, Find_Favorite_Food.class));
                 }else if(item.getItemId() == R.id.ac_user_page){
                     System.out.println("btv_ac_user_page_click");
                     startActivity(new Intent(Home.this, User_Profile_Activity.class));

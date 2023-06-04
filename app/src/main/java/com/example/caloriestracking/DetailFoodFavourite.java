@@ -62,7 +62,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
         ArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(DetailFoodFavourite.this, [List favourite food].class));
+                startActivity(new Intent(DetailFoodFavourite.this, Find_Favorite_Food.class));
             }
         });
 

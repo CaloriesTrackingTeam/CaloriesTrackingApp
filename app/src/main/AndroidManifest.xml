@@ -47,14 +47,10 @@
             android:name=".Find_Favorite_Activity"
             android:exported="false" />
         <activity
+            android:name=".Find_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Find_Today_Food"
-            android:exported="false" />
-        <activity
-            android:name=".Find_Food"
-            android:exported="false" />
-        <activity
-
-            android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".ActivityDetailFavourite"
@@ -76,13 +72,11 @@
         <activity
             android:name=".Home"
             android:exported="true" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <activity
@@ -118,6 +112,8 @@
         <activity
             android:name=".GetStarted1Activity"
             android:exported="false"> <!-- true -->
+
+
 
         </activity>
     </application>
