@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.caloriestracking.ActivityDetail;
 import com.example.caloriestracking.ActivityDetailFavourite;
+import com.example.caloriestracking.ActivityDetailToday;
 import com.example.caloriestracking.DetailFood;
 import com.example.caloriestracking.R;
 import com.example.caloriestracking.model.Activity;
@@ -25,17 +26,27 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
 
     private List<Activity> activityList;
     private Context context;
-    private boolean listFavo;
+    private boolean listFavo;   //direction detail favo
+    private boolean listToday;  //direction detail today
     public ActivityAdapter(List<Activity> activityList, Context context) {
         this.activityList = activityList;
         this.context = context;
         listFavo = false;
+        listToday = false;
     }
 
     public ActivityAdapter(List<Activity> activityList, Context context, boolean listFavo) {
         this.activityList = activityList;
         this.context = context;
         this.listFavo = listFavo;
+        this.listToday = false;
+    }
+
+    public ActivityAdapter(List<Activity> activityList, Context context, boolean listFavo, boolean listToday) {
+        this.activityList = activityList;
+        this.context = context;
+        this.listFavo = listFavo;
+        this.listToday = listToday;
     }
 
     @NonNull
@@ -56,9 +67,14 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
             public void onClick(View v) {
                 System.out.println("click " + a.getActivityName() + "- id:" + a.getActivityID());
 
-                if(listFavo == true){
+                if(listFavo){
                     Intent intent = new Intent(context, ActivityDetailFavourite.class);
                     intent.putExtra("ID_ACTIVITY_CLICK", a.getActivityID() + "");
+                    context.startActivity(intent);
+                }else  if(listToday){
+                    Intent intent = new Intent(context, ActivityDetailToday.class);
+                    intent.putExtra("ID_ACTIVITY_CLICK", a.getActivityID() + "");
+                    //intent.putExtra("ID_ACTIVITY_CLICK", "1");
                     context.startActivity(intent);
                 }else{
                     Intent intent = new Intent(context, ActivityDetail.class);

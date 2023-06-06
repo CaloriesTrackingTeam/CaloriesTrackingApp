@@ -4,6 +4,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.caloriestracking.DetailFood;
 import com.example.caloriestracking.DetailFoodFavourite;
+import com.example.caloriestracking.DetailFoodToday;
 import com.example.caloriestracking.Home;
 import com.example.caloriestracking.LoginActivity;
 import com.example.caloriestracking.R;
@@ -27,7 +29,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     //find food screen
     private List<Food> listFood;
     private Context context;
-    private boolean listfavo;   // direction click to detai favo ro detail normal
+    private boolean listfavo;   // direction click to detai favo
+    private String listToday;   // direction click to detail today
+                                //breakfast, dinner
+
+    private  SharedPreferences.Editor editor;
 
     public FoodAdapter(List<Food> listFood, Context context) {
         this.listFood = listFood;
@@ -39,6 +45,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         this.listFood = listFood;
         this.context = context;
         this.listfavo = listfavo;
+    }
+
+    public FoodAdapter(List<Food> listFood, Context context, boolean listfavo, String listToday,  SharedPreferences.Editor editor) {
+        this.listFood = listFood;
+        this.context = context;
+        this.listfavo = listfavo;
+        this.listToday = listToday;
+        this.editor = editor;
     }
 
     @NonNull
@@ -63,7 +77,19 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                     Intent intent = new Intent(context, DetailFoodFavourite.class);
                     intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
                     context.startActivity(intent);
-                }else{
+                }else if(listToday.equals("breakfast")){    //breakfast, dinner
+                    Intent intent = new Intent(context, DetailFoodToday.class);
+                    intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
+                    editor.putString("LIST_FOOD", "breakfast");
+                    editor.commit();
+                    context.startActivity(intent);
+                }else if(listToday.equals("dinner")){
+                    Intent intent = new Intent(context, DetailFoodToday.class);
+                    intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
+                    editor.putString("LIST_FOOD", "dinner");
+                    editor.commit();
+                    context.startActivity(intent);
+                }else {
                     Intent intent = new Intent(context, DetailFood.class);
                     intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
                     context.startActivity(intent);

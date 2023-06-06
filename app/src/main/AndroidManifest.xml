@@ -53,6 +53,9 @@
             android:name=".Find_Today_Food"
             android:exported="false" />
         <activity
+            android:name=".Find_Today_Activity"
+            android:exported="false"/>
+        <activity
             android:name=".ActivityDetailFavourite"
             android:exported="false">
 
