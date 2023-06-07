@@ -34,15 +34,16 @@ public class DetailFoodToday extends AppCompatActivity {
     List<Food> list;
     Food foodDetail;
     String LIST_FOOD;   //để nhận bik save list food nào
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_food_today);
-
         list = getListFood();
 
         findById_Ele();
+        email = sharedPreferences.getString("email", "");;
 
         setupNavBottom();
 
@@ -97,7 +98,7 @@ public class DetailFoodToday extends AppCompatActivity {
     }
 
     private void saveFoodIdToListFoodDinnerToday() {
-        String listToday = sharedPreferences.getString("LIST_FOOD_DINNER_TODAY", "");
+        String listToday = sharedPreferences.getString("LIST_FOOD_DINNER_TODAY"+email, "");
 
         if(listToday != null){
             if(listToday.trim().length() > 0){
@@ -115,7 +116,7 @@ public class DetailFoodToday extends AppCompatActivity {
 
                 //vì có thể ăn 1 món 2 lần nên ko check trùng
                 listToday += " " + foodDetail.getFoodID();
-                editor.putString("LIST_FOOD_DINNER_TODAY", listToday);
+                editor.putString("LIST_FOOD_DINNER_TODAY"+email, listToday);
                 editor.commit();
                 Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for dinner", Toast.LENGTH_SHORT).show();
 
@@ -127,7 +128,7 @@ public class DetailFoodToday extends AppCompatActivity {
             }else{
                 //list chua có gì
                 listToday += " " + foodDetail.getFoodID();
-                editor.putString("LIST_FOOD_DINNER_TODAY", listToday);
+                editor.putString("LIST_FOOD_DINNER_TODAY"+email, listToday);
                 editor.commit();
                 Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for dinner", Toast.LENGTH_SHORT).show();
             }
@@ -135,7 +136,7 @@ public class DetailFoodToday extends AppCompatActivity {
     }
 
     private void saveFoodIdToListFoodFavourite() {
-        String listFavo = sharedPreferences.getString("LIST_FOOD_FAVORITE", "");
+        String listFavo = sharedPreferences.getString("LIST_FOOD_FAVORITE"+email, "");
 
         if(listFavo != null){
             if(listFavo.trim().length() > 0){
@@ -153,7 +154,7 @@ public class DetailFoodToday extends AppCompatActivity {
 
                 if(same == false){
                     listFavo += " " + foodDetail.getFoodID();
-                    editor.putString("LIST_FOOD_FAVORITE", listFavo);
+                    editor.putString("LIST_FOOD_FAVORITE"+email, listFavo);
                     editor.commit();
                     Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
                 }else{
@@ -162,14 +163,14 @@ public class DetailFoodToday extends AppCompatActivity {
             }else{
                 //list chua có gì
                 listFavo += " " + foodDetail.getFoodID();
-                editor.putString("LIST_FOOD_FAVORITE", listFavo);
+                editor.putString("LIST_FOOD_FAVORITE"+email, listFavo);
                 editor.commit();
                 Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
             }
         }
     }
     private void saveFoodIdToListFoodBreakfastToday() {
-        String listToday = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY", "");
+        String listToday = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY"+email, "");
 
         if(listToday != null){
             if(listToday.trim().length() > 0){
@@ -187,7 +188,7 @@ public class DetailFoodToday extends AppCompatActivity {
 
                 //vì có thể ăn 1 món 2 lần nên ko check trùng
                 listToday += " " + foodDetail.getFoodID();
-                editor.putString("LIST_FOOD_BREAKFAST_TODAY", listToday);
+                editor.putString("LIST_FOOD_BREAKFAST_TODAY"+email, listToday);
                 editor.commit();
                 Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for breakfast", Toast.LENGTH_SHORT).show();
 
@@ -199,7 +200,7 @@ public class DetailFoodToday extends AppCompatActivity {
             }else{
                 //list chua có gì
                 listToday += " " + foodDetail.getFoodID();
-                editor.putString("LIST_FOOD_BREAKFAST_TODAY", listToday);
+                editor.putString("LIST_FOOD_BREAKFAST_TODAY"+email, listToday);
                 editor.commit();
                 Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for breakfast", Toast.LENGTH_SHORT).show();
             }

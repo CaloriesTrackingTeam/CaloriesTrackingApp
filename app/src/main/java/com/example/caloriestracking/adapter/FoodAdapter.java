@@ -39,12 +39,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         this.listFood = listFood;
         this.context = context;
         listfavo = false;
+        listToday = "";
     }
 
     public FoodAdapter(List<Food> listFood, Context context, boolean listfavo) {
         this.listFood = listFood;
         this.context = context;
         this.listfavo = listfavo;
+        listToday = "";
     }
 
     public FoodAdapter(List<Food> listFood, Context context, boolean listfavo, String listToday,  SharedPreferences.Editor editor) {

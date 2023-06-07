@@ -34,6 +34,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
     List<Food> list;
     Food foodDetail;
     String LIST_FOOD;   //để nhận bik save list food nào
+    String emailUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
         list = getListFood();
 
         findById_Ele();
+        emailUser = sharedPreferences.getString("email", "");
 
         setupNavBottom();
 
@@ -79,7 +81,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
 
     }
     private void deleteFoodIdToListFoodfavo() {
-        String listfavo = sharedPreferences.getString("LIST_FOOD_FAVORITE", "");
+        String listfavo = sharedPreferences.getString("LIST_FOOD_FAVORITE"+ emailUser, "");
 
         if(listfavo != null){
             if(listfavo.trim().length() > 0){
@@ -104,7 +106,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
                     listfavo += " " + id;
                 }
                 //share lên sharereference lại
-                editor.putString("LIST_FOOD_FAVORITE", listfavo);
+                editor.putString("LIST_FOOD_FAVORITE"+emailUser, listfavo);
                 editor.commit();
                 Toast.makeText(this, "delete "+foodDetail.getFoodName()+" from favourite success", Toast.LENGTH_SHORT).show();
 

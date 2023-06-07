@@ -32,7 +32,7 @@ public class ActivityDetailFavourite extends AppCompatActivity {
     List<Exercisek> listExecise;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class ActivityDetailFavourite extends AppCompatActivity {
         listExecise = getListExercise();
         finbyId_Activity();
         setupNavBottom();
+        email = sharedPreferences.getString("email", "");
 
         //fake data input
 //        Exercisek exercisek1 = getExeciseById(2);
@@ -83,7 +84,7 @@ public class ActivityDetailFavourite extends AppCompatActivity {
     }
 
     private void deleteActivityIdToListActivityFavourite() {
-        String listfavo = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE", "");
+        String listfavo = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE"+email, "");
 
         if(listfavo != null){
             if(listfavo.trim().length() > 0){
@@ -108,7 +109,7 @@ public class ActivityDetailFavourite extends AppCompatActivity {
                     listfavo += " " + id;
                 }
                 //share lên sharereference lại
-                editor.putString("LIST_ACTIVITY_FAVORITE", listfavo);
+                editor.putString("LIST_ACTIVITY_FAVORITE"+email, listfavo);
                 editor.commit();
                 Toast.makeText(this, "delete "+exercisekDetail.getExerciseName()+" from favourite success", Toast.LENGTH_SHORT).show();
 

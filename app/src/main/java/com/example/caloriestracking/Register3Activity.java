@@ -14,7 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.caloriestracking.Response.RespPostLogin;
+import com.example.caloriestracking.api.ApiService;
 import com.example.caloriestracking.model.User;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Register3Activity extends AppCompatActivity {
 
@@ -73,9 +79,26 @@ public class Register3Activity extends AppCompatActivity {
 
                     //tạo acc
                     User user = createNewAcc(sharedPreferences);
+                    ApiService.apiService.createUser(user).enqueue(new Callback<RespPostLogin>() {
+                        @Override
+                        public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
+                            if(response.body().getStatus().equals("fail")){
+                                Toast.makeText(Register3Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(Register3Activity.this, "create success", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Register3Activity.this, LoginActivity.class);
+                                startActivity(intent);
+                            }
 
-                    Intent intent = new Intent(Register3Activity.this, LoginActivity.class);
-                    startActivity(intent);
+                        }
+
+                        @Override
+                        public void onFailure(Call<RespPostLogin> call, Throwable t) {
+                            Toast.makeText(Register3Activity.this, "create fail", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
                 }
             }
         });

@@ -34,6 +34,7 @@ public class ActivityDetailToday extends AppCompatActivity {
     List<Exercisek> listExecise;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class ActivityDetailToday extends AppCompatActivity {
         listExecise = getListExercise();
         finbyId_Activity();
         setupNavBottom();
+        email = sharedPreferences.getString("email", "");
 
         //fake data
 //        Exercisek exercisek1 = getExeciseById(1);
@@ -92,7 +94,7 @@ public class ActivityDetailToday extends AppCompatActivity {
     }
 
     private void saveActivityIdToListActivityFavourite() {
-        String listFavo = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE", "");
+        String listFavo = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE"+email, "");
         if(listFavo != null){
             if(listFavo.trim().length() > 0){
                 if(listFavo.charAt(0) == ' '){
@@ -108,7 +110,7 @@ public class ActivityDetailToday extends AppCompatActivity {
                 }
                 if(same == false){
                     listFavo += " " + exercisekDetail.getExerciseID();
-                    editor.putString("LIST_ACTIVITY_FAVORITE", listFavo);
+                    editor.putString("LIST_ACTIVITY_FAVORITE"+email, listFavo);
                     editor.commit();
                     Toast.makeText(this, "Save "+exercisekDetail.getExerciseName()+" to favourite Activity success", Toast.LENGTH_SHORT).show();
                 }else{
@@ -117,7 +119,7 @@ public class ActivityDetailToday extends AppCompatActivity {
             }else{
                 //list chua có gì
                 listFavo += " " + exercisekDetail.getExerciseID();
-                editor.putString("LIST_ACTIVITY_FAVORITE", listFavo);
+                editor.putString("LIST_ACTIVITY_FAVORITE"+email, listFavo);
                 editor.commit();
                 Toast.makeText(this, "Save "+exercisekDetail.getExerciseName()+" to favourite Activity success", Toast.LENGTH_SHORT).show();
             }
@@ -132,7 +134,7 @@ public class ActivityDetailToday extends AppCompatActivity {
             Toast.makeText(this, "number minutes u do must be a number and > 0", Toast.LENGTH_SHORT).show();
             return;
         }
-        String listToday = sharedPreferences.getString("LIST_EXCECISE_TODAY", "");
+        String listToday = sharedPreferences.getString("LIST_EXCECISE_TODAY"+email, "");
         // 1 p5 2 p5 ...    => id minutes_tập
         if(listToday != null){
             if(listToday.trim().length() > 0){
@@ -149,7 +151,7 @@ public class ActivityDetailToday extends AppCompatActivity {
                 }
                 if(same == false){      //chưa có
                     listToday += " " + exercisekDetail.getExerciseID() + " p" + minutesInt;
-                    editor.putString("LIST_EXCECISE_TODAY", listToday);
+                    editor.putString("LIST_EXCECISE_TODAY"+email, listToday);
                     editor.commit();
                     Toast.makeText(this, "chose "+exercisekDetail.getExerciseName()+" for today", Toast.LENGTH_SHORT).show();
                 }else{
@@ -170,14 +172,14 @@ public class ActivityDetailToday extends AppCompatActivity {
                     for (String item: listId) {
                         listToday += " " + item;
                     }
-                    editor.putString("LIST_EXCECISE_TODAY", listToday);
+                    editor.putString("LIST_EXCECISE_TODAY"+email, listToday);
                     editor.commit();
                     Toast.makeText(this, "chose "+exercisekDetail.getExerciseName()+" for today", Toast.LENGTH_SHORT).show();
                 }
             }else{
                 //list chua có gì
                 listToday += " " + exercisekDetail.getExerciseID() + " p" + minutesInt;
-                editor.putString("LIST_EXCECISE_TODAY", listToday);
+                editor.putString("LIST_EXCECISE_TODAY"+email, listToday);
                 editor.commit();
                 Toast.makeText(this, "chose "+exercisekDetail.getExerciseName()+" for today", Toast.LENGTH_SHORT).show();
             }

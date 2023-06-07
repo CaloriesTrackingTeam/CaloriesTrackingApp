@@ -33,15 +33,15 @@ public class ActivityDetail extends AppCompatActivity {
     List<Exercisek> listExecise;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
         listExecise = getListExercise();
         finbyId_Activity();
         setupNavBottom();
+        email = sharedPreferences.getString("email", "");
 
         //fake data
 //        Exercisek exercisek1 = getExeciseById(2);
@@ -93,7 +93,7 @@ public class ActivityDetail extends AppCompatActivity {
     }
 
     private void saveActivityIdToListActivityFavourite() {
-        String listFavo = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE", "");
+        String listFavo = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE"+email, "");
         if(listFavo != null){
             if(listFavo.trim().length() > 0){
                 if(listFavo.charAt(0) == ' '){
@@ -109,7 +109,7 @@ public class ActivityDetail extends AppCompatActivity {
                 }
                 if(same == false){
                     listFavo += " " + exercisekDetail.getExerciseID();
-                    editor.putString("LIST_ACTIVITY_FAVORITE", listFavo);
+                    editor.putString("LIST_ACTIVITY_FAVORITE"+email, listFavo);
                     editor.commit();
                     Toast.makeText(this, "Save "+exercisekDetail.getExerciseName()+" to favourite Activity success", Toast.LENGTH_SHORT).show();
                 }else{
@@ -118,7 +118,7 @@ public class ActivityDetail extends AppCompatActivity {
             }else{
                 //list chua có gì
                 listFavo += " " + exercisekDetail.getExerciseID();
-                editor.putString("LIST_ACTIVITY_FAVORITE", listFavo);
+                editor.putString("LIST_ACTIVITY_FAVORITE"+email, listFavo);
                 editor.commit();
                 Toast.makeText(this, "Save "+exercisekDetail.getExerciseName()+" to favourite Activity success", Toast.LENGTH_SHORT).show();
             }

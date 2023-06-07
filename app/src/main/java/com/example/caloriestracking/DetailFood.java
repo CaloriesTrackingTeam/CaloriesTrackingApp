@@ -34,15 +34,15 @@ public class DetailFood extends AppCompatActivity {
     SharedPreferences.Editor editor;
     List<Food> list;
     Food foodDetail;
-
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_food);
-
         list = getListFood();
 
         findById_Ele();
+        email = sharedPreferences.getString("email", "");
 
         setupNavBottom();
 
@@ -89,7 +89,7 @@ public class DetailFood extends AppCompatActivity {
     }
 
     private void saveFoodIdToListFoodFavourite() {
-        String listFavo = sharedPreferences.getString("LIST_FOOD_FAVORITE", "");
+        String listFavo = sharedPreferences.getString("LIST_FOOD_FAVORITE"+email, "");
 
         if(listFavo != null){
             if(listFavo.trim().length() > 0){
@@ -107,7 +107,7 @@ public class DetailFood extends AppCompatActivity {
 
                 if(same == false){
                     listFavo += " " + foodDetail.getFoodID();
-                    editor.putString("LIST_FOOD_FAVORITE", listFavo);
+                    editor.putString("LIST_FOOD_FAVORITE"+email, listFavo);
                     editor.commit();
                     Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
                 }else{
@@ -116,7 +116,7 @@ public class DetailFood extends AppCompatActivity {
             }else{
                 //list chua có gì
                 listFavo += " " + foodDetail.getFoodID();
-                editor.putString("LIST_FOOD_FAVORITE", listFavo);
+                editor.putString("LIST_FOOD_FAVORITE"+email, listFavo);
                 editor.commit();
                 Toast.makeText(this, "Save "+foodDetail.getFoodName()+" to favourite Food success", Toast.LENGTH_SHORT).show();
             }

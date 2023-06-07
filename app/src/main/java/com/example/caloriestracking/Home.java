@@ -44,6 +44,7 @@ public class Home extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,29 @@ public class Home extends AppCompatActivity {
         list = getListFood();
         listExecise = getListExercise();
         findByID_Element();
+        email= sharedPreferences.getString("email", "");
+
+        try{
+            String weight = sharedPreferences.getString("weight", "");
+            String target = sharedPreferences.getString("target", "");
+            switch (target){
+                case "Keep Weight":
+                    NumberGoal.setText(weight);
+                    break;
+                case "Gain Weight":
+                    double kg = Double.parseDouble(weight);
+                    double targetkg = kg + 5;
+                    NumberGoal.setText(targetkg + "");
+                    break;
+                case "Losing Weight":
+                    double kg1 = Double.parseDouble(weight);
+                    double targetkg1 = kg1 - 5;
+                    NumberGoal.setText(targetkg1 + "");
+                    break;
+            }
+        }catch (Exception ex){
+
+        }
 
         setupNavBottom();
 
@@ -126,11 +150,18 @@ public class Home extends AppCompatActivity {
         btnAddActivities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(Home.this, "btnAddActivities", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Home.this, Find_Today_Activity.class);
-                                                                //phải qua list activity trc r chọ 1 cái trong list mới tới đây
-                //intent.putExtra("ID_ACTIVITY_CLICK", "1");
-                startActivity(intent);
+                SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String premeum = sharedPreferences.getString("premium", "");
+                if(premeum.equals("true")){
+                    //Toast.makeText(Home.this, "btnAddActivities", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Home.this, Find_Today_Activity.class);
+                    //phải qua list activity trc r chọ 1 cái trong list mới tới đây
+                    //intent.putExtra("ID_ACTIVITY_CLICK", "1");
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(Home.this, "You must premium account to access", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -182,7 +213,7 @@ public class Home extends AppCompatActivity {
     private List<Food> getListFoodBreakfast() {
         listBreakfast = new ArrayList<>();
 
-        String listToday = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY", "");
+        String listToday = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY"+email, "");
 
         if(listToday != null) {
             if(listToday.trim().length() > 0){
@@ -218,7 +249,7 @@ public class Home extends AppCompatActivity {
 
     private List<Food> getListDinner() {
         listDinner = new ArrayList<>();//
-        String listToday = sharedPreferences.getString("LIST_FOOD_DINNER_TODAY", "");
+        String listToday = sharedPreferences.getString("LIST_FOOD_DINNER_TODAY"+email, "");
 
         if(listToday != null) {
             if(listToday.trim().length() > 0){
@@ -239,7 +270,7 @@ public class Home extends AppCompatActivity {
     private List<Exercisek> getListActivity(){
         listActivity = new ArrayList<>();
 
-        String listToday = sharedPreferences.getString("LIST_EXCECISE_TODAY", "");
+        String listToday = sharedPreferences.getString("LIST_EXCECISE_TODAY"+email, "");
 
         if(listToday != null) {
             if(listToday.trim().length() > 0){
@@ -297,13 +328,14 @@ public class Home extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
         editor = sharedPreferences.edit();
 
+        String email = sharedPreferences.getString("email", "");
         String todayINApp = sharedPreferences.getString("TODAY", "");
         if(todayINApp != null){
             if(!todayINApp.equals(todayNow)){
                 //qua ngày mới -> reset hết
-                editor.putString("LIST_FOOD_BREAKFAST_TODAY", "");
-                editor.putString("LIST_FOOD_DINNER_TODAY", "");
-                editor.putString("LIST_EXCECISE_TODAY", "");
+                editor.putString("LIST_FOOD_BREAKFAST_TODAY" + email, "");
+                editor.putString("LIST_FOOD_DINNER_TODAY" + email, "");
+                editor.putString("LIST_EXCECISE_TODAY" + email, "");
                 editor.commit();
             }
         }
