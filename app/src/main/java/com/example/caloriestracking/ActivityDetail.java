@@ -200,128 +200,117 @@ public class ActivityDetail extends AppCompatActivity {
                 "Bước 4: đạp xe đúng cách, chính xác đảm bảo sức khỏe gồm 4 bước: đạp, kéo, nâng, đẩy. Chân đạp nhẹ nhàng xuống dưới, dùng lực bàn chân kéo lên trên rồi nâng bàn đạp, rồi nhẹ nhàng đẩy xuống, những động tác được lặp đi lặp lại, đúng nhịp với tần suất đạp đều nhau, giúp đẩy nhanh tốc độ."));
 
 
-        //-------------LOOP
-        listExecise.add(new Exercisek(1, "Plank"
-                ,"https://www.thethaothientruong.vn/uploads/2021/Plank-cai-thien-tu-the-khoe-dep.jpg"
-                , 35, 1
-                , "Plank là một bài tập giúp đốt mỡ và làm săn cơ bụng hàng đầu cực kỳ hiệu quả dành cho cả nam và nữ. Chỉ với động tác đơn giản, dễ nhớ, dễ làm theo mà không cần thêm bất cứ dụng cụ gì. "
-                , "Bước 1: Chuẩn bị dụng cụ, Bạn nên chuẩn bị cho mình 1 thảm tập yoga để không bị đau tay khi bạn chống tay lúc plank.\n" +
-                "Bước 2: Vào tư thế bò, Bạn đặt 2 tay dưới vai rồi để đầu gối dưới hông, bạn có thể đặt phẳng chân hoặc uốn ngón chân lại cho tư thế này. Nhớ duy trì nhịp thở đều.\n" +
-                "Bước 3: Đưa người về tư thế em bé, chuyển ngay về tư thế em bé bằng cách đẩy mông về phía bàn chân, đùi bạn mở rộng bằng vai rồi từ từ đưa ngực hạ xuống sàn\n" +
-                "Bước 4: Vào tư thế plank,  bạn phải tạo thành một đường thẳng từ đầu đến gót chân. Tay bạn để dưới 2 vai thẳng đứng, mũi chân chống xuống sàn. Bạn phải dùng lực để giữ cho cột sống và mông thẳng."));
-
-        listExecise.add(new Exercisek(2, "Chống đẩy"
-                ,"https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg"
+        listExecise.add(new Exercisek(5, "Side Plank"
+                ,"https://hips.hearstapps.com/hmg-prod/images/side-plank-1549646915.jpg"
                 , 7, 1
-                , "Chống đẩy hay hít đất - là một bài tập thể dục Calisthenics điển hình, vô cùng phổ biến. Được thực hiện bằng cách nâng cao và hạ thấp cơ thể trong tư thế nằm sấp bằng cách sử dụng cánh tay"
+                , "Side Plank à một cách tuyệt vời để đốt cháy nhiều calo và làm săn chắc cơ bụng của bạn cùng một lúc "
+                , "Bước 1 : Nằm nghiêng với đầu gối cong và chống phần trên cơ thể lên trên khuỷu tay.\n" +
+                "Bước 2: Nâng hông lên khỏi sàn và giữ trong 1 phút\n" +
+                "Bước 3: Nghỉ ngơi trong 10 giây.\n" +
+                "Bước 4: Chuyển sang phía bên kia của bạn và lặp lại."));
+
+        listExecise.add(new Exercisek(6, "Mountain Climbers"
+                ,"https://static.toiimg.com/photo/76379955.cms"
+                , 10, 1
+                , "Mountain Climbers hay Running Plank - là một bài tập thể dục rất tốt để xây dựng sức bền tim mạch, sức mạnh cốt lõi và sự nhanh nhẹn. Bạn tập luyện nhiều nhóm cơ khác nhau với vận động viên leo núi—nó gần giống như tập luyện toàn thân chỉ với một bài tập."
                 ,
-                "    - Bắt đầu quỳ trên thảm tập hoặc sàn nhà, đưa hai chân duỗi thẳng và khép lại gần nhau, mũi chân chống xuống sàn.\n" +
-                        "    - Hai bàn tay rộng bằng vai, lòng bàn tay úp xuống và các ngón tay của bạn hướng về phía trước hoặc hơi chếch vào trong.\n" +
-                        "    - Vai ở phía trên bàn tay, giữ cho lưng thẳng và hóp cơ bụng của bạn vào.\n" +
-                        "    - Từ từ hạ thấp cơ thể xuống sàn. Giữ thân mình cứng và giữ đầu thẳng hàng với cột sống. Mắt luôn nhìn về phía trước và phần lưng dưới không bị chùng xuống hoặc phần hông của bạn không được hếch lên trên.\n" +
-                        "    - Tiếp tục hạ người xuống cho đến khi ngực hoặc cằm chạm đất. Khuỷu tay của bạn có thể chìa ra trong quá trình di chuyển xuống.\n" +
-                        "    - Đẩy lên trên cho đến khi cánh tay của bạn duỗi ra hoàn toàn và trở lại tư thế plank ban đầu.\n" +
-                        "    - Lặp lại động tác và bắt đầu thực hiện theo số lần tập phù hợp.\n"));
+                "Bước 1 : Chống cả hai tay và đầu gối xuống sàn.\n" +
+                        "Bước 2: Đặt chân phải của bạn gần bàn tay phải của bạn và mở rộng chân trái của bạn phía sau bạn.\n" +
+                        "Bước 3 : Trong một chuyển động trơn tru, đổi chân của bạn, giữ cánh tay của bạn ở cùng một vị trí"));
 
-        listExecise.add(new Exercisek(3, "Plank"
+        listExecise.add(new Exercisek(7, "Bridge"
+                ,"https://i0.wp.com/post.greatist.com/wp-content/uploads/sites/2/2020/06/GRT_Bridge_Pose_Yoga-1296x728-HEader.jpg?w=1155&h=1528"
+                , 15, 2
+                , "Bridge giúp tăng cường sức mạnh cho cơ mông (mông) và gân kheo (mặt sau của đùi) đồng thời tăng cường sự ổn định của lõi."
+                , "Bước 1 : Nằm ngửa với đầu gối cong. Thắt chặt các cơ trong dạ dày của bạn. \n" +
+                "Bước 2 : Nâng hông lên khỏi sàn cho đến khi chúng thẳng hàng với đầu gối và vai của bạn. Giữ trong ba nhịp thở sâu."));
+
+        listExecise.add(new Exercisek(8, "Burpees"
+                ,"https://www.ericfavre.com/lifestyle/uk/wp-content/uploads/sites/15/2021/09/burpees-1024x437-1.jpg"
+                , 10, 1
+                , "Burpees cực kỳ hiệu quả như một công cụ tập luyện, kết hợp tập luyện tim mạch và rèn luyện sức mạnh thành một gói cường độ cực cao. Trong bảy động tác đơn giản, bài tập vận động cơ thể bạn từ trên xuống dưới."
+                , "Bước 1 : Bắt đầu ở tư thế đứng. Đặt hai bàn chân của bạn rộng bằng vai. Giữ lưng thẳng, ngực ưỡn ra và hai cánh tay ở hai bên.\n" +
+                "Bước 2 : Ngồi xổm. Cong đầu gối của bạn, đẩy chúng ra ngoài một chút so với ngón chân của bạn, đồng thời hạ mông xuống. Giữ cho bàn chân của bạn bằng phẳng trên sàn nhà. Đặt hai bàn tay của bạn trên sàn (lòng bàn tay hướng xuống) trước bàn chân của bạn.\n" +
+                "Bước 3 : Đá chân trở lại tư thế plank cao. Cơ thể của bạn phải nằm trên một đường thẳng từ vai đến gót chân. Khóa cánh tay của bạn tại chỗ. Giữ đầu thẳng, mắt hơi nhìn về phía trước.\n" +
+                "Bước 4 : Thấp dần về phía mặt đất. Cong khuỷu tay của bạn và đưa cơ thể của bạn về phía sàn nhà. (Về cơ bản, phần dưới cùng của động tác chống đẩy.) Giữ cơ thể thẳng và căng cơ.\n" +
+                "Bước 5 : Trở lại tư thế plank cao. Tập trung vào việc giữ cho cơ thể của bạn thẳng.\n" +
+                "Bước 6 : Trở lại tư thế ngồi xổm. Nhảy hai chân về phía trước. Khi bạn hạ cánh, hãy chắc chắn rằng bàn chân của bạn bằng phẳng trên sàn nhà. (Vị trí của bạn ở cuối nước đi này phải giống như ở Bước 2.)\n" +
+                "Bước 7 : Nhảy! Giơ hai tay lên khi bạn phóng lên trần nhà. “Đó phải là một cú nhảy bùng nổ,” Nykor nói. Hạ cánh ở vị trí đứng ban đầu rồi quay lại Bước 1 và bắt đầu lại quá trình."));
+
+
+        listExecise.add(new Exercisek(9, "Crunches"
+                ,"https://hips.hearstapps.com/hmg-prod/images/bicycle-crunch-1548880579.jpg"
+                , 6, 1
+                , "Crunches là một bài tập cốt lõi cổ điển. Nó đặc biệt rèn luyện cơ bụng của bạn, là một phần cốt lõi của bạn."
+                , "Bước 1 : Nằm ngửa. Đặt hai chân trên sàn, rộng bằng hông. Cong đầu gối của bạn và đặt cánh tay của bạn trên ngực của bạn. Hợp đồng cơ bụng của bạn và hít vào.\n" +
+                "Bước 2 : Thở ra và nâng phần thân trên lên, giữ cho đầu và cổ thư giãn.\n" +
+                "Bước 3 : Hít vào và trở lại vị trí bắt đầu."));
+
+        listExecise.add(new Exercisek(10, "Jumping Jack"
+                ,"https://media.istockphoto.com/id/1264250327/video/woman-exercising-at-home-woman-doing-fitness-legs-training-at-home-woman-doing-jumping-jacks.jpg?s=640x640&k=20&c=EVoJYCqE4GoO95O453gM6kGAL02mgpX77_mzh9NqI6Y="
+                , 9, 1
+                , "Jumping Jack hay là hãy nhảy đi Jack,được biết đến là một bài tập cardio giảm cân cường độ cao giúp tăng nhịp tim và đốt cháy calo nhanh chóng"
+                ,
+                "Bước 1 : Đứng thẳng, hai chân chụm lại, hai tay để dọc hai bên người.\n" +
+                        "Bước 2 : Khuỵu nhẹ đầu gối và nhảy lên không trung.\n" +
+                        "Bước 3 : Khi nhảy, dang rộng hai chân rộng bằng vai. Duỗi hai tay ra và qua đầu.\n" +
+                        "Bước 4 : Nhảy trở lại vị trí bắt đầu.\n" +
+                        "Bước 5 : Lặp lại."));
+
+        listExecise.add(new Exercisek(11, "Lunges"
                 ,"https://cdn.thehinh.com/2019/06/64339804_6140715877001_2673110258309660672_n-1.png"
-                , 11, 1
-                , "Bơi lội là môn thể thao dưới nước, nhờ vào lực đẩy của nước và sự vận động của toàn thân, đặc biệt là chân và tay mà người bơi có thể di chuyển cơ thể dưới nước với một tốc độ nhất định. Bơi lội là môn thể thao dành cho mọi người ở mọi lứa tuổi và không quá tốn kém, giúp bạn cải thiện được sức khỏe, thậm chí là tinh thần."
-                , "Bước 1: Nín thở dưới nước – Một trong những hướng dẫn đầu tiên khi bạn học bơi\n" +
-                "Bước 2: Hít thở dưới nước – Yếu tố quan trọng thứ hai cần lưu ý trong hướng dẫn học bơi\n" +
-                "Bước 3: Khi tập bơi đừng quên kỹ năng nổi dưới nước và lướt nước\n" +
-                "Bước 4: Hướng dẫn học bơi an toàn - Chọn nơi dạy bơi lội uy tín, học phí hợp lý cho người mới bắt đầu"));
-
-        listExecise.add(new Exercisek(4, "Đạp xe"
-                ,"https://cdn.tgdd.vn/Files/2022/05/10/1431463/moi-ngay-nen-dap-xe-bao-nhieu-km-dap-bao-lau-.jpg"
                 , 5, 1
-                , "Đi xe đạp là môn thể thao tốt cho sức khỏe giúp rèn luyện thể chất, cải thiện tim phổi. Tuy nhiên nhiều người thường xuyên đi xe đạp chưa hẳn đã biết đạp xe đạp đúng cách."
-                , "Bước 1: Ăn uống trước khi đạp xe đạp là một điều cần thiết, bởi khi đạp xe cơ thể bạn tiêu hao khá nhiều năng lượng và mất sức,\n" +
-                "Bước 2: Tất cả các thời gian trong ngày đều có thể đạp xe, nhưng thời gian lý tưởng để đạp xe là vào buổi sáng sớm trước khi ăn bữa đầu tiên trong ngày.\n" +
-                "Bước 3: Tư thế đạp xe vừa thoải mái vừa đúng cách, là tư thế ngồi hơi nghiêng về phía trước, giữ tay hơi cong cong trong lúc đạp xe, vì khi tay hơi cong nó cho phép các cơ phần trên và khớp lưng cảm nhận độ rung, phân tán lực, ít gây ảnh hưởng đến cột sống. Khi đạp xe giữ chân ở góc 90 độ, nó tốt cho phần hông của bạn tránh các trường hợp đau cơ.\n" +
-                "Bước 4: đạp xe đúng cách, chính xác đảm bảo sức khỏe gồm 4 bước: đạp, kéo, nâng, đẩy. Chân đạp nhẹ nhàng xuống dưới, dùng lực bàn chân kéo lên trên rồi nâng bàn đạp, rồi nhẹ nhàng đẩy xuống, những động tác được lặp đi lặp lại, đúng nhịp với tần suất đạp đều nhau, giúp đẩy nhanh tốc độ."));
+                , "Lunches là một trong những bài tập thân dưới hiệu quả nhất mà bạn có thể thực hiện. Chúng giúp làm săn chắc, tăng cường sức mạnh và định hình đôi chân cũng như cơ mông của bạn, đồng thời cải thiện tính linh hoạt của hông. Lunge hoạt động đồng thời nhiều nhóm cơ, tăng tốc độ trao đổi chất và giúp giảm cân"
+                , "Bước 1 : Đứng hai chân rộng bằng hông, giữ thẳng lưng, vai hướng về phía sau và siết cơ bụng.\n" +
+                "Bước 2 : Bước một bước về phía trước và từ từ uốn cong cả hai đầu gối, cho đến khi đầu gối sau của bạn ở ngay trên sàn.\n" +
+                "Bước 3 : Đứng lên và lặp lại động tác.\n" +
+                "Bước 4 : Đổi chân cho đến khi hoàn thành bộ."));
 
-
-        listExecise.add(new Exercisek(1, "Plank"
-                ,"https://www.thethaothientruong.vn/uploads/2021/Plank-cai-thien-tu-the-khoe-dep.jpg"
-                , 35, 1
-                , "Plank là một bài tập giúp đốt mỡ và làm săn cơ bụng hàng đầu cực kỳ hiệu quả dành cho cả nam và nữ. Chỉ với động tác đơn giản, dễ nhớ, dễ làm theo mà không cần thêm bất cứ dụng cụ gì. "
-                , "Bước 1: Chuẩn bị dụng cụ, Bạn nên chuẩn bị cho mình 1 thảm tập yoga để không bị đau tay khi bạn chống tay lúc plank.\n" +
-                "Bước 2: Vào tư thế bò, Bạn đặt 2 tay dưới vai rồi để đầu gối dưới hông, bạn có thể đặt phẳng chân hoặc uốn ngón chân lại cho tư thế này. Nhớ duy trì nhịp thở đều.\n" +
-                "Bước 3: Đưa người về tư thế em bé, chuyển ngay về tư thế em bé bằng cách đẩy mông về phía bàn chân, đùi bạn mở rộng bằng vai rồi từ từ đưa ngực hạ xuống sàn\n" +
-                "Bước 4: Vào tư thế plank,  bạn phải tạo thành một đường thẳng từ đầu đến gót chân. Tay bạn để dưới 2 vai thẳng đứng, mũi chân chống xuống sàn. Bạn phải dùng lực để giữ cho cột sống và mông thẳng."));
-
-        listExecise.add(new Exercisek(2, "Chống đẩy"
-                ,"https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg"
+        listExecise.add(new Exercisek(12, "Squat"
+                ,"https://www.stylecraze.com/wp-content/uploads/2017/11/1.Pulse-Squat.jpg"
                 , 7, 1
-                , "Chống đẩy hay hít đất - là một bài tập thể dục Calisthenics điển hình, vô cùng phổ biến. Được thực hiện bằng cách nâng cao và hạ thấp cơ thể trong tư thế nằm sấp bằng cách sử dụng cánh tay"
+                , "Squats được coi là một bài tập quan trọng để tăng sức mạnh và kích thước của cơ bắp phần dưới cơ thể cũng như phát triển sức mạnh cốt lõi"
+                , "Bước 1: Đứng thẳng, hai chân rộng bằng hông. \n" +
+                "Bước 2: Siết cơ bụng. \n" +
+                "Bước 3: Hạ người xuống, giống như đang ngồi trên một chiếc ghế vô hình. \n" +
+                "Bước 4: Duỗi thẳng chân để nâng người lên.\n" +
+                "Bước 5: Lặp lại động tác."));
+
+
+        listExecise.add(new Exercisek(13, "Tai Chi"
+                ,"https://justbreathetaichi.com/wp-content/uploads/2021/12/tai-chi-classes.jpg"
+                , 121, 30
+                , "Tai Chi hay Thái Cực Quyền, là bài tập liên quan đến dòng chảy chuyển động chậm - và cùng với đó là một loạt các lợi ích về sức khỏe, bao gồm khả năng giữ thăng bằng, khả năng vận động và khả năng phối hợp tốt hơn. Tai chi (còn được gọi là tai chi chuan hoặc tai ji quan) là một bài tập thể chất kết hợp các động tác, thiền định và hít thở sâu"
+                , "Bước 1: Ngồi khép 2 chân vào nhau.\n" +
+                "Bước 2: Đặt 2 tay lên 2 gối và xòe bàn tay ra\n" +
+                "Bước 3: Hít 1 hơi sâu rồi thở đều\n" +
+                "Bước 4: Nghe tôi này, thở đi. Thở. Cảm nhận không khí. Cảm nhận gió đó trên khuôn mặt của bạn. Cảm nhận mặt đất, bàn chân nâng bạn lên, đẩy bạn về phía trước và tia sét - cảm nhận tia sét. Cảm nhận sức mạnh của nó. Đó là dòng điện chạy qua huyết quản của bạn, chạy róc rách trong người bạn, truyền đến mọi dây thần kinh trong cơ thể bạn, giống như một cú sốc. Bây giờ bạn không còn là bạn nữa. Bạn là một phần của một cái gì đó lớn hơn. Bạn là một phần của lực lượng tốc độ. Bạn có thể làm được việc này. Nó là của bạn"));
+
+        listExecise.add(new Exercisek(14, "Reverse Crunches"
+                ,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU2EBFaeEsusut9p8VRzWEKDzaWul3sdU_1A&usqp=CAU"
+                , 4, 1
+                , "Reverse Crunches (gập bụng ngược) giúp tăng sức mạnh và độ nét của cơ bụng, đồng thời cải thiện độ ổn định của lõi và lưng dưới. Bài tập này tác động đến các lớp dưới của cơ bụng, cơ ngang bụng, còn được gọi là cơ corset, giúp bạn có bụng phẳng và hỗ trợ lưng tuyệt vời "
                 ,
-                "    - Bắt đầu quỳ trên thảm tập hoặc sàn nhà, đưa hai chân duỗi thẳng và khép lại gần nhau, mũi chân chống xuống sàn.\n" +
-                        "    - Hai bàn tay rộng bằng vai, lòng bàn tay úp xuống và các ngón tay của bạn hướng về phía trước hoặc hơi chếch vào trong.\n" +
-                        "    - Vai ở phía trên bàn tay, giữ cho lưng thẳng và hóp cơ bụng của bạn vào.\n" +
-                        "    - Từ từ hạ thấp cơ thể xuống sàn. Giữ thân mình cứng và giữ đầu thẳng hàng với cột sống. Mắt luôn nhìn về phía trước và phần lưng dưới không bị chùng xuống hoặc phần hông của bạn không được hếch lên trên.\n" +
-                        "    - Tiếp tục hạ người xuống cho đến khi ngực hoặc cằm chạm đất. Khuỷu tay của bạn có thể chìa ra trong quá trình di chuyển xuống.\n" +
-                        "    - Đẩy lên trên cho đến khi cánh tay của bạn duỗi ra hoàn toàn và trở lại tư thế plank ban đầu.\n" +
-                        "    - Lặp lại động tác và bắt đầu thực hiện theo số lần tập phù hợp.\n"));
+                "Bước 1 : Nằm ngửa với hai tay để dọc hai bên.\n" +
+                        "Bước 2 : Nâng hông và đưa đầu gối về phía ngực càng xa càng tốt.\n" +
+                        "Bước 3 : Giữ và sau đó từ từ trở lại vị trí bắt đầu.\n" +
+                        "Bước 4 : Lặp lại."));
 
-        listExecise.add(new Exercisek(3, "Plank"
-                ,"https://cdn.thehinh.com/2019/06/64339804_6140715877001_2673110258309660672_n-1.png"
-                , 11, 1
-                , "Bơi lội là môn thể thao dưới nước, nhờ vào lực đẩy của nước và sự vận động của toàn thân, đặc biệt là chân và tay mà người bơi có thể di chuyển cơ thể dưới nước với một tốc độ nhất định. Bơi lội là môn thể thao dành cho mọi người ở mọi lứa tuổi và không quá tốn kém, giúp bạn cải thiện được sức khỏe, thậm chí là tinh thần."
-                , "Bước 1: Nín thở dưới nước – Một trong những hướng dẫn đầu tiên khi bạn học bơi\n" +
-                "Bước 2: Hít thở dưới nước – Yếu tố quan trọng thứ hai cần lưu ý trong hướng dẫn học bơi\n" +
-                "Bước 3: Khi tập bơi đừng quên kỹ năng nổi dưới nước và lướt nước\n" +
-                "Bước 4: Hướng dẫn học bơi an toàn - Chọn nơi dạy bơi lội uy tín, học phí hợp lý cho người mới bắt đầu"));
+        listExecise.add(new Exercisek(15, "Heel Touch"
+                ,"https://homeworkouts.org/wp-content/uploads/hero-alternate-heel-touches2.jpg"
+                , 10, 1
+                , "Heel touch (Chạm gót chân), là một bài tập cô lập đặc trưng nhắm vào cơ xiên và cơ bụng trực tràng (cơ bụng)"
+                , "Bước 1 : Nằm xuống sàn hoặc thảm. Hai chân của bạn co lại, bàn chân đặt trên mặt sàn, hai chân dang rộng hơn vai. Hai tay đặt dọc theo thân người. Đầu, cổ và vai hơi nâng lên khỏi mặt sàn, thả lỏng và tập trung vào vùng bụng.\n" +
+                "Bước 2 : Ngã người sang bên phải, tay phải cố gắng chạm vào gót chân phải.\n" +
+                "Bước 3 : Ngã người về phía bên còn lại và tay trái cố gắng chạm vào gót chân trái.\n" +
+                "Bước 4 : Lặp lại đều 2 bên"));
 
-        listExecise.add(new Exercisek(4, "Đạp xe"
-                ,"https://cdn.tgdd.vn/Files/2022/05/10/1431463/moi-ngay-nen-dap-xe-bao-nhieu-km-dap-bao-lau-.jpg"
-                , 5, 1
-                , "Đi xe đạp là môn thể thao tốt cho sức khỏe giúp rèn luyện thể chất, cải thiện tim phổi. Tuy nhiên nhiều người thường xuyên đi xe đạp chưa hẳn đã biết đạp xe đạp đúng cách."
-                , "Bước 1: Ăn uống trước khi đạp xe đạp là một điều cần thiết, bởi khi đạp xe cơ thể bạn tiêu hao khá nhiều năng lượng và mất sức,\n" +
-                "Bước 2: Tất cả các thời gian trong ngày đều có thể đạp xe, nhưng thời gian lý tưởng để đạp xe là vào buổi sáng sớm trước khi ăn bữa đầu tiên trong ngày.\n" +
-                "Bước 3: Tư thế đạp xe vừa thoải mái vừa đúng cách, là tư thế ngồi hơi nghiêng về phía trước, giữ tay hơi cong cong trong lúc đạp xe, vì khi tay hơi cong nó cho phép các cơ phần trên và khớp lưng cảm nhận độ rung, phân tán lực, ít gây ảnh hưởng đến cột sống. Khi đạp xe giữ chân ở góc 90 độ, nó tốt cho phần hông của bạn tránh các trường hợp đau cơ.\n" +
-                "Bước 4: đạp xe đúng cách, chính xác đảm bảo sức khỏe gồm 4 bước: đạp, kéo, nâng, đẩy. Chân đạp nhẹ nhàng xuống dưới, dùng lực bàn chân kéo lên trên rồi nâng bàn đạp, rồi nhẹ nhàng đẩy xuống, những động tác được lặp đi lặp lại, đúng nhịp với tần suất đạp đều nhau, giúp đẩy nhanh tốc độ."));
-
-
-        listExecise.add(new Exercisek(1, "Plank"
-                ,"https://www.thethaothientruong.vn/uploads/2021/Plank-cai-thien-tu-the-khoe-dep.jpg"
-                , 35, 1
-                , "Plank là một bài tập giúp đốt mỡ và làm săn cơ bụng hàng đầu cực kỳ hiệu quả dành cho cả nam và nữ. Chỉ với động tác đơn giản, dễ nhớ, dễ làm theo mà không cần thêm bất cứ dụng cụ gì. "
-                , "Bước 1: Chuẩn bị dụng cụ, Bạn nên chuẩn bị cho mình 1 thảm tập yoga để không bị đau tay khi bạn chống tay lúc plank.\n" +
-                "Bước 2: Vào tư thế bò, Bạn đặt 2 tay dưới vai rồi để đầu gối dưới hông, bạn có thể đặt phẳng chân hoặc uốn ngón chân lại cho tư thế này. Nhớ duy trì nhịp thở đều.\n" +
-                "Bước 3: Đưa người về tư thế em bé, chuyển ngay về tư thế em bé bằng cách đẩy mông về phía bàn chân, đùi bạn mở rộng bằng vai rồi từ từ đưa ngực hạ xuống sàn\n" +
-                "Bước 4: Vào tư thế plank,  bạn phải tạo thành một đường thẳng từ đầu đến gót chân. Tay bạn để dưới 2 vai thẳng đứng, mũi chân chống xuống sàn. Bạn phải dùng lực để giữ cho cột sống và mông thẳng."));
-
-        listExecise.add(new Exercisek(2, "Chống đẩy"
-                ,"https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg"
-                , 7, 1
-                , "Chống đẩy hay hít đất - là một bài tập thể dục Calisthenics điển hình, vô cùng phổ biến. Được thực hiện bằng cách nâng cao và hạ thấp cơ thể trong tư thế nằm sấp bằng cách sử dụng cánh tay"
-                ,
-                "    - Bắt đầu quỳ trên thảm tập hoặc sàn nhà, đưa hai chân duỗi thẳng và khép lại gần nhau, mũi chân chống xuống sàn.\n" +
-                        "    - Hai bàn tay rộng bằng vai, lòng bàn tay úp xuống và các ngón tay của bạn hướng về phía trước hoặc hơi chếch vào trong.\n" +
-                        "    - Vai ở phía trên bàn tay, giữ cho lưng thẳng và hóp cơ bụng của bạn vào.\n" +
-                        "    - Từ từ hạ thấp cơ thể xuống sàn. Giữ thân mình cứng và giữ đầu thẳng hàng với cột sống. Mắt luôn nhìn về phía trước và phần lưng dưới không bị chùng xuống hoặc phần hông của bạn không được hếch lên trên.\n" +
-                        "    - Tiếp tục hạ người xuống cho đến khi ngực hoặc cằm chạm đất. Khuỷu tay của bạn có thể chìa ra trong quá trình di chuyển xuống.\n" +
-                        "    - Đẩy lên trên cho đến khi cánh tay của bạn duỗi ra hoàn toàn và trở lại tư thế plank ban đầu.\n" +
-                        "    - Lặp lại động tác và bắt đầu thực hiện theo số lần tập phù hợp.\n"));
-
-        listExecise.add(new Exercisek(3, "Plank"
-                ,"https://cdn.thehinh.com/2019/06/64339804_6140715877001_2673110258309660672_n-1.png"
-                , 11, 1
-                , "Bơi lội là môn thể thao dưới nước, nhờ vào lực đẩy của nước và sự vận động của toàn thân, đặc biệt là chân và tay mà người bơi có thể di chuyển cơ thể dưới nước với một tốc độ nhất định. Bơi lội là môn thể thao dành cho mọi người ở mọi lứa tuổi và không quá tốn kém, giúp bạn cải thiện được sức khỏe, thậm chí là tinh thần."
-                , "Bước 1: Nín thở dưới nước – Một trong những hướng dẫn đầu tiên khi bạn học bơi\n" +
-                "Bước 2: Hít thở dưới nước – Yếu tố quan trọng thứ hai cần lưu ý trong hướng dẫn học bơi\n" +
-                "Bước 3: Khi tập bơi đừng quên kỹ năng nổi dưới nước và lướt nước\n" +
-                "Bước 4: Hướng dẫn học bơi an toàn - Chọn nơi dạy bơi lội uy tín, học phí hợp lý cho người mới bắt đầu"));
-
-        listExecise.add(new Exercisek(4, "Đạp xe"
-                ,"https://cdn.tgdd.vn/Files/2022/05/10/1431463/moi-ngay-nen-dap-xe-bao-nhieu-km-dap-bao-lau-.jpg"
-                , 5, 1
-                , "Đi xe đạp là môn thể thao tốt cho sức khỏe giúp rèn luyện thể chất, cải thiện tim phổi. Tuy nhiên nhiều người thường xuyên đi xe đạp chưa hẳn đã biết đạp xe đạp đúng cách."
-                , "Bước 1: Ăn uống trước khi đạp xe đạp là một điều cần thiết, bởi khi đạp xe cơ thể bạn tiêu hao khá nhiều năng lượng và mất sức,\n" +
-                "Bước 2: Tất cả các thời gian trong ngày đều có thể đạp xe, nhưng thời gian lý tưởng để đạp xe là vào buổi sáng sớm trước khi ăn bữa đầu tiên trong ngày.\n" +
-                "Bước 3: Tư thế đạp xe vừa thoải mái vừa đúng cách, là tư thế ngồi hơi nghiêng về phía trước, giữ tay hơi cong cong trong lúc đạp xe, vì khi tay hơi cong nó cho phép các cơ phần trên và khớp lưng cảm nhận độ rung, phân tán lực, ít gây ảnh hưởng đến cột sống. Khi đạp xe giữ chân ở góc 90 độ, nó tốt cho phần hông của bạn tránh các trường hợp đau cơ.\n" +
-                "Bước 4: đạp xe đúng cách, chính xác đảm bảo sức khỏe gồm 4 bước: đạp, kéo, nâng, đẩy. Chân đạp nhẹ nhàng xuống dưới, dùng lực bàn chân kéo lên trên rồi nâng bàn đạp, rồi nhẹ nhàng đẩy xuống, những động tác được lặp đi lặp lại, đúng nhịp với tần suất đạp đều nhau, giúp đẩy nhanh tốc độ."));
+        listExecise.add(new Exercisek(16, "Russian Twist"
+                ,"https://hips.hearstapps.com/hmg-prod/images/russian-twist-sharpened-1548270008.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
+                , 4, 1
+                , "Russian Twist (vặn người kiểu Nga) là một bài tập tuyệt vời để xây dựng sức mạnh cơ vai và cơ vai"
+                , "Bước 1 : Ngồi trên thảm, nhấc cả hai chân lên, giữ cho đầu gối gập và ngả người về phía sau một chút. 10 ngón tay đan nhẹ hoặc chụm vào nhau và đặt phía trước mặt để giữ thăng bằng cơ thể của bạn.\n" +
+                "Bước 2 : Vặn phần vai và hông của bạn sang trái, sau đó vặn sang phải."));
 
 
         return listExecise;
