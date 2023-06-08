@@ -3,10 +3,13 @@ package com.example.caloriestracking;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,10 +20,17 @@ public class Subcriptions_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subcriptions);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         // button buy premium
         Button buybtn = findViewById(R.id.buyButton);
 
         BottomNavigationView btv = findViewById(R.id.bottom_nav2);
+
+        TextView usernameview = findViewById(R.id.viewUserName);
+        String fullName = sharedPreferences.getString("fullName", "");
+        usernameview.setText(fullName);
 
 
 
