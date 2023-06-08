@@ -75,6 +75,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="6dp"
         android:hint="    Your Height"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textSize="19dp"
         android:background="@drawable/form_input"/>
@@ -98,6 +99,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="5dp"
         android:hint="    Your Weight"
+        android:inputType="number"
         android:textSize="19dp"
         android:textColor="@color/black"
         android:layout_below="@+id/registerWeight"

@@ -100,4 +100,14 @@ public class Activity {
         this.guide = guide;
         this.users = users;
     }
+
+    public Activity(int exerciseID, String exerciseName, String exerciseAvatar, double exerciseCalories, double minutes, String exerciseDescription, String guide) {
+        this.activityID = exerciseID;
+        this.activityName = exerciseName;
+        this.activityAvatar = exerciseAvatar;
+        this.activityCalories = exerciseCalories;
+        this.minutes = minutes;
+        this.activityDescription = exerciseDescription;
+        this.guide = guide;
+    }
 }

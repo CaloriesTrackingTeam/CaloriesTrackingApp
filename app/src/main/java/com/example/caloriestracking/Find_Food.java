@@ -9,10 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.caloriestracking.ListData.ListDataSource;
 import com.example.caloriestracking.adapter.FoodAdapter;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,11 +27,13 @@ public class Find_Food extends AppCompatActivity {
     BottomNavigationView btv;
     RecyclerView rcv;
     List<Food> list;
+    Button ExerciseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_food);
+        ExerciseButton = findViewById(R.id.ExerciseButton);
 
         setupNavBottom();
 
@@ -48,6 +52,13 @@ public class Find_Food extends AppCompatActivity {
                 filterByName();
             }
         });
+
+        ExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Find_Food.this, Find_Activity.class));
+            }
+        });
     }
 
     private void setupRecycleView() {
@@ -56,7 +67,7 @@ public class Find_Food extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
         rcv.setLayoutManager(gridLayoutManager);
 
-        FoodAdapter foodAdapter = new FoodAdapter(getListFood());
+        FoodAdapter foodAdapter = new FoodAdapter(getListFood(), this);
         rcv.setAdapter(foodAdapter);
     }
 
@@ -76,7 +87,7 @@ public class Find_Food extends AppCompatActivity {
                     //startActivity(new Intent(Find_Food.this, [home].class));
                 }else if(item.getItemId() == R.id.ac_user_page){
                     System.out.println("btv_ac_user_page_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Food.this, User_Profile_Activity.class));
                 }else if(item.getItemId() == R.id.ac_predict){
                     System.out.println("btv_ac_ac_predict_click");
                     //startActivity(new Intent(Find_Food.this, [home].class));
@@ -96,48 +107,15 @@ public class Find_Food extends AppCompatActivity {
             }
         }
 
-        FoodAdapter foodAdapter = new FoodAdapter(listSearch);
+        FoodAdapter foodAdapter = new FoodAdapter(listSearch, this);
         rcv.setAdapter(foodAdapter);
     }
 
     private List<Food> getListFood() {
         list = new ArrayList<>();
-        list.add(new Food("Pho"));
-        list.add(new Food("Bún Bò Huế"));
-        list.add(new Food("Bún Đậu Mắm Tôm"));
-        list.add(new Food("Hủ Tiếu"));
-        list.add(new Food("Cháo Lòng"));
-        list.add(new Food("Tiết Canh"));
-        list.add(new Food("Food7"));
-        list.add(new Food("Food8"));
-        list.add(new Food("Food9"));
-        list.add(new Food("Pho"));
-        list.add(new Food("Bún Bò Huế"));
-        list.add(new Food("Bún Đậu Mắm Tôm"));
-        list.add(new Food("Hủ Tiếu"));
-        list.add(new Food("Cháo Lòng"));
-        list.add(new Food("Tiết Canh"));
-        list.add(new Food("Food7"));
-        list.add(new Food("Food8"));
-        list.add(new Food("Food9"));
-        list.add(new Food("Pho"));
-        list.add(new Food("Bún Bò Huế"));
-        list.add(new Food("Bún Đậu Mắm Tôm"));
-        list.add(new Food("Hủ Tiếu"));
-        list.add(new Food("Cháo Lòng"));
-        list.add(new Food("Tiết Canh"));
-        list.add(new Food("Food7"));
-        list.add(new Food("Food8"));
-        list.add(new Food("Food9"));
-        list.add(new Food("Pho"));
-        list.add(new Food("Bún Bò Huế"));
-        list.add(new Food("Bún Đậu Mắm Tôm"));
-        list.add(new Food("Hủ Tiếu"));
-        list.add(new Food("Cháo Lòng"));
-        list.add(new Food("Tiết Canh"));
-        list.add(new Food("Food7"));
-        list.add(new Food("Food8"));
-        list.add(new Food("Food9"));
+        ListDataSource listDataSource = new ListDataSource();
+        list = listDataSource.getFoodList();
+
         return list;
     }
 }

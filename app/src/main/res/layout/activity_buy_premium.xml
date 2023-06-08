@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Buy_Premium_Activity">
+
+    <TextView
+        android:id="@+id/viewBuyPremium1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:text="Buy Premium"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop = "true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/premiumButton"
+        android:layout_width="324dp"
+        android:layout_height="240dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_target"
+        android:layout_below="@+id/viewBuyPremium1"
+        android:backgroundTint="#F4F9F3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Premium Features"
+            android:textColor="#577752"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unlimited Favorites"
+            android:textColor="#577752"
+            android:textSize="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="80dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unlimited Search Feature"
+            android:textColor="#577752"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="-24dp"
+            android:layout_marginTop="130dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Access To Activity Feature"
+            android:textColor="#577752"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="180dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/viewBuyPremium2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/premiumButton"
+        android:layout_marginLeft="50dp"
+        android:text="Choose Your Plan"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/buyMonthlyButton"
+        android:layout_width="330dp"
+        android:layout_height="77dp"
+        android:layout_below="@+id/viewBuyPremium2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#FF9386"
+        android:text="Monthly - $7.99/month"
+        android:textSize="25sp"/>
+
+    <Button
+        android:id="@+id/buyAnnualButton"
+        android:layout_width="330dp"
+        android:layout_height="77dp"
+        android:layout_below="@+id/buyMonthlyButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#FF9386"
+        android:text="Annual - $49.99/year"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/viewBuyPremium3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buyAnnualButton"
+        android:text="Subcriptions will be auto-renewed"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/viewBuyPremium4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewBuyPremium3"
+        android:text="Cancel anytime. Safe and Secure"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Menu -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/bottom_nav2"
+        app:menu="@menu/menu_bottom_nav"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        />
+
+</RelativeLayout>

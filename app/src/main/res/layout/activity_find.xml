@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Find_Food"
+    tools:context=".Find_Activity"
     android:backgroundTint="#FFFFFF">
 
     <ScrollView
@@ -95,7 +95,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="17dp"
                         android:hint="Find Something"
-                        android:textSize="17dp" />
+                        android:textSize="18dp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
