@@ -54,7 +54,7 @@ public class Find_Today_Food extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
         rcv.setLayoutManager(gridLayoutManager);
 
-        FoodAdapter foodAdapter = new FoodAdapter(getListFood());
+        FoodAdapter foodAdapter = new FoodAdapter(getListFood(), this);
         rcv.setAdapter(foodAdapter);
 
         //set up search icon click
@@ -77,7 +77,7 @@ public class Find_Today_Food extends AppCompatActivity {
             }
         }
 
-        FoodAdapter foodAdapter = new FoodAdapter(listSearch);
+        FoodAdapter foodAdapter = new FoodAdapter(listSearch, this);
         rcv.setAdapter(foodAdapter);
     }
 
