@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.caloriestracking.ListData.ListDataSource;
 import com.example.caloriestracking.adapter.FoodAdapter;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -49,12 +52,17 @@ public class Find_Today_Food extends AppCompatActivity {
             }
         });
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        String listToday = sharedPreferences.getString("LIST_FOOD", "");    //breakfast, dinner
+
         //set up reccyle view
         rcv = findViewById(R.id.rcv_Food);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
         rcv.setLayoutManager(gridLayoutManager);
 
-        FoodAdapter foodAdapter = new FoodAdapter(getListFood(), this);
+        FoodAdapter foodAdapter = new FoodAdapter(getListFood(), this, false, listToday, editor);
         rcv.setAdapter(foodAdapter);
 
         //set up search icon click
@@ -83,11 +91,8 @@ public class Find_Today_Food extends AppCompatActivity {
 
     private List<Food> getListFood() {
         list = new ArrayList<>();
-        list.add(new Food("Pho"));
-        list.add(new Food("Bún Bò Huế"));
-        list.add(new Food("Bún Đậu Mắm Tôm"));
-        list.add(new Food("Hủ Tiếu"));
-        list.add(new Food("Cháo Lòng"));
+        ListDataSource listDataSource = new ListDataSource();
+        list = listDataSource.getFoodList();
         return list;
     }
 }

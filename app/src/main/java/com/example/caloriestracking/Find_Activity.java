@@ -9,12 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.caloriestracking.ListData.ListDataSource;
 import com.example.caloriestracking.adapter.ActivityAdapter;
 import com.example.caloriestracking.adapter.FoodAdapter;
 import com.example.caloriestracking.model.Activity;
+import com.example.caloriestracking.model.Exercisek;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -26,6 +29,7 @@ public class Find_Activity extends AppCompatActivity {
     RecyclerView rcv;
 
     List<Activity> list;
+    Button FoodButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class Find_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_find);
 
         BottomNavigationView btv = findViewById(R.id.bottom_nav);
+        FoodButton = findViewById(R.id.FoodButton);
         btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -58,7 +63,7 @@ public class Find_Activity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);   //dạng cột và có 2 cột
         rcv.setLayoutManager(gridLayoutManager);
 
-        ActivityAdapter activityAdapter = new ActivityAdapter(getActivityList());
+        ActivityAdapter activityAdapter = new ActivityAdapter(getActivityList(), this);
         rcv.setAdapter(activityAdapter);
 
         //set up search icon click
@@ -67,6 +72,13 @@ public class Find_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 filterByName();
+            }
+        });
+
+        FoodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Find_Activity.this, Find_Food.class));
             }
         });
     }
@@ -81,31 +93,38 @@ public class Find_Activity extends AppCompatActivity {
             }
         }
 
-        ActivityAdapter activityAdapter = new ActivityAdapter(listSearch);
+        ActivityAdapter activityAdapter = new ActivityAdapter(listSearch, this);
         rcv.setAdapter(activityAdapter);
     }
 
-    private List<Activity> getActivityList(){
+//    private List<Activity> getActivityList(){
+//        list = new ArrayList<>();
+//        list.add(new Activity("Walk"));
+//        list.add(new Activity("Run"));
+//        list.add(new Activity("Jump"));
+//        list.add(new Activity("Fly"));
+//        list.add(new Activity("Riding"));
+//        list.add(new Activity("Push up"));
+//        list.add(new Activity("Push out"));
+//        list.add(new Activity("Push on"));
+//        list.add(new Activity("Push Left"));
+//        list.add(new Activity("Push Right"));
+//        list.add(new Activity("Push Down"));
+//        list.add(new Activity("Jumping Jack"));
+//        list.add(new Activity("Jumping Tony"));
+//        list.add(new Activity("Jumping Elsa"));
+//        list.add(new Activity("Jumping Elizabeth"));
+//        list.add(new Activity("Jumping John"));
+//        list.add(new Activity("Plank"));
+//        list.add(new Activity("Riding Horse"));
+//        list.add(new Activity("Swimming"));
+//        return list;
+//    }
+
+    private List<Activity> getActivityList() {
         list = new ArrayList<>();
-        list.add(new Activity("Walk"));
-        list.add(new Activity("Run"));
-        list.add(new Activity("Jump"));
-        list.add(new Activity("Fly"));
-        list.add(new Activity("Riding"));
-        list.add(new Activity("Push up"));
-        list.add(new Activity("Push out"));
-        list.add(new Activity("Push on"));
-        list.add(new Activity("Push Left"));
-        list.add(new Activity("Push Right"));
-        list.add(new Activity("Push Down"));
-        list.add(new Activity("Jumping Jack"));
-        list.add(new Activity("Jumping Tony"));
-        list.add(new Activity("Jumping Elsa"));
-        list.add(new Activity("Jumping Elizabeth"));
-        list.add(new Activity("Jumping John"));
-        list.add(new Activity("Plank"));
-        list.add(new Activity("Riding Horse"));
-        list.add(new Activity("Swimming"));
+        ListDataSource listDataSource = new ListDataSource();
+        list = listDataSource.getActivityList();
         return list;
     }
 

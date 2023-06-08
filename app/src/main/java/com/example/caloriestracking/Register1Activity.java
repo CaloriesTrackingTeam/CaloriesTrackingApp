@@ -57,7 +57,7 @@ public class Register1Activity extends AppCompatActivity {
             Toast.makeText(this, "Name must length from 5 ->  65 characters", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if(email.trim().contains("@gmail.com") || email.trim().length() == 0){
+        if(!email.trim().contains("@") || email.trim().length() == 0){
             Toast.makeText(this, "email not correct format", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -66,13 +66,14 @@ public class Register1Activity extends AppCompatActivity {
             return false;
         }
 
-        //save data to RAM
+        //save data to share reference
         SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putString("fullName", fullname);
         editor.putString("email", email);
         editor.putString("password", pwd);
+
         editor.commit();
 
         return true;

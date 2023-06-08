@@ -17,6 +17,10 @@ public class Exercisek {
         this.minutes = minutes;
     }
 
+    public Exercisek() {
+
+    }
+
     public int getExerciseID() {
         return exerciseID;
     }
