@@ -21,6 +21,7 @@ import com.example.caloriestracking.ListData.ListDataSource;
 import com.example.caloriestracking.adapter.ExercisekHomeAdapter;
 import com.example.caloriestracking.adapter.FoodAdapter;
 import com.example.caloriestracking.adapter.FoodHomeAdapter;
+import com.example.caloriestracking.adapter.FoodHomeAdapterDinner;
 import com.example.caloriestracking.model.Exercisek;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -181,19 +182,19 @@ public class Home extends AppCompatActivity {
         //---------list breakfast
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rcvBreakfast.setLayoutManager(linearLayoutManager);
-        FoodHomeAdapter foodAdapterBreakfast = new FoodHomeAdapter(getListFoodBreakfast(), this);
+        FoodHomeAdapter foodAdapterBreakfast = new FoodHomeAdapter(getListFoodBreakfast(), this, sharedPreferences);
         rcvBreakfast.setAdapter(foodAdapterBreakfast);
 
         //---------list dinner
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this);
         rcvDinner.setLayoutManager(linearLayoutManager2);
-        FoodHomeAdapter foodAdapterDinner = new FoodHomeAdapter(getListDinner(), this);
+        FoodHomeAdapterDinner foodAdapterDinner = new FoodHomeAdapterDinner(getListDinner(), this, sharedPreferences);
         rcvDinner.setAdapter(foodAdapterDinner);
 
         //------list Execise
         LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(this);
         rcvActivities.setLayoutManager(linearLayoutManager3);
-        ExercisekHomeAdapter exercisekHomeAdapter = new ExercisekHomeAdapter(getListActivity(), this);
+        ExercisekHomeAdapter exercisekHomeAdapter = new ExercisekHomeAdapter(getListActivity(), this, sharedPreferences);
         rcvActivities.setAdapter(exercisekHomeAdapter);
     }
 
@@ -215,7 +216,7 @@ public class Home extends AppCompatActivity {
 
         String listToday = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY"+email, "");
 
-        if(listToday != null) {
+        if(listToday != null && !listToday.equals("")) {
             if(listToday.trim().length() > 0){
                 if(listToday.charAt(0) == ' '){
                     listToday = listToday.substring(1);
@@ -251,7 +252,7 @@ public class Home extends AppCompatActivity {
         listDinner = new ArrayList<>();//
         String listToday = sharedPreferences.getString("LIST_FOOD_DINNER_TODAY"+email, "");
 
-        if(listToday != null) {
+        if(listToday != null && !listToday.equals("")) {
             if(listToday.trim().length() > 0){
                 if(listToday.charAt(0) == ' '){
                     listToday = listToday.substring(1);
@@ -269,16 +270,16 @@ public class Home extends AppCompatActivity {
 
     private List<Exercisek> getListActivity(){
         listActivity = new ArrayList<>();
-
         String listToday = sharedPreferences.getString("LIST_EXCECISE_TODAY"+email, "");
+        //vd: " 1 p9" --> execise 1, 9 phút
 
-        if(listToday != null) {
+        if(listToday != null && !listToday.equals("")) {
             if(listToday.trim().length() > 0){
                 if(listToday.charAt(0) == ' '){
                     listToday = listToday.substring(1);
-                }
+                }    //--> "1 p9"
                 //list có data r
-                String[] listId = listToday.split(" ");
+                String[] listId = listToday.split(" "); //--> ["1", "p9"]
                 Exercisek f = null;
                 for (int i = 0; i < listId.length; i++) {
                     if(i % 2 == 0){ //đang là id
@@ -351,7 +352,7 @@ public class Home extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.ac_home){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Home.this, Home.class));
                 } else if(item.getItemId() == R.id.ac_search){
                     System.out.println("btv_ac_search_click");
                     startActivity(new Intent(Home.this, Find_Food.class));

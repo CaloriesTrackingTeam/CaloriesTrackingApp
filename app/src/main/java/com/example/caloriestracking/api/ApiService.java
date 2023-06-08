@@ -56,4 +56,10 @@ public interface ApiService {
 
     @GET("auth/reset")
     Call<RespPostLogin> resetpass(@Query("email") String email);
+
+    //http://localhost:8080/auth/feedback?from=khadepzai%40gmail.com&feedback=TEst%20COnnect
+    @FormUrlEncoded
+    @POST("auth/feedback")
+    Call<RespPostLogin> sendFeedback(@Field("from") String from,
+                                     @Field("feedback") String feedback);
 }

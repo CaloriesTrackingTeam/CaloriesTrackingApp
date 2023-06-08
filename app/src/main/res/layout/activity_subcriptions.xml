@@ -28,7 +28,7 @@
         android:layout_height="140dp"
         android:layout_below="@+id/viewSubTextView1"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/ic_profile"
         android:layout_marginTop="10dp"/>
 
     <TextView

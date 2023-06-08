@@ -31,6 +31,7 @@ public class Find_Favorite_Activity extends AppCompatActivity {
     Button FoodButton;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class Find_Favorite_Activity extends AppCompatActivity {
         list = getActivityList();
         sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
         editor = sharedPreferences.edit();
+        email = sharedPreferences.getString("email", "");
 
         BottomNavigationView btv = findViewById(R.id.bottom_nav);
         btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,16 +48,19 @@ public class Find_Favorite_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.ac_home){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Favorite_Activity.this, Home.class));
                 } else if(item.getItemId() == R.id.ac_search){
                     System.out.println("btv_ac_search_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Favorite_Activity.this, Find_Food.class));
                 }else if(item.getItemId() == R.id.ac_favorite){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Favorite_Activity.this, Find_Favorite_Food.class));
                 }else if(item.getItemId() == R.id.ac_user_page){
                     System.out.println("btv_ac_user_page_click");
                     startActivity(new Intent(Find_Favorite_Activity.this, User_Profile_Activity.class));
+                }else if(item.getItemId() == R.id.ac_predict){
+                    System.out.println("btv_ac_ac_predict_click");
+                    //startActivity(new Intent(Find_Favorite_Activity.this, [home].class));
                 }
                 return true;
             }
@@ -109,7 +114,7 @@ public class Find_Favorite_Activity extends AppCompatActivity {
     private List<Activity> getListActiFavo() {
         listFavouActi = new ArrayList<>();
 
-        String listToday = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE", "");
+        String listToday = sharedPreferences.getString("LIST_ACTIVITY_FAVORITE"+email, "");
 
         if(listToday != null) {
             if(listToday.trim().length() > 0){

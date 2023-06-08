@@ -43,16 +43,19 @@ public class Find_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.ac_home){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Activity.this, Home.class));
                 } else if(item.getItemId() == R.id.ac_search){
                     System.out.println("btv_ac_search_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Activity.this, Find_Food.class));
                 }else if(item.getItemId() == R.id.ac_favorite){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(Find_Activity.this, Find_Favorite_Food.class));
                 }else if(item.getItemId() == R.id.ac_user_page){
                     System.out.println("btv_ac_user_page_click");
                     startActivity(new Intent(Find_Activity.this, User_Profile_Activity.class));
+                }else if(item.getItemId() == R.id.ac_predict){
+                    System.out.println("btv_ac_ac_predict_click");
+                    //startActivity(new Intent(Find_Activity.this, [home].class));
                 }
                 return true;
             }

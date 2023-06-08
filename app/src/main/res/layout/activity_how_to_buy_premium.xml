@@ -33,6 +33,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:text="Premium only 15.000 vnđ/ 3 months"
+            android:textColor="#565B56"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:text="Transfer content"
             android:textColor="#565B56"
             android:textSize="17sp"

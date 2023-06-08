@@ -1,9 +1,12 @@
 package com.example.caloriestracking.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,16 +17,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.caloriestracking.R;
 import com.example.caloriestracking.model.Food;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FoodHomeAdapter extends RecyclerView.Adapter<FoodHomeAdapter.FoodHomeViewHolder>{
 
     private List<Food> listFood;
     private Context context;
+    //-----------
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    String email;
 
-    public FoodHomeAdapter(List<Food> listFood, Context context) {
+    public FoodHomeAdapter(List<Food> listFood, Context context, SharedPreferences sharedPreferences) {
         this.listFood = listFood;
         this.context = context;
+        this.sharedPreferences = sharedPreferences;
+        editor = sharedPreferences.edit();
+        email = sharedPreferences.getString("email", "");
     }
 
     @NonNull
@@ -46,9 +57,52 @@ public class FoodHomeAdapter extends RecyclerView.Adapter<FoodHomeAdapter.FoodHo
             public void onClick(View v) {
                 //....
                 System.out.println("click food home" + f.getFoodName());
-                Toast.makeText(context, "click food home" + f.getFoodName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "click food breakfast home" + f.getFoodName(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(context, "click delete breakfast food " + f.getFoodName(), Toast.LENGTH_SHORT).show();
+                deleteFoodIdToListFoodBreakfastToday(f);
+                context.startActivity(new Intent(context, context.getClass()));
+            }
+        });
+    }
+
+    private void deleteFoodIdToListFoodBreakfastToday(Food foodDetail) {
+        String listfavo = sharedPreferences.getString("LIST_FOOD_BREAKFAST_TODAY"+ email, "");
+
+        if(listfavo != null){
+            if(listfavo.trim().length() > 0){   //cắt khoản trống ' ' đầu list
+                if(listfavo.charAt(0) == ' '){
+                    listfavo = listfavo.substring(1);
+                }
+
+                //list có data r
+                String[] listId = listfavo.split(" ");
+                List<String> stringList = new ArrayList<>();
+                for (String id: listId) {
+                    //add vào stringList cho dễ delete
+                    stringList.add(id);
+                }
+                //delete food id in list
+                if(stringList.contains(foodDetail.getFoodID() + "")){
+                    stringList.remove(foodDetail.getFoodID() + "");
+                }
+                //create list favo again
+                listfavo = "";
+                for (String id: stringList) {
+                    listfavo += " " + id;
+                }
+                //share lên sharereference lại
+                editor.putString("LIST_FOOD_BREAKFAST_TODAY"+email, listfavo);
+                editor.commit();
+                Toast.makeText(context, "delete "+foodDetail.getFoodName()+" from breakfast success", Toast.LENGTH_SHORT).show();
+
+            }
+        }
     }
 
     @Override
@@ -62,12 +116,14 @@ public class FoodHomeAdapter extends RecyclerView.Adapter<FoodHomeAdapter.FoodHo
     public class FoodHomeViewHolder extends RecyclerView.ViewHolder{
         private TextView  NameElement, InfoNameElement;
         private CardView  cardview_Ele;
+        private ImageView imgDelete;
         public FoodHomeViewHolder(@NonNull View itemView) {
             super(itemView);
             //-----------item_list_home
             NameElement = itemView.findViewById(R.id.NameElement);
             InfoNameElement = itemView.findViewById(R.id.InfoNameElement);
             cardview_Ele = itemView.findViewById(R.id.cardview_Ele);
+            imgDelete = itemView.findViewById(R.id.imgDelete);
         }
     }
 

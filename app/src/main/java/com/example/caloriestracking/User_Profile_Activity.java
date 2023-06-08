@@ -10,13 +10,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.caloriestracking.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
 public class User_Profile_Activity extends AppCompatActivity {
-
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,11 @@ public class User_Profile_Activity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        img = findViewById(R.id.imageUserView);
+        Picasso.get()
+                .load(sharedPreferences.getString("avatar", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvM28d4SBcH4SrXJQuSp4RBPLIlvY-HagBA&usqp=CAU"))
+                .into(img);
 
         Button bmibtn = findViewById((R.id.yourBMIButton));
         Button editbtn = findViewById((R.id.editProfileButton));
@@ -97,16 +104,19 @@ public class User_Profile_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.ac_home){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(User_Profile_Activity.this, Home.class));
                 } else if(item.getItemId() == R.id.ac_search){
                     System.out.println("btv_ac_search_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(User_Profile_Activity.this, Find_Food.class));
                 }else if(item.getItemId() == R.id.ac_favorite){
                     System.out.println("btv_ac_favorite_click");
-                    //startActivity(new Intent(Find_Food.this, [home].class));
+                    startActivity(new Intent(User_Profile_Activity.this, Find_Favorite_Food.class));
                 }else if(item.getItemId() == R.id.ac_user_page){
                     System.out.println("btv_ac_user_page_click");
                     startActivity(new Intent(User_Profile_Activity.this, User_Profile_Activity.class));
+                }else if(item.getItemId() == R.id.ac_predict){
+                    System.out.println("btv_ac_ac_predict_click");
+                    //startActivity(new Intent(User_Profile_Activity.this, [home].class));
                 }
                 return true;
             }
