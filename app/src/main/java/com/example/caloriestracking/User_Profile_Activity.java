@@ -3,11 +3,14 @@ package com.example.caloriestracking;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.caloriestracking.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,6 +22,9 @@ public class User_Profile_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         Button bmibtn = findViewById((R.id.yourBMIButton));
         Button editbtn = findViewById((R.id.editProfileButton));
         Button subbtn = findViewById((R.id.subscriptionButton));
@@ -27,6 +33,10 @@ public class User_Profile_Activity extends AppCompatActivity {
         Button outbtn = findViewById((R.id.logOutButton1));
 
         BottomNavigationView btv = findViewById(R.id.bottom_nav2);
+
+        TextView usernameview = findViewById(R.id.viewUserName);
+        String fullName = sharedPreferences.getString("fullName", "");
+        usernameview.setText(fullName);
 
         // user edit BMI
         bmibtn.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +61,7 @@ public class User_Profile_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("subbtn lick");
-                //startActivity(new Intent(User_Profile_Activity.this, [...].class));
+                startActivity(new Intent(User_Profile_Activity.this, Subcriptions_Activity.class));
             }
         });
 
@@ -60,7 +70,7 @@ public class User_Profile_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("setbtn lick");
-                //startActivity(new Intent(User_Profile_Activity.this, [...].class));
+                startActivity(new Intent(User_Profile_Activity.this, User_Setting_Activity.class));
             }
         });
 
