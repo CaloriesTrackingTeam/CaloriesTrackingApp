@@ -312,6 +312,81 @@ public class ActivityDetail extends AppCompatActivity {
                 , "Bước 1 : Ngồi trên thảm, nhấc cả hai chân lên, giữ cho đầu gối gập và ngả người về phía sau một chút. 10 ngón tay đan nhẹ hoặc chụm vào nhau và đặt phía trước mặt để giữ thăng bằng cơ thể của bạn.\n" +
                 "Bước 2 : Vặn phần vai và hông của bạn sang trái, sau đó vặn sang phải."));
 
+        listExecise.add(new Exercisek(17, "Single Leg Hopping"
+                ,"https://s3assets.skimble.com/assets/2791/skimble-workout-trainer-exercise-side-to-side-single-leg-hops-2_iphone.jpg"
+                , 20, 10
+                , "Single Leg Hopping hay nhảy lò cò 1 chân, là một trong những bài tập tốt nhất để tăng chiều cao mà còn thực sự thú vị. Bài tập tăng chiều cao này đóng vai trò rất lớn trong việc tăng cường cơ bụng và hứa hẹn một bài tập toàn diện cho phần thân dưới của bạn."
+                , "Bước 1 : Nhảy lên chân trái của bạn mười lần.\n" +
+                "Bước 2 : Đặt tay thẳng lên hướng lên trời.\n" +
+                "Bước 3 : Lặp lại tương tự với chân phải"));
+
+        listExecise.add(new Exercisek(18, "Child Pose"
+                ,"https://media.istockphoto.com/id/1189331308/photo/lets-get-loose.jpg?s=612x612&w=0&k=20&c=WL4LSB79Tmsv6hHlZ3mrE3-iLt3OZou_pANeV8vjiqI="
+                , 5, 10
+                , "Child Pose (giản cơ tư tế đứa trẻ), là một bài tập rất tuyệt vời trong việc kéo giãn nhẹ nhàng các bộ phận khác nhau trên cơ thể bạn, từ đó giúp giảm đau lưng và tăng chiều cao. Bài tập tăng chiều cao này nhẹ nhàng kéo giãn cột sống của bạn, cải thiện lưu thông máu trong cơ thể và giảm căng cơ ở lưng dưới."
+                , "Bước 1 : Quỳ trên sàn với mông ép vào gót chân.\n" +
+                "Bước 2 : Đặt hai tay lên đùi, hạ người xuống đùi và cúi người về phía trước với hai cánh tay duỗi thẳng trên sàn.\n" +
+                "Bước 3: Tựa trán xuống sàn, thả lỏng cơ thể và tập trung vào hơi thở."));
+
+        listExecise.add(new Exercisek(19, "Puppy Pose"
+                ,"https://yogajala.com/wp-content/uploads/2022/09/yogajala-pose-photos-mary-2-2.jpg"
+                , 5, 10
+                , "Puppy Pose - bài tập tăng chiều cao này giúp uốn cong cột sống, cơ chân và làm cho xương của bạn dài ra."
+                , "Bước 1 : Bắt đầu với việc định vị tất cả bốn chân của bạn - bàn tay và đầu gối - trên thảm.\n" +
+                "Bước 2 : Đặt đầu gối thẳng hàng với hông và hai tay ngang vai.\n" +
+                "Bước 3 : Quấn ngón chân của bạn và di chuyển bàn tay của bạn về phía trước một vài inch.\n" +
+                "Bước 4 : Duỗi hông về phía sau nửa bàn chân và cảm thấy phần dưới cơ thể được kéo căng tốt.\n" +
+                "Bước 5 : Giữ tư thế này trong 60 giây và thư giãn.\u200D"));
+
+        listExecise.add(new Exercisek(20, "Lying Down Body Twist"
+                ,"https://www.doyou.com/wp-content/uploads/2021/01/How-To-Do-Reclined-Spinal-Twist-Pose.jpg"
+                , 5, 10
+                , "Đây là một bài tập tăng chiều cao hiệu quả khác giúp kéo giãn cột sống và săn chắc cơ cổ và bụng. Bài tập tăng chiều cao này còn kéo dài và tăng cường sự săn chắc của cơ vùng lưng dưới và hông, từ đó giúp tăng chiều cao."
+                , "Bước 1 : Nằm ngửa, hai tay duỗi thẳng trước mặt, song song với vai.\n" +
+                "Bước 2 : Cong đầu gối của bạn cho đến khi chúng gần bằng hông của bạn, sau đó đung đưa chúng cho đến khi chúng chạm đất.\n" +
+                "Bước 3 : Quay đầu sang phải và nhìn vào lòng bàn tay phải nếu đầu gối trái của bạn đặt trên sàn.\n" +
+                "Bước 4 : Kéo căng cơ thể và tập trung vào hơi thở của bạn."));
+
+        listExecise.add(new Exercisek(21, "Camel Pose"
+                ,"https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/62a4f8a84f744998ac9cfccc_CompressJPEG.Online_1_100kb_32.jpg"
+                , 5, 10
+                , "Camel Pose (tư thế lạc đà) là một trong những bài tập hiệu quả nhất để tăng chiều cao nhanh chóng. Tư thế liên quan đến việc uốn cong cổ của bạn về phía sau và kéo căng bụng và ngực của bạn. Tư thế này có hiệu quả cao trong việc kéo căng cơ gấp hông sâu, nâng cao tư thế và tăng cường cơ lưng."
+                , "Bước 1 : Quỳ trên sàn và đưa xương cụt của bạn về phía quán rượu bằng cách đứng trên đầu gối của bạn.\n" +
+                "Bước 2 : Giữ lưng cong và cánh tay thẳng trong khi trượt lòng bàn tay qua bàn chân.\n" +
+                "Bước 3 : Giữ nguyên tư thế trong vài giây và dần dần trở lại tư thế ban đầu."));
+
+        listExecise.add(new Exercisek(22, "Alternate Leg Kick"
+                ,"https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/6296071ab92ea029fb30ca3a_9WYArYa6PL_mV7-XA-5iJeK-L5cA4HpOyJR5yRcrbHS6hYvw9iFRVGvAU6p9h-o0NGGRYlbUhrjYQ4UAPhIW1iziHEkc3cBH9qPEz8VnWzN6fkJPI6tTaGZGuOzad2abLTFTKWii8Gr9AaDWGw.jpeg"
+                , 18, 5
+                , "Alternate Leg Kick (đá chân luân phiên) - Bài tập này bắt nguồn từ “Tae Kwon Do” - môn võ thuật của Hàn Quốc, đặc trưng bởi những cú đá chân. Mặc dù bài tập là một động tác phòng thủ nhưng nó giúp tăng chiều cao của bạn. Nó giúp kéo dài các cơ trên cơ thể bạn, đặc biệt là ở chân."
+                , "Bước 1 : Bắt đầu bằng cách đứng thẳng trên thảm trong tư thế thẳng.\n" +
+                "Bước 2 : Duỗi cơ thể tối đa đồng thời duỗi thẳng chân phải lên.\n" +
+                "Bước 3 : Giữ hai bàn tay của bạn gần ngực với nắm đấm của bạn.\n" +
+                "Bước 4 : Bắt đầu đá lên trời trong khoảng 30 giây và lặp lại quá trình này với chân trái của bạn."));
+
+        listExecise.add(new Exercisek(23, "Jump Squats"
+                ,"https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/6296071aeb11a8c95bb3121f_Rx08NKoMR_k-e6sRmqPxX6g6EANbijiSpZffVDozZ4C7vSTdLqu1GV-wqYfC5HdulF1I_TyYtCcf7-6yWjHqTzYTzeR8vRUe7zE5H4DdrvJ2kfRGqnv2MCVKOm7dr1iuAcYF8_1vJiIRGFovmg.jpeg"
+                , 100, 1
+                , "Các bài tập nhảy, như nhảy squats, là một trong những cách tốt nhất để tăng chiều cao. Nó hỗ trợ điều hòa các cơ và khớp của phần dưới cơ thể và cải thiện chiều cao của cơ thể."
+                , "Bước 1 : Bắt đầu với tư thế đứng bình thường, với cơ thể hướng về phía trước.\n" +
+                "Bước 2 : Hạ người xuống tư thế ngồi xổm bằng cách hạ hông xuống trong khi uốn cong đầu gối.\n" +
+                "Bước 3 : Đẩy mạnh bằng chân khi bạn đứng dậy khỏi tư thế ngồi xổm trong khi bắt đầu nhảy."));
+
+        listExecise.add(new Exercisek(24, "Seated Forward Bend"
+                ,"https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/62a50a8e2ff260eff569823a_CompressJPEG.Online_1_100kb_8489.jpg"
+                , 5, 10
+                , "Bài tập này tạo áp lực lên cơ đùi sau và cổ, từ đó giúp tăng chiều cao cho bạn. Tuy nhiên, nên tránh tư thế này nếu bạn có vấn đề về đau lưng hoặc đang bị trượt đĩa đệm hoặc đau thần kinh tọa."
+                , "Bước 1 : Ngồi trên sàn, duỗi thẳng chân, cúi người về phía trước và cố gắng dùng tay giữ các ngón chân.\n" +
+                "Bước 2 : Bây giờ, giữ thẳng lưng và cố gắng tựa đầu lên đầu gối."));
+
+        listExecise.add(new Exercisek(25, "Downward Facing Dog"
+                ,"https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/5d95d686b9756bfd80d61ffe_downward%2520facing%2520dog.jpeg"
+                , 5, 1
+                , "Bài tập này là là một trong những cách kéo dài tốt nhất để phát triển chiều cao. Bài tập này giúp tăng cường sức mạnh cho toàn bộ lưng và kéo dài cơ lưng của bạn."
+                , "Bước 1 : Đứng lên và uốn cong cơ thể sao cho hai tay rộng bằng vai và hai bàn chân rộng bằng hông.\n" +
+                "Bước 2 : Đẩy sàn ra xa và thu hút vai và thân trên đồng thời kéo dài xương cụt về phía trần nhà\n" +
+                "Bước 3 : Cảm nhận sự kéo giãn nhẹ nhàng ở cánh tay, vai, xô và cột sống."));
+
 
         return listExecise;
     }
