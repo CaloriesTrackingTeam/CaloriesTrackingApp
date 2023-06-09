@@ -214,6 +214,8 @@
                     android:inputType="textNoSuggestions"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+
         <androidx.cardview.widget.CardView
             android:id="@+id/card6"
             android:layout_width="match_parent"
@@ -225,32 +227,48 @@
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="8dp">
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="16dp"-->
-<!--                android:orientation="horizontal">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-<!--                <TextView-->
-<!--                    android:id="@+id/leftText6"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:text="Exercise intensity"-->
-<!--                    android:textSize="15dp"-->
-<!--                    android:textStyle="bold" />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Weight: Loosing(1) - Keep(2) - Gain(3)"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="20dp"/>
 
-<!--                <EditText-->
-<!--                    android:id="@+id/rightEditText6"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:textSize="15dp"-->
-<!--                    android:layout_marginLeft="100dp"-->
-<!--                    android:text="Medium"-->
-<!--                    android:background="@android:color/transparent"-->
-<!--                    android:inputType="textNoSuggestions"/>-->
-<!--            </LinearLayout>-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/leftText6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Target"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/tvtarget"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="15dp"
+                        android:layout_marginLeft="190dp"
+                        android:text="1"
+                        android:background="@android:color/transparent"
+                        android:inputType="textNoSuggestions"/>
+                </LinearLayout>
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
         <Button
