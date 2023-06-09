@@ -80,7 +80,7 @@ public class Edit_Profile_Activity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
                             if(response.body().getStatus().equals("success")){
-                                Toast.makeText(Edit_Profile_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_Profile_Activity.this, response.body().getStatus(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
                             }
                         }

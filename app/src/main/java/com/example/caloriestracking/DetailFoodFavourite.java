@@ -26,7 +26,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
 
     ImageView ArrowBack, FoodPicture;
     TextView calory_minute_food, gramCarbsFood, gramProteinFood, gramFatFood, foodDesciption,
-            food_How_to_cook, TvHowToBurnOut;
+            food_How_to_cook, TvHowToBurnOut, NameFood;
     BottomNavigationView btv;
     Button buttonDeleteFoodFavo;
     SharedPreferences sharedPreferences;
@@ -121,7 +121,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
         gramFatFood.setText(foodDetail.getFoodFat() + "");
         foodDesciption.setText(foodDetail.getFoodDescription());
         food_How_to_cook.setText(foodDetail.getRecipe());
-
+        NameFood.setText(foodDetail.getFoodName());
     }
     public Food getFoodById(int id){
         for (Food item: list) {
@@ -133,6 +133,7 @@ public class DetailFoodFavourite extends AppCompatActivity {
     private void findById_Ele() {
         ArrowBack = findViewById(R.id.ArrowBack);
         FoodPicture = findViewById(R.id.FoodPicture);
+        NameFood = findViewById(R.id.NameFood);
 
         calory_minute_food = findViewById(R.id.calory_minute_food);
         gramCarbsFood = findViewById(R.id.gramCarbsFood);

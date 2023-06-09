@@ -34,10 +34,10 @@ public class ProfileActivity extends AppCompatActivity {
         TextView vieww = findViewById(R.id.tvWeight);
         Button nextbtn = findViewById(R.id.nextbtn);
 
-        int weight =Integer.parseInt(sharedPreferences.getString("weight", "")) ;
-        int height =Integer.parseInt(sharedPreferences.getString("height", "")) ;
+        double weight =Double.parseDouble(sharedPreferences.getString("weight", "")) ;
+        double height =Double.parseDouble(sharedPreferences.getString("height", "")) ;
 
-        viewbmi.setText((int) calculateBMI(weight, height));
+        viewbmi.setText(calculateBMI(weight, height) + "");
         viewh.setText(height + " cm");
         vieww.setText(weight + " kg");
 

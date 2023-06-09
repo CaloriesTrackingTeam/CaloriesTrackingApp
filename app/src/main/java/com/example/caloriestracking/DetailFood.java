@@ -27,7 +27,7 @@ import java.util.List;
 public class DetailFood extends AppCompatActivity {
     ImageView ArrowBack, tymFood, FoodPicture;
     TextView calory_minute_food, gramCarbsFood, gramProteinFood, gramFatFood, foodDesciption,
-            food_How_to_cook, TvHowToBurnOut;
+            food_How_to_cook, TvHowToBurnOut, NameFood;
     BottomNavigationView btv;
     Button buttonFavorite;
     SharedPreferences sharedPreferences;
@@ -131,7 +131,7 @@ public class DetailFood extends AppCompatActivity {
         gramFatFood.setText(foodDetail.getFoodFat() + "");
         foodDesciption.setText(foodDetail.getFoodDescription());
         food_How_to_cook.setText(foodDetail.getRecipe());
-
+        NameFood.setText(foodDetail.getFoodName());
     }
 
     public Food getFoodById(int id){
@@ -143,6 +143,7 @@ public class DetailFood extends AppCompatActivity {
     }
 
     private void findById_Ele() {
+        NameFood = findViewById(R.id.NameFood);
         ArrowBack = findViewById(R.id.ArrowBack);
         tymFood = findViewById(R.id.tymFood);
         FoodPicture = findViewById(R.id.FoodPicture);

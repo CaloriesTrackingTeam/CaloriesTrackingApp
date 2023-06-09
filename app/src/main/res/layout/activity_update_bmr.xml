@@ -25,32 +25,32 @@
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="8dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="16dp"-->
+<!--                android:orientation="horizontal">-->
 
-                <TextView
-                    android:id="@+id/leftText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Kcal/day"
-                    android:textStyle="bold"
-                    android:textSize="15dp"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/leftText"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Kcal/day"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="15dp"/>-->
 
-                <EditText
-                    android:id="@+id/rightEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="230dp"
-                    android:text="2686"
-                    android:background="@android:color/transparent"
-                    android:inputType="textNoSuggestions"/>
-            </LinearLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/rightEditText"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:textSize="15dp"-->
+<!--                    android:layout_marginLeft="230dp"-->
+<!--                    android:text="2686"-->
+<!--                    android:background="@android:color/transparent"-->
+<!--                    android:inputType="textNoSuggestions"/>-->
+<!--            </LinearLayout>-->
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -225,32 +225,32 @@
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="8dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="16dp"-->
+<!--                android:orientation="horizontal">-->
 
-                <TextView
-                    android:id="@+id/leftText6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Exercise intensity"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    android:id="@+id/leftText6"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Exercise intensity"-->
+<!--                    android:textSize="15dp"-->
+<!--                    android:textStyle="bold" />-->
 
-                <EditText
-                    android:id="@+id/rightEditText6"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="100dp"
-                    android:text="Medium"
-                    android:background="@android:color/transparent"
-                    android:inputType="textNoSuggestions"/>
-            </LinearLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/rightEditText6"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:textSize="15dp"-->
+<!--                    android:layout_marginLeft="100dp"-->
+<!--                    android:text="Medium"-->
+<!--                    android:background="@android:color/transparent"-->
+<!--                    android:inputType="textNoSuggestions"/>-->
+<!--            </LinearLayout>-->
         </androidx.cardview.widget.CardView>
 
         <Button
