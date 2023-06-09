@@ -37,7 +37,7 @@ public interface ApiService {
     //http://localhost:8080/auth/google/login
     //tạo retrofit từ interface class + link api
     ApiService apiService = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.46:8080/")    //lấy domain của link api
+            .baseUrl("http://172.18.208.1:8080/")    //lấy domain của link api
             .addConverterFactory(GsonConverterFactory.create(gson))	//dùng để convert kq trả về
             .client(okBuilder.build())
             .build()
@@ -62,4 +62,7 @@ public interface ApiService {
     @POST("auth/feedback")
     Call<RespPostLogin> sendFeedback(@Field("from") String from,
                                      @Field("feedback") String feedback);
+
+    @POST("users")
+    Call<RespPostLogin> updateUserProfile(@Body User user);
 }
