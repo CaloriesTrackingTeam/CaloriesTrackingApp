@@ -68,8 +68,8 @@ public class ListDataSource {
                         "Bước 3: Làm chả\n" +
                         "Bước 4: Làm bì\n" +
                         "Bước 5: Làm nước mắm\n" +
-                        "Bước 5: Làm đồ chua\n" +
-                        "Bước 6: Làm mỡ hành",
+                        "Bước 6: Làm đồ chua\n" +
+                        "Bước 7 : Làm mỡ hành",
                 250, 87.6, 26, 19.3, null));
 
         foodList.add(new Food(3,
@@ -141,6 +141,133 @@ public class ListDataSource {
                 "Sườn lợn hay sườn heo là phần dẻ sườn của con lợn, được lóc từ phần xương sườn của con lợn và có dắt thịt ở trên đó. Đây là một trong những phần thịt từ khúc thịt lợn. Đây là nguyên liệu phổ biến trong ẩm thực các nước châu Á và ẩm thực phương Tây.",
                 "Bạn ướp sườn với phần tỏi băm, hành tím băm, 1 muỗng cà phê hạt nêm, 1 muỗng cà phê muối, 2 muỗng canh mật ong, 2 muỗng canh tương cà, 1.5gr bột ngũ vị hương (khoảng 1/4 muỗng cà phê) và 3 muỗng canh dầu sa tế rồi trộn đều. Để thịt sườn thấm đậm đà, bạn ướp sườn với gia vị ít nhất 4 tiếng",
                 100, 	1, 10.3, 7.3, null));
+
+        foodList.add(new Food(11,
+                "Thịt ức gà",
+                "https://cdn.tgdd.vn/2020/12/content/3-800x500-6.jpg",
+                165,
+                "Với mục đích tăng cơ bắp thì thịt ức gà một loại thực phẩm không thể thiếu trong thực đơn.Đây không chỉ là thực phẩm giúp tăng cơ bắp mà còn rất tốt cho sức khỏe. Bởi thịt gà chứa lượng chất béo cực thấp, lại còn có thêm vitamin B niacin và B6.",
+                "...",
+                100, 0, 31, 3.6, null));
+
+        foodList.add(new Food(12,
+                "Thịt lợn nạc",
+                "https://imgs.vietnamnet.vn/Images/2016/04/19/09/20160419090651-luoc-thit.jpg",
+                143,
+                "Là thành phần quan trọng giúp tăng cơ nhanh và an toàn, tốt cho sức khỏe. Thịt lợn nạc cũng chứa rất ít chất béo, tốt hơn nhiều so với việc sử dụng phần thịt lợn có chứa mỡ.",
+                "...",
+                100, 0, 19, 7, null));
+
+        foodList.add(new Food(13,
+                "Cá hồi",
+                "https://cdn.tgdd.vn/Files/2021/01/19/1321272/tong-hop-nhung-cach-che-bien-ca-hoi-ngon-bo-duong-202112282310178876.jpg",
+                208,
+                "Cá hồi chứa nhiều protein và nhất là axit béo omega-3 và một số vitamin B quan trọng. Đây là thực phẩm mà người bình thường cũng nên sử dụng nhiều, thay thế cho thịt. Đối với các gymer thì đây là thực phẩm giúp tăng cơ bắp và tăng cường sức khỏe không thể thiếu trong thực đơn hàng ngày.",
+                "...",
+                100, 0, 20, 13, null));
+
+        foodList.add(new Food(14,
+                "Cá ngừ",
+                "https://vfa.gov.vn/data/PHUNGHA_VFA/ca%20ngu%203.jpg",
+                130,
+                "Cá hồi chứa nhiều protein và nhất là axit béo omega-3 và một số vitamin B quan trọng. Đây là thực phẩm mà người bình thường cũng nên sử dụng nhiều, thay thế cho thịt. Đối với các gymer thì đây là thực phẩm giúp tăng cơ bắp và tăng cường sức khỏe không thể thiếu trong thực đơn hàng ngày.",
+                "...",
+                100, 0, 29, 0.6, null));
+
+        foodList.add(new Food(15,
+                "Súp cải bó xôi",
+                "https://fado.vn/blog/wp-content/uploads/2022/04/sup-cai-bo-xoi-1.jpeg",
+                115,
+                "Cải bó xôi là một trong những loại rau củ quả chứa rất nhiều chất dinh dưỡng, chất khoáng cũng nhiều vitamin. Từ đó mà cải bó xôi được chế biến thành các món ăn khác nhau được mọi người yêu thích. Súp cải bó xôi thì mang hương vị thơm ngon, dễ ăn.",
+                "...",
+                120, 6, 15, 5, null));
+
+        foodList.add(new Food(16,
+                "Bánh chuối yến mạch",
+                "https://cdn.shopify.com/s/files/1/2105/8233/files/banh-chuoi-yen-mach-oc-cho_1024x1024.jpg?v=1640145151",
+                320,
+                "Bánh chuối yến mạch là một loại bánh được làm từ bột yến mạch, chuối, trứng, đường, bơ, sữa và các loại gia vị. Bánh chuối yến mạch thường được xem là một thức ăn khá lành mạnh và giàu dinh dưỡng, vì chúng có chứa nhiều chất xơ, protein, kali, magiê và vitamin B.",
+                "Bước 1 : Chuẩn bị 1 bát yến mạch, 1 quả trứng gà, 1 quả chuối, 20ml sữa tươi không đường, 20ml nước, mật ong\n" +
+                        "Bước 2 : Chuối bóc vỏ, thái thành từng miếng nhỏ.\n" +
+                        "Bước 3 : Đập trứng ra bát rồi đánh đều trứng lên.\n" +
+                        "Bước 4 : Trộn đều trứng, sữa, nước và bột yến mạch.\n" +
+                        "Bước 5 : Áp chảo thành những miếng bánh nhỏ vừa ăn bằng chảo chống dính.\n" +
+                        "Bước 6 : Để nhỏ lửa, khi thấy trên bề mặt bánh xuất hiện nhiều lỗ nhỏ li ti thì lật bánh.\n" +
+                        "Bước 7 : Để thêm khoảng 30 – 45 giây nữa rồi tắt bếp, cho bánh ra đĩa.\n" +
+                        "Bước 8 : Thêm một ít mật ong vào để làm tăng thêm độ ngọt cho món ăn.",
+                284, 38, 20, 15, null));
+
+        foodList.add(new Food(17,
+                "Khoai lang",
+                "https://thucphamsachgreenhouse.com/upload/images/T%E1%BA%A1i%20sao%20trong%20kh%E1%BA%A9u%20ph%E1%BA%A7n%20%C4%83n%20c%E1%BB%A7a%20c%C3%A1c%20gymer%20th%C6%B0%E1%BB%9Dng%20c%C3%B3%20khoai%20lang-1.jpg",
+                85.8,
+                "Khoai lang chứa carbohydrate “sức mạnh” với hàm lượng calorie thấp, có thể duy trì năng lượng của bạn ở mức cao ngay cả sau một buổi tập luyện nặng. Nó cũng được xem là một “kho” chất xơ cần thiết cho việc đốt cháy chất béo, kiểm soát sự thèm ăn cũng như thúc đẩy tăng cơ bắp",
+                "...",
+                100, 20, 1.6, 0.1, null));
+
+        foodList.add(new Food(18,
+                "Bún mắm",
+                "https://beptruong.edu.vn/wp-content/uploads/2018/11/bun-mam-co-them-thit-heo-quay.jpg",
+                480,
+                "Bún mắm là một trong số các món ăn đặc sản của miền tây Nam bộ Việt Nam. Bún mắm được nấu bằng mắm cá linh hay cá sặc, đây là các loại cá có nhiều tại miền Tây, đặc biệt là các tỉnh Trà Vinh và Sóc Trăng",
+                "...",
+                200, 56.8, 28.2, 15.5, null));
+
+        foodList.add(new Food(19,
+                "Bánh mì thịt",
+                "data:image/jpeg;base64,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",
+                500,
+                "Bánh mì thịt: là loại bánh mì phổ biến nhất ở Sài Gòn, người bán bánh mì xẻ dọc ổ bánh mì và nhét thịt, chả, bơ, pa tê, giò thủ, thịt nguội, một ít hành ngò, rau, đồ chua và ớt.",
+                "...",
+                100, 25.47, 14.87, 6.9, null));
+
+        foodList.add(new Food(20,
+                "Bún chả",
+                "https://thammyviennevada.com/wp-content/uploads/2020/10/an-bun-cha-co-beo-khong-1.jpg",
+                390,
+                "Bún mắm là một trong số các món ăn đặc sản của miền tây Nam bộ Việt Nam. Bún mắm được nấu bằng mắm cá linh hay cá sặc, đây là các loại cá có nhiều tại miền Tây, đặc biệt là các tỉnh Trà Vinh và Sóc Trăng",
+                "...",
+                120, 56.8, 28.2, 15.5, null));
+
+        foodList.add(new Food(21,
+                "Ái tình",
+                "https://tfipost.com/wp-content/uploads/2021/12/close_up_advertisement_sushant_singh_rajput-750x375.jpg",
+                850,
+                "Trung bình, ái tình đốt cháy 150 đến 250 calo mỗi nửa giờ. Và nó rất nhiều niềm vui, tôi thấy ái tình là cỗ máy tập thể dục tuyệt vời nhất",
+                "...",
+                60, 0, 0, 0, null));
+
+        foodList.add(new Food(22,
+                "Tôm biển",
+                "https://cdn.tgdd.vn/2021/09/CookProduct/61-1200x676.jpg",
+                99,
+                "Tôm chứa nguồn protein chất lượng cao, đặc biệt là ít chất béo và chứa lượng lớn axit amin leucine. Đây là những chất rất cần thiết cho sự tăng trưởng cơ bắp mà không quá nhiều calo. Tôm không chỉ ngon mà còn giàu dinh dưỡng, rất ít chất béo. Đây cũng là thực phẩm ăn kiêng được nhiều người lựa chọn.",
+                "...",
+                100, 0.2, 17.9, 0.3, null));
+
+        foodList.add(new Food(23,
+                "Đậu phộng",
+                "https://songsachfood.com/wp-content/uploads/picture1_0.png",
+                567.4,
+                "Đậu phộng cũng là thực phẩm giúp tăng cơ bắp nhờ nguồn protein dồi dào và chất béo lành mạnh, tốt cho sức khỏe. Đậu phộng dễ ăn và chế kết hợp với các món ăn hàng ngày. Bạn cũng có thể dùng dầu dầu lạc thay thế các loại dầu mỡ khi chế biến thực phẩm hàng ngày. ",
+                "...",
+                100, 16, 26, 49, null));
+
+        foodList.add(new Food(24,
+                "Súp lơ xanh",
+                "https://danviet.mediacdn.vn/296231569849192448/2022/12/28/rau-sup-lo-16722086832861423906513-1672271171847-1672271172876169805302.jpg",
+                480,
+                "Bông cải xanh (hoặc súp lơ xanh, cải bông xanh, Broccoli) là một loại cây thuộc loài Cải bắp dại, có hoa lớn ở đầu, thường được dùng như rau. Bông cải xanh thường được chế biến bằng cách luộc hoặc hấp, nhưng cũng có thể được ăn sống như là rau sống trong những đĩa đồ nguội khai vị.",
+                "...",
+                100, 7, 2.8, 0.4, null));
+
+        foodList.add(new Food(25,
+                "Qủa bơ",
+                "https://images.baodantoc.vn/uploads/2023/Th%C3%A1ng%202/Ng%C3%A0y%208/Thanh/an-bo-da-tot-nhung-an-dung-thoi-diem-se-tot-hon-van-lan-202107131644096368.jpg",
+                240,
+                "Quả bơ được biết đến với thành phần dinh dưỡng cao, giàu vitamin và vi khoáng, hỗ trợ giảm cân. Hạt của nó được y học bản địa các nước như Peru, Nigeria sử dụng hỗ trợ sức khỏe phụ nữ.",
+                "...",
+                150, 13.5, 3, 22.5, null));
 
     }
 
