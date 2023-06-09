@@ -50,7 +50,7 @@ public class User_Profile_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("bmibtn lick");
-                //startActivity(new Intent(User_Profile_Activity.this, [...].class));
+                startActivity(new Intent(User_Profile_Activity.this, ProfileActivity.class));
             }
         });
 
