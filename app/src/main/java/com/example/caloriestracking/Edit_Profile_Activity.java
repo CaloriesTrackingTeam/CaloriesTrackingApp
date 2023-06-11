@@ -50,7 +50,7 @@ public class Edit_Profile_Activity extends AppCompatActivity {
 
         Button savebtn = findViewById(R.id.saveButton1);
 
-        BottomNavigationView btv = findViewById(R.id.bottom_edit2);
+        //BottomNavigationView btv = findViewById(R.id.bottom_edit2);
 
         // user save edit profile
         savebtn.setOnClickListener(new View.OnClickListener() {
@@ -76,46 +76,51 @@ public class Edit_Profile_Activity extends AppCompatActivity {
                     editor.putString("fullName",  "" + userNow.getFullName());
                     editor.putString("password",  "" + userNow.getPassword());
                     editor.commit();
-                    ApiService.apiService.updateUserProfile(userNow).enqueue(new Callback<RespPostLogin>() {
-                        @Override
-                        public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
-                            if(response.body().getStatus().equals("success")){
-                                Toast.makeText(Edit_Profile_Activity.this, response.body().getStatus(), Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
-                            }
-                        }
 
-                        @Override
-                        public void onFailure(Call<RespPostLogin> call, Throwable t) {
-                            Toast.makeText(Edit_Profile_Activity.this, "call fail", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    //test
+                    startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
+
+//                    ApiService.apiService.updateUserProfile(userNow).enqueue(new Callback<RespPostLogin>() {
+//                        @Override
+//                        public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
+//                            if(response.body().getStatus().equals("success")){
+//                                Toast.makeText(Edit_Profile_Activity.this, response.body().getStatus(), Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<RespPostLogin> call, Throwable t) {
+//                            Toast.makeText(Edit_Profile_Activity.this, "call fail", Toast.LENGTH_SHORT).show();
+//
+//                          }
+//                    });
                 }
             }
         });
 
-        btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId() == R.id.ac_home){
-                    System.out.println("btv_ac_favorite_click");
-                    startActivity(new Intent(Edit_Profile_Activity.this, Home.class));
-                } else if(item.getItemId() == R.id.ac_search){
-                    System.out.println("btv_ac_search_click");
-                    startActivity(new Intent(Edit_Profile_Activity.this, Find_Food.class));
-                }else if(item.getItemId() == R.id.ac_favorite){
-                    System.out.println("btv_ac_favorite_click");
-                    startActivity(new Intent(Edit_Profile_Activity.this, Find_Favorite_Food.class));
-                }else if(item.getItemId() == R.id.ac_user_page){
-                    System.out.println("btv_ac_user_page_click");
-                    startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
-                }else if(item.getItemId() == R.id.ac_user_page){
-                    System.out.println("btv_ac_user_page_click");
-                    startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
-                }
-                return true;
-            }
-        });
+//        btv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                if(item.getItemId() == R.id.ac_home){
+//                    System.out.println("btv_ac_favorite_click");
+//                    startActivity(new Intent(Edit_Profile_Activity.this, Home.class));
+//                } else if(item.getItemId() == R.id.ac_search){
+//                    System.out.println("btv_ac_search_click");
+//                    startActivity(new Intent(Edit_Profile_Activity.this, Find_Food.class));
+//                }else if(item.getItemId() == R.id.ac_favorite){
+//                    System.out.println("btv_ac_favorite_click");
+//                    startActivity(new Intent(Edit_Profile_Activity.this, Find_Favorite_Food.class));
+//                }else if(item.getItemId() == R.id.ac_user_page){
+//                    System.out.println("btv_ac_user_page_click");
+//                    startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
+//                }else if(item.getItemId() == R.id.ac_user_page){
+//                    System.out.println("btv_ac_user_page_click");
+//                    startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
+//                }
+//                return true;
+//            }
+//        });
     }
 
     private User getUserInRAM(SharedPreferences sharedPreferences) {

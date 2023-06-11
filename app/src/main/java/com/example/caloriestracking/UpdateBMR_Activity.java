@@ -112,21 +112,27 @@ public class UpdateBMR_Activity extends AppCompatActivity {
                         editor.putString("target",  tagrettt);
                         editor.commit();
 
-                        //gọi api cập nhật
-                        ApiService.apiService.updateUserProfile(userNow).enqueue(new Callback<RespPostLogin>() {
-                            @Override
-                            public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
-                                if(response.body().getStatus().equals("success")){
-                                    Toast.makeText(UpdateBMR_Activity.this, response.body().getStatus(), Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(UpdateBMR_Activity.this, User_Profile_Activity.class));
-                                }
-                            }
 
-                            @Override
-                            public void onFailure(Call<RespPostLogin> call, Throwable t) {
-                                Toast.makeText(UpdateBMR_Activity.this, "call fail", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        //test
+                        startActivity(new Intent(UpdateBMR_Activity.this, User_Profile_Activity.class));
+
+
+                        //gọi api cập nhật
+//                        ApiService.apiService.updateUserProfile(userNow).enqueue(new Callback<RespPostLogin>() {
+//                            @Override
+//                            public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
+//                                if(response.body().getStatus().equals("success")){
+//                                    Toast.makeText(UpdateBMR_Activity.this, response.body().getStatus(), Toast.LENGTH_SHORT).show();
+//                                    startActivity(new Intent(UpdateBMR_Activity.this, User_Profile_Activity.class));
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onFailure(Call<RespPostLogin> call, Throwable t) {
+//                                Toast.makeText(UpdateBMR_Activity.this, "call fail", Toast.LENGTH_SHORT).show();
+//
+//                            }
+//                        });
                     }
                 }catch (Exception ex){
                     Toast.makeText(UpdateBMR_Activity.this, "Some error format", Toast.LENGTH_SHORT).show();

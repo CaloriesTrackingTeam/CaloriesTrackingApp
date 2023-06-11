@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,112 +8,119 @@
     android:background="@color/white"
     tools:context=".Edit_Profile_Activity">
 
-    <TextView
-        android:id="@+id/viewEditProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:text="Edit Profile"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_alignParentTop = "true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:id="@+id/editNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:text="Full Name"
-        android:textAlignment="center"
-        android:textSize="19dp"
-        android:layout_below="@+id/viewEditProfile"
-        android:textColor="#858484"/>
-
-    <EditText
-        android:id="@+id/editTextFullName"
-        android:layout_width="285dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="    Your full name"
-        android:textSize="19dp"
-        android:textColor="@color/black"
-        android:layout_below="@+id/editNameTextView"
-        android:background="@drawable/form_input"/>
-
-    <TextView
-        android:id="@+id/editProfileTextView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="Email Address"
-        android:textAlignment="center"
-        android:textSize="19dp"
-        android:layout_below="@+id/editTextFullName"
-        android:textColor="#858484"/>
-
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="285dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/editProfileTextView2"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="9dp"
-        android:background="@drawable/form_input"
-        android:hint="    Your Email Address"
-        android:textColor="@color/black"
-        android:textSize="19dp" />
-
-    <TextView
-        android:id="@+id/editProfileTextView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="Password"
-        android:textAlignment="center"
-        android:textSize="19dp"
-        android:layout_below="@+id/editTextEmail"
-        android:textColor="#858484"/>
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="285dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="    Your Password"
-        android:inputType="textPassword"
-        android:textSize="19dp"
-        android:textColor="@color/black"
-        android:layout_below="@+id/editProfileTextView3"
-        android:background="@drawable/form_input"/>
-
-    <Button
-        android:id="@+id/saveButton1"
-        android:layout_width="285dp"
-        android:layout_height="77dp"
-        android:layout_below="@id/editTextPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:backgroundTint="#FF9386"
-        android:text="Save"
-        android:textSize="24sp" />
-
-    <!-- Menu -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/bottom_edit2"
-        app:menu="@menu/menu_bottom_nav"
-        android:layout_alignParentBottom="true"
-        android:background="#ffffff"
-        />
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/viewEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Edit Profile"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_alignParentTop = "true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:id="@+id/editNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:text="Full Name"
+            android:textAlignment="center"
+            android:textSize="19dp"
+            android:layout_below="@+id/viewEditProfile"
+            android:textColor="#858484"/>
+
+        <EditText
+            android:id="@+id/editTextFullName"
+            android:layout_width="285dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="    Your full name"
+            android:textSize="19dp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/editNameTextView"
+            android:background="@drawable/form_input"/>
+
+        <TextView
+            android:id="@+id/editProfileTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:text="Email Address"
+            android:textAlignment="center"
+            android:textSize="19dp"
+            android:layout_below="@+id/editTextFullName"
+            android:textColor="#858484"/>
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="285dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/editProfileTextView2"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/form_input"
+            android:hint="    Your Email Address"
+            android:textColor="@color/black"
+            android:textSize="19dp" />
+
+        <TextView
+            android:id="@+id/editProfileTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:text="Password"
+            android:textAlignment="center"
+            android:textSize="19dp"
+            android:layout_below="@+id/editTextEmail"
+            android:textColor="#858484"/>
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="285dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="    Your Password"
+            android:inputType="textPassword"
+            android:textSize="19dp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/editProfileTextView3"
+            android:background="@drawable/form_input"/>
+
+        <Button
+            android:id="@+id/saveButton1"
+            android:layout_width="285dp"
+            android:layout_height="77dp"
+            android:layout_below="@id/editTextPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="160dp"
+            android:backgroundTint="#FF9386"
+            android:text="Save"
+            android:textSize="24sp" />
+
+<!--        &lt;!&ndash; Menu &ndash;&gt;-->
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:id="@+id/bottom_edit2"-->
+<!--            app:menu="@menu/menu_bottom_nav"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:background="#ffffff"-->
+<!--            />-->
+
+
+    </RelativeLayout>
+
+</ScrollView>

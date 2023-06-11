@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,94 +8,102 @@
     android:background="@color/white"
     tools:context=".GetStarted3Activity">
 
-    <TextView
-        android:id="@+id/startedTextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calories Tracking"
-        android:textColor="#45D14A"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop = "true"
-        android:layout_centerHorizontal = "true"
-        android:layout_marginTop="40dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="272dp"
-        android:layout_height="270dp"
-        android:layout_below="@+id/startedTextView1"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/get_started_3"
-        android:layout_marginTop="40dp"/>
+        <TextView
+            android:id="@+id/startedTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calories Tracking"
+            android:textColor="#45D14A"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop = "true"
+            android:layout_centerHorizontal = "true"
+            android:layout_marginTop="40dp"/>
 
-    <TextView
-        android:id="@+id/startedTextView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:text="Messenage Send"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="272dp"
+            android:layout_height="270dp"
+            android:layout_below="@+id/startedTextView1"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/get_started_3"
+            android:layout_marginTop="40dp"/>
 
-    <TextView
-        android:id="@+id/startedTextView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/startedTextView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Browse thousands of healthy"
-        android:textAlignment="center"
-        android:textSize="17sp"
-        android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/startedTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="75dp"
+            android:text="Messenage Send"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/startedTextView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="recipes from all over the world."
-        android:textAlignment="center"
-        android:textSize="17sp"
-        android:layout_below="@id/startedTextView3"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/startedTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/startedTextView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Browse thousands of healthy"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/startedButton3"
-        android:layout_width="285dp"
-        android:layout_height="77dp"
-        android:layout_below="@id/startedTextView4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#FF9386"
-        android:text="Get  Started"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/startedTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="recipes from all over the world."
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_below="@id/startedTextView3"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/startedTextView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Already have an account?"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_below="@id/startedButton3"/>
+        <Button
+            android:id="@+id/startedButton3"
+            android:layout_width="285dp"
+            android:layout_height="77dp"
+            android:layout_below="@id/startedTextView4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FF9386"
+            android:text="Get  Started"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/loginButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Log In"
-        android:textColor="#52BC41"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_below="@id/startedTextView5"
-        android:backgroundTint="@color/white"/>
+        <TextView
+            android:id="@+id/startedTextView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Already have an account?"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/startedButton3"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/loginButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Log In"
+            android:textColor="#52BC41"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/startedTextView5"
+            android:backgroundTint="@color/white"/>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

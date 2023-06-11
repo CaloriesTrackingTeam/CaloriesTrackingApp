@@ -63,18 +63,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 System.out.println("btnGoogle lick");
                 //startActivity(new Intent(LoginActivity.this, [...].class));
-                ApiService.apiService.loginT3().enqueue(new Callback<ResponseLogin>() {
-                    @Override
-                    public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
-                        System.out.println(response.toString());
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseLogin> call, Throwable t) {
-                        System.out.println("call fail");
-                        Toast.makeText(LoginActivity.this, "Some error when login google", Toast.LENGTH_SHORT);
-                    }
-                });
+//                ApiService.apiService.loginT3().enqueue(new Callback<ResponseLogin>() {
+//                    @Override
+//                    public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
+//                        System.out.println(response.toString());
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<ResponseLogin> call, Throwable t) {
+//                        System.out.println("call fail");
+//                        Toast.makeText(LoginActivity.this, "Some error when login google", Toast.LENGTH_SHORT);
+//                    }
+//                });
             }
         });
 
@@ -85,41 +85,64 @@ public class LoginActivity extends AppCompatActivity {
                 String emailInput = editTextEmail.getText().toString();
                 String pwdInput = editTextPassword.getText().toString();
 
-                ApiService.apiService.checkLogin(emailInput, pwdInput).enqueue(new Callback<RespLoginNormal>() {
-                    @Override
-                    public void onResponse(Call<RespLoginNormal> call, Response<RespLoginNormal> response) {
-                        Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        if(response.body().getStatus().equals("fail")){
-                            Toast.makeText(LoginActivity.this, "wrong user name or password", Toast.LENGTH_SHORT).show();
-                        }else{
-                            //save all data to share reference
-                            User user = response.body().getData();
-                            editor.putString("userID", "" + user.getUserID());
-                            editor.putString("fullName",  "" + user.getFullName());
-                            editor.putString("age",  "" + user.getAge());
-                            editor.putString("weight",  "" + user.getWeight());
-                            editor.putString("height",  "" + user.getHeight());
-                            editor.putString("sex",  "" + user.getSex());
-                            editor.putString("target",  "" + user.getTarget());
-                            editor.putString("avatar",  "" + user.getAvatar());
-                            editor.putString("email",  "" + user.getEmail());
-                            editor.putString("password",  "" + user.getPassword());
-                            editor.putString("role",  "" + user.getRole());
-                            editor.putString("premium",  "" + user.isPremium());
-                            editor.putString("protein",  "" + user.getProtein());
-                            editor.putString("fat",  "" + user.getFat());
-                            editor.putString("carbs",  "" + user.getCarbs());
-                            editor.commit();
+                //test
+                //save all data to share reference
+                editor.putString("userID", "" + 1);
+                editor.putString("fullName",  "" + "Test");
+                editor.putString("age",  "" + 22);
+                editor.putString("weight",  "" + 175);
+                editor.putString("height",  "" + 75);
+                editor.putString("sex",  "" + "Male");
+                editor.putString("target",  "" + "Keep Weight");
+                editor.putString("avatar",  "" + "https://vn-test-11.slatic.net/p/44fc2ae23e2aa64dedff3bcd9fbec1aa.png");
+                editor.putString("email",  "" + "test@");
+                editor.putString("password",  "" + "1");
+                editor.putString("role",  "" + "US");
+                editor.putString("premium",  "" + "true");
+                editor.putString("protein",  "" + 0);
+                editor.putString("fat",  "" + 0);
+                editor.putString("carbs",  "" + 0);
+                editor.commit();
 
-                            startActivity(new Intent(LoginActivity.this, Home.class));
-                        }
-                    }
+                startActivity(new Intent(LoginActivity.this, Home.class));
+                //test
 
-                    @Override
-                    public void onFailure(Call<RespLoginNormal> call, Throwable t) {
-                        Toast.makeText(LoginActivity.this, "wrong user name or password", Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                ApiService.apiService.checkLogin(emailInput, pwdInput).enqueue(new Callback<RespLoginNormal>() {
+//                    @Override
+//                    public void onResponse(Call<RespLoginNormal> call, Response<RespLoginNormal> response) {
+//                        Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                        if(response.body().getStatus().equals("fail")){
+//                            Toast.makeText(LoginActivity.this, "wrong user name or password", Toast.LENGTH_SHORT).show();
+//                        }else{
+//                            //save all data to share reference
+//                            User user = response.body().getData();
+//                            editor.putString("userID", "" + user.getUserID());
+//                            editor.putString("fullName",  "" + user.getFullName());
+//                            editor.putString("age",  "" + user.getAge());
+//                            editor.putString("weight",  "" + user.getWeight());
+//                            editor.putString("height",  "" + user.getHeight());
+//                            editor.putString("sex",  "" + user.getSex());
+//                            editor.putString("target",  "" + user.getTarget());
+//                            editor.putString("avatar",  "" + user.getAvatar());
+//                            editor.putString("email",  "" + user.getEmail());
+//                            editor.putString("password",  "" + user.getPassword());
+//                            editor.putString("role",  "" + user.getRole());
+//                            editor.putString("premium",  "" + user.isPremium());
+//                            editor.putString("protein",  "" + user.getProtein());
+//                            editor.putString("fat",  "" + user.getFat());
+//                            editor.putString("carbs",  "" + user.getCarbs());
+//                            editor.commit();
+//
+//                            startActivity(new Intent(LoginActivity.this, Home.class));
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<RespLoginNormal> call, Throwable t) {
+//                        Toast.makeText(LoginActivity.this, "wrong user name or password", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
 //                if(checkLogin()){
 //                    startActivity(new Intent(LoginActivity.this, Home.class));
 //                }else{

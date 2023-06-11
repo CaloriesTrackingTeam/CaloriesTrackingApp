@@ -50,17 +50,21 @@ public class Forgot_Password_3 extends AppCompatActivity {
                 Intent intent = new Intent(Forgot_Password_3.this, Forgot_Password_4.class);
                 String email = ed_email.getText().toString();
                 intent.putExtra("email", email);
-                ApiService.apiService.resetpass(email).enqueue(new Callback<RespPostLogin>() {
-                    @Override
-                    public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
-                        startActivity(intent);
-                    }
 
-                    @Override
-                    public void onFailure(Call<RespPostLogin> call, Throwable t) {
-                        Toast.makeText(Forgot_Password_3.this, "some error, please try again", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                //test
+                startActivity(intent);
+
+//                ApiService.apiService.resetpass(email).enqueue(new Callback<RespPostLogin>() {
+//                    @Override
+//                    public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
+//                        startActivity(intent);
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<RespPostLogin> call, Throwable t) {
+//                        Toast.makeText(Forgot_Password_3.this, "some error, please try again", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
             }
         });
 

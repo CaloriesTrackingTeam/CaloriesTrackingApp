@@ -44,20 +44,24 @@ public class Help_Center_Activity extends AppCompatActivity {
                 String email = sharedPreferences.getString("email", "user");
                 String feedbackContent = editTextInfo.getText().toString();
 
-                ApiService.apiService.sendFeedback(email, feedbackContent).enqueue(new Callback<RespPostLogin>() {
-                    @Override
-                    public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
-                        if(response.body().getMessage().equals("send mail success")){
-                            Toast.makeText(Help_Center_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Help_Center_Activity.this, Sent_Email_Activity.class));
-                        }
-                    }
+                //test
+                startActivity(new Intent(Help_Center_Activity.this, Sent_Email_Activity.class));
 
-                    @Override
-                    public void onFailure(Call<RespPostLogin> call, Throwable t) {
-                        Toast.makeText(Help_Center_Activity.this, "Some error when send mail, try again", Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+//                ApiService.apiService.sendFeedback(email, feedbackContent).enqueue(new Callback<RespPostLogin>() {
+//                    @Override
+//                    public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
+//                        if(response.body().getMessage().equals("send mail success")){
+//                            Toast.makeText(Help_Center_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(Help_Center_Activity.this, Sent_Email_Activity.class));
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<RespPostLogin> call, Throwable t) {
+//                        Toast.makeText(Help_Center_Activity.this, "Some error when send mail, try again", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
 
             }
         });

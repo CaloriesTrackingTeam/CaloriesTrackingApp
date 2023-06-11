@@ -134,6 +134,26 @@ public class Home extends AppCompatActivity {
         NumberProtein.setText(protein + "");
         //number fat
         NumberFat.setText(fat + "");
+
+        //number calories need a day
+        String heightc = sharedPreferences.getString("height", "");
+        String weightc = sharedPreferences.getString("weight", "");
+        String agec = sharedPreferences.getString("age", "");
+        try{
+            double heightm = Double.parseDouble(heightc);
+            double weightm = Double.parseDouble(weightc);
+            int agem = Integer.parseInt(agec);
+            String sexc = sharedPreferences.getString("sex", "");
+
+            if(sexc.equals("male")){
+
+            }
+            double caloNeed = (6.25 * heightm) + (10 * weightm) - (5 * agem) + 5;
+            NumberCaloriesNeed.setText(Math.ceil(caloNeed) + "");
+        }catch (Exception ex){
+
+        }
+
     }
 
     private void setAddClick() {
