@@ -10,7 +10,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="14">
+        android:layout_weight="14"
+        android:background="@drawable/bg_white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="29dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_target"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="8dp">
 
@@ -94,7 +95,8 @@
                 <LinearLayout
                     android:layout_width="356dp"
                     android:layout_height="222dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_white">
 
                     <ImageView
                         android:id="@+id/FoodPicture"
@@ -129,6 +131,7 @@
                                 android:layout_marginLeft="3dp"
                                 android:text="Carbs"
                                 android:textSize="17dp"
+                                android:textColor="#000000"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -139,6 +142,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:text="49.3 g"
+                            android:textColor="#000000"
                             android:textSize="17dp" />
 
                         <LinearLayout
@@ -160,6 +164,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="3dp"
                                 android:text="Protein"
+                                android:textColor="#000000"
                                 android:textSize="17dp"
                                 android:textStyle="bold" />
 
@@ -171,6 +176,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:text="2.3 g"
+                            android:textColor="#000000"
                             android:textSize="17dp" />
 
                         <LinearLayout
@@ -192,6 +198,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="3dp"
                                 android:text="Fat"
+                                android:textColor="#000000"
                                 android:textSize="17dp"
                                 android:textStyle="bold" />
 
@@ -203,6 +210,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:text="35.3 g"
+                            android:textColor="#000000"
                             android:textSize="17dp" />
                     </LinearLayout>
 
@@ -286,7 +294,8 @@
                 <LinearLayout
                     android:layout_width="348dp"
                     android:layout_height="123dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_white">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -380,7 +389,8 @@
                 <LinearLayout
                     android:layout_width="348dp"
                     android:layout_height="123dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_white">
 
                     <LinearLayout
                         android:layout_width="0dp"
