@@ -87,6 +87,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                     editor.putString("LIST_FOOD", "breakfast");
                     editor.commit();
                     context.startActivity(intent);
+                }else if(listToday.equals("lunch")){
+                    Intent intent = new Intent(context, DetailFoodToday.class);
+                    intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");
+                    editor.putString("LIST_FOOD", "lunch");
+                    editor.commit();
+                    context.startActivity(intent);
                 }else if(listToday.equals("dinner")){
                     Intent intent = new Intent(context, DetailFoodToday.class);
                     intent.putExtra("ID_FOOD_CLICK", f.getFoodID() + "");

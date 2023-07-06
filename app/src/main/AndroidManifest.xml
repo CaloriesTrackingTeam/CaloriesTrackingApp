@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +17,8 @@
         android:theme="@style/Theme.CaloriesTracking"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <service android:name=".config.MyJobSchedule"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
         <activity
             android:name=".UpdateBMR_Activity"
              android:exported="false" >

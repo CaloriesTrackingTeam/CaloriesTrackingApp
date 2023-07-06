@@ -78,23 +78,23 @@ public class Edit_Profile_Activity extends AppCompatActivity {
                     editor.commit();
 
                     //test
-                    startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
+                    //startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
+                    //endtest
+                    ApiService.apiService.updateUserProfile(userNow).enqueue(new Callback<RespPostLogin>() {
+                        @Override
+                        public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
+                            if(response.body().getStatus().equals("success")){
+                                Toast.makeText(Edit_Profile_Activity.this, response.body().getStatus(), Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
+                            }
+                        }
 
-//                    ApiService.apiService.updateUserProfile(userNow).enqueue(new Callback<RespPostLogin>() {
-//                        @Override
-//                        public void onResponse(Call<RespPostLogin> call, Response<RespPostLogin> response) {
-//                            if(response.body().getStatus().equals("success")){
-//                                Toast.makeText(Edit_Profile_Activity.this, response.body().getStatus(), Toast.LENGTH_SHORT).show();
-//                                startActivity(new Intent(Edit_Profile_Activity.this, User_Profile_Activity.class));
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onFailure(Call<RespPostLogin> call, Throwable t) {
-//                            Toast.makeText(Edit_Profile_Activity.this, "call fail", Toast.LENGTH_SHORT).show();
-//
-//                          }
-//                    });
+                        @Override
+                        public void onFailure(Call<RespPostLogin> call, Throwable t) {
+                            Toast.makeText(Edit_Profile_Activity.this, "call fail", Toast.LENGTH_SHORT).show();
+
+                          }
+                    });
                 }
             }
         });

@@ -89,12 +89,52 @@ public class DetailFoodToday extends AppCompatActivity {
                 Intent intent = new Intent(DetailFoodToday.this, Home.class);
                 if(LIST_FOOD.equals("breakfast")){
                     saveFoodIdToListFoodBreakfastToday();
+                }else if(LIST_FOOD.equals("lunch")){
+                    saveFoodIdToListFoodLunchToday();
                 }else if(LIST_FOOD.equals("dinner")){
                     saveFoodIdToListFoodDinnerToday();
                 }
                 startActivity(intent);
             }
         });
+    }
+
+    private void saveFoodIdToListFoodLunchToday() {
+        String listToday = sharedPreferences.getString("LIST_FOOD_LUNCH_TODAY"+email, "");
+
+        if(listToday != null){
+            if(listToday.trim().length() > 0){
+                if(listToday.charAt(0) == ' '){
+                    listToday = listToday.substring(1);
+                }
+                //list có data r
+                String[] listId = listToday.split(" ");
+//                boolean same = false;
+//                for (String id: listId) {
+//                    if(id.equals(foodDetail.getFoodID() + "")){
+//                        same = true;
+//                    }
+//                }
+
+                //vì có thể ăn 1 món 2 lần nên ko check trùng
+                listToday += " " + foodDetail.getFoodID();
+                editor.putString("LIST_FOOD_LUNCH_TODAY"+email, listToday);
+                editor.commit();
+                Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for lunch", Toast.LENGTH_SHORT).show();
+
+//                if(same == false){
+//
+//                }else{
+//                    Toast.makeText(this, "Food "+foodDetail.getFoodName()+" already in favourite Food", Toast.LENGTH_SHORT).show();
+//                }
+            }else{
+                //list chua có gì
+                listToday += " " + foodDetail.getFoodID();
+                editor.putString("LIST_FOOD_LUNCH_TODAY"+email, listToday);
+                editor.commit();
+                Toast.makeText(this, "chose "+foodDetail.getFoodName()+" for lunch", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void saveFoodIdToListFoodDinnerToday() {

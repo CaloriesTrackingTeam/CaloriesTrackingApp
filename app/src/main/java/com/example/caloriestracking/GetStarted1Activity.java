@@ -4,8 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.caloriestracking.Response.RespPostLogin;
+import com.example.caloriestracking.Response.RespPostLoginAll;
+import com.example.caloriestracking.api.ApiService;
+import com.example.caloriestracking.model.Track;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class GetStarted1Activity extends AppCompatActivity {
 

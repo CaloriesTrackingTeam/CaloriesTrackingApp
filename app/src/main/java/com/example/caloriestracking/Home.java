@@ -2,15 +2,16 @@ package com.example.caloriestracking;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.format.Time;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,29 +20,30 @@ import android.widget.Toast;
 
 import com.example.caloriestracking.ListData.ListDataSource;
 import com.example.caloriestracking.adapter.ExercisekHomeAdapter;
-import com.example.caloriestracking.adapter.FoodAdapter;
 import com.example.caloriestracking.adapter.FoodHomeAdapter;
 import com.example.caloriestracking.adapter.FoodHomeAdapterDinner;
+import com.example.caloriestracking.adapter.FoodHomeAdapterLunch;
+import com.example.caloriestracking.config.MyJobSchedule;
 import com.example.caloriestracking.model.Exercisek;
 import com.example.caloriestracking.model.Food;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.time.DateTimeException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class Home extends AppCompatActivity {
+    private static final int JOB_ID = 123;
     TextView NumberReceived, NumberCaloriesNeed, NumberConsumed, NumberCarbs, NumberFat, NumberWaterNeed,
             NumberCaloBreakfast, NumberCaloDinner, NumberCaloActivities, NumberGoal
-            , NumberProtein, today;
-    ImageView btnAddBreakfast, btnAddDinner, btnAddActivities;
+            , NumberProtein, today, NumberCaloLunch, tvrecommend;
+    ImageView btnAddBreakfast, btnAddDinner, btnAddActivities, btnAddLunch;
     BottomNavigationView btv;
-    RecyclerView rcvBreakfast, rcvDinner, rcvActivities;
+    RecyclerView rcvBreakfast, rcvDinner, rcvActivities, rcvLunch;
     List<Exercisek> listExecise, listActivity;
     List<Food> listBreakfast;
-    List<Food> listDinner, list;
+    List<Food> listDinner, list, listLunch;
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -50,6 +52,8 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        scheduleMethodColelctionCaloEachDay();
 
         list = getListFood();
         listExecise = getListExercise();
@@ -87,6 +91,54 @@ public class Home extends AppCompatActivity {
         caculateInfoCalories();
     }
 
+    private void scheduleMethodColelctionCaloEachDay() {
+        // Lấy thời gian hiện tại
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 58);
+
+        // Lấy thời gian hiện tại và thời gian kế tiếp của 23:59
+        long currentTimeMillis = System.currentTimeMillis();
+        long scheduledTimeMillis = calendar.getTimeInMillis();
+
+        // Kiểm tra nếu thời gian đã trôi qua, thì đặt vào ngày hôm sau
+        if (scheduledTimeMillis <= currentTimeMillis) {
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            scheduledTimeMillis = calendar.getTimeInMillis();
+        }
+
+        // Tính toán khoảng thời gian từ thời điểm hiện tại đến thời điểm đặt lịch
+        long delayMillis = scheduledTimeMillis - currentTimeMillis;
+
+        ComponentName componentName = new ComponentName(this, MyJobSchedule.class);
+        JobInfo jobInfo = new JobInfo.Builder(JOB_ID, componentName)
+//                .setRequiresCharging(true)  //job chỉ start khi cắp sạc đt
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)     //này bắt bc có wifi
+                .setMinimumLatency(delayMillis)
+                .setOverrideDeadline(delayMillis + 1000) // Đảm bảo công việc được kích hoạt trong khoảng thời gian này
+                .setPersisted(true) //này cần thêm permission RECEIVE_BOOT_COMPLETED, chỉ cần khai báo nó tự recommend cho ta tạo permission
+                                    //này có tác dụng khi dt9 ta sập ng mở lại thì app vẫn chạy bth
+//                .setPeriodic(15 * 60 * 1000)
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        jobScheduler.schedule(jobInfo);
+
+//        //schedule
+//        ScheduleAction scheduleAction = new ScheduleAction();
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(Calendar.HOUR_OF_DAY, 23);
+//        calendar.set(Calendar.MINUTE, 59);
+//        calendar.set(Calendar.SECOND, 0);
+//        calendar.set(Calendar.MILLISECOND, 0);
+//        Date dateSchedule = calendar.getTime();
+//        long period = 24 * 60 * 60 * 1000;
+//
+//        Timer timer = new Timer();
+//        timer.schedule(scheduleAction, dateSchedule, period);
+
+    }
+
     private void caculateInfoCalories() {
         double carbs = 0, protein = 0, fat = 0;
         //calo breakfast
@@ -98,6 +150,16 @@ public class Home extends AppCompatActivity {
             if(item.getFoodFat() != 0) fat += item.getFoodFat();
         }
         NumberCaloBreakfast.setText(totalBreakfast + "");
+
+        //calo Lunch
+        double totalLunch = 0;
+        for (Food item: listLunch) {
+            totalLunch += item.getFoodCalories();
+            if(item.getFoodCarbs() != 0) carbs += item.getFoodCarbs();
+            if(item.getFoodProtein() != 0) protein += item.getFoodProtein();
+            if(item.getFoodFat() != 0) fat += item.getFoodFat();
+        }
+        NumberCaloLunch.setText(totalLunch + "");
 
         //calo Dinner
         double totalDinner = 0;
@@ -117,12 +179,16 @@ public class Home extends AppCompatActivity {
         NumberCaloActivities.setText(totalActivities + "");
 
         //receive: đã nhận (lượng calo đã ăn vào)
-        double totalReceive = totalDinner + totalBreakfast;
+        double totalReceive = totalDinner + totalBreakfast + totalLunch;
         NumberReceived.setText(totalReceive + "");
 
         //consumed: tiêu thụ (lượng calo đã ăn vào - vận động tốn calo)
         double totalconsumed = totalReceive - totalActivities;
         NumberConsumed.setText(totalconsumed + "");
+        //save consume to share reference để track
+        editor.putString("CALO_CONSUME", totalconsumed + "");
+//        editor.putString("DATE", new Date(System.currentTimeMillis()).toString());
+        editor.commit();
 
         carbs = Math.ceil(carbs * Math.pow(10, 1)) / Math.pow(10, 1);
         protein = Math.ceil(protein * Math.pow(10, 1)) / Math.pow(10, 1);
@@ -136,6 +202,7 @@ public class Home extends AppCompatActivity {
         NumberFat.setText(fat + "");
 
         //number calories need a day
+        double caloNeed = 0;
         String heightc = sharedPreferences.getString("height", "");
         String weightc = sharedPreferences.getString("weight", "");
         String agec = sharedPreferences.getString("age", "");
@@ -148,12 +215,20 @@ public class Home extends AppCompatActivity {
             if(sexc.equals("male")){
 
             }
-            double caloNeed = (6.25 * heightm) + (10 * weightm) - (5 * agem) + 5;
+            caloNeed += (6.25 * heightm) + (10 * weightm) - (5 * agem) + 5;
             NumberCaloriesNeed.setText(Math.ceil(caloNeed) + "");
         }catch (Exception ex){
 
         }
 
+        //recommend base calo need and calo consumed
+        if(totalconsumed < caloNeed){
+            tvrecommend.setText("Hi, you need eat more ! If you're so weak, how can you fight? :((");
+        }else if(totalconsumed > caloNeed){
+            tvrecommend.setText("Hmmm, do exercise, you are about to evolve into a PIG :))");
+        }else{
+            tvrecommend.setText("Wow, good job, nice balance <3");
+        }
     }
 
     private void setAddClick() {
@@ -186,6 +261,17 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        btnAddLunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(Home.this, "btnAddDinner", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Home.this, Find_Today_Food.class);
+                editor.putString("LIST_FOOD", "lunch");
+                editor.commit();
+                startActivity(intent);
+            }
+        });
+
         btnAddDinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,6 +290,12 @@ public class Home extends AppCompatActivity {
         rcvBreakfast.setLayoutManager(linearLayoutManager);
         FoodHomeAdapter foodAdapterBreakfast = new FoodHomeAdapter(getListFoodBreakfast(), this, sharedPreferences);
         rcvBreakfast.setAdapter(foodAdapterBreakfast);
+
+        //---------list lunch
+        LinearLayoutManager linearLayoutManager4 = new LinearLayoutManager(this);
+        rcvLunch.setLayoutManager(linearLayoutManager4);
+        FoodHomeAdapterLunch foodAdapterLunch = new FoodHomeAdapterLunch(getListLunch(), this, sharedPreferences);
+        rcvLunch.setAdapter(foodAdapterLunch);
 
         //---------list dinner
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this);
@@ -288,6 +380,26 @@ public class Home extends AppCompatActivity {
         return listDinner;
     }
 
+    private List<Food> getListLunch() {
+        listLunch = new ArrayList<>();//
+        String listToday = sharedPreferences.getString("LIST_FOOD_LUNCH_TODAY"+email, "");
+
+        if(listToday != null && !listToday.equals("")) {
+            if(listToday.trim().length() > 0){
+                if(listToday.charAt(0) == ' '){
+                    listToday = listToday.substring(1);
+                }
+                //list có data r
+                String[] listId = listToday.split(" ");
+                for (String id: listId) {
+                    Food f = getFoodById(Integer.parseInt(id));
+                    listLunch.add(f);
+                }
+            }
+        }
+        return listLunch;
+    }
+
     private List<Exercisek> getListActivity(){
         listActivity = new ArrayList<>();
         String listToday = sharedPreferences.getString("LIST_EXCECISE_TODAY"+email, "");
@@ -330,14 +442,18 @@ public class Home extends AppCompatActivity {
         NumberCaloActivities = findViewById(R.id.NumberCaloActivities);
         NumberGoal = findViewById(R.id.NumberGoal);
         NumberProtein = findViewById(R.id.NumberProtein);
+        NumberCaloLunch = findViewById(R.id.NumberCaloLunch);
+        tvrecommend = findViewById(R.id.tvrecommend);
 
         btnAddBreakfast = findViewById(R.id.btnAddBreakfast);
         btnAddDinner = findViewById(R.id.btnAddDinner);
         btnAddActivities = findViewById(R.id.btnAddActivities);
+        btnAddLunch = findViewById(R.id.btnAddLunch);
 
         rcvBreakfast = findViewById(R.id.rcvBreakfast);
         rcvDinner = findViewById(R.id.rcvDinner);
         rcvActivities = findViewById(R.id.rcvActivities);
+        rcvLunch = findViewById(R.id.rcvLunch);
 
         today = findViewById(R.id.today);
         Calendar cal = Calendar.getInstance();

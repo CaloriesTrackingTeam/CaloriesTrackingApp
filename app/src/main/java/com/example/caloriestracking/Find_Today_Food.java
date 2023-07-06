@@ -58,7 +58,7 @@ public class Find_Today_Food extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);	//"MY_APP": chỉ là cái tên của Shared preference;
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        String listToday = sharedPreferences.getString("LIST_FOOD", "");    //breakfast, dinner
+        String listToday = sharedPreferences.getString("LIST_FOOD", "");    //breakfast, dinner, lunch
 
         //set up reccyle view
         rcv = findViewById(R.id.rcv_Food);

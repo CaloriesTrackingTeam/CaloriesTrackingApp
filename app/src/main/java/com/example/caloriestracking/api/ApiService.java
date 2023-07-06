@@ -2,11 +2,14 @@ package com.example.caloriestracking.api;
 
 import com.example.caloriestracking.Response.RespLoginNormal;
 import com.example.caloriestracking.Response.RespPostLogin;
+import com.example.caloriestracking.Response.RespPostLoginAll;
 import com.example.caloriestracking.Response.ResponseLogin;
+import com.example.caloriestracking.model.Track;
 import com.example.caloriestracking.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -22,7 +25,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
-
+    //http://caloriestracking.ap-southeast-2.elasticbeanstalk.com/swagger-ui/index.html
     HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
     OkHttpClient.Builder okBuilder = new OkHttpClient.Builder()
             .readTimeout(30, TimeUnit.SECONDS)          // kết hợp vs 1 dòng code ở dưới +
@@ -37,7 +40,8 @@ public interface ApiService {
     //http://localhost:8080/auth/google/login
     //tạo retrofit từ interface class + link api
     ApiService apiService = new Retrofit.Builder()
-            .baseUrl("http://172.18.208.1:8080/")    //lấy domain của link api
+            .baseUrl("http://caloriestracking.ap-southeast-2.elasticbeanstalk.com/")    //lấy domain của link api
+            //.baseUrl("http://172.18.208.1:8081/")    //lấy domain của link api
             .addConverterFactory(GsonConverterFactory.create(gson))	//dùng để convert kq trả về
             .client(okBuilder.build())
             .build()
@@ -65,4 +69,28 @@ public interface ApiService {
 
     @POST("users")
     Call<RespPostLogin> updateUserProfile(@Body User user);
+
+    @POST("track")
+    Call<RespPostLogin> trackCaloEachDay(@Body Track track);
+
+    @GET("track/user")
+    Call<RespPostLoginAll<List<Track>>> getTrackuser(@Query("userid") int userid);
+    //test call track success
+//        ApiService.apiService.getTrackuser(1).enqueue(new Callback<RespPostLoginAll<List<Track>>>() {
+//            @Override
+//            public void onResponse(Call<RespPostLoginAll<List<Track>>> call, Response<RespPostLoginAll<List<Track>>> response) {
+//                List<Track> list = response.body().getData();
+//                for (Track track: list) {
+//                    Log.e("TRACK_USER", track.getUser().getFullName() + " - " + track.getDate() + " - "  +track.getCalo());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<RespPostLoginAll<List<Track>>> call, Throwable t) {
+//                Log.e("TRACK_USER", "get track of user fail");
+//            }
+//        });
+    //test
+
+
 }

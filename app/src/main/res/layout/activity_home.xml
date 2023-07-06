@@ -327,6 +327,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:background="@color/white">
+                <ImageView
+                    android:layout_width="61dp"
+                    android:layout_height="61dp"
+                    android:src="@drawable/cactus_music"
+                    android:layout_marginLeft="20dp"/>
+                <TextView
+                    android:id="@+id/tvrecommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You need to take in extra calories for the day"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#3C3C3C"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp">
@@ -380,6 +402,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26dp"
+                    android:text="Lunch"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
+
+                <ImageView
+                    android:id="@+id/btnAddLunch"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_add"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4dp"/>
+
+                <TextView
+                    android:id="@+id/NumberCaloLunch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0/1000"
+                    android:layout_marginLeft="137dp"
+                    android:textStyle="bold"
+                    android:textSize="22dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="calo"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="22dp"
+                    android:textColor="#000000"/>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvLunch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
                 android:layout_marginTop="15dp">
 
                 <TextView
@@ -404,7 +477,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0/1000"
-                    android:layout_marginLeft="136dp"
+                    android:layout_marginLeft="134dp"
                     android:textStyle="bold"
                     android:textSize="22dp"
                     android:textColor="#000000"/>
