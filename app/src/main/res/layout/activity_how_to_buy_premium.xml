@@ -53,7 +53,7 @@
             android:id="@+id/startedTextView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CALORIES-[YOUR EMAIL ACCOUNT]-PREMIUM"
+            android:text="CALO [YOUR EMAIL ACCOUNT]"
             android:textColor="#FF2121"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -75,7 +75,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:text="
-CALORIES-example@gmail.com-PREMIUM"
+CALO example"
             android:textColor="#565B56"
             android:textSize="17sp"
             android:textStyle="bold"/>
