@@ -217,6 +217,10 @@ public class Home extends AppCompatActivity {
             }
             caloNeed += (6.25 * heightm) + (10 * weightm) - (5 * agem) + 5;
             NumberCaloriesNeed.setText(Math.ceil(caloNeed) + "");
+
+            //save lên share reference cho report track
+            editor.putString("CALO_NEED_A_DAY", Math.ceil(caloNeed) + "");
+            editor.commit();
         }catch (Exception ex){
 
         }

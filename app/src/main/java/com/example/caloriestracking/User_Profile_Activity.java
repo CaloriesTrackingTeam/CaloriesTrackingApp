@@ -38,12 +38,22 @@ public class User_Profile_Activity extends AppCompatActivity {
         Button setbtn = findViewById((R.id.settingButton));
         Button helpbtn = findViewById((R.id.helpCenterButton));
         Button outbtn = findViewById((R.id.logOutButton1));
+        Button trackbutton = findViewById((R.id.trackbutton));
 
         BottomNavigationView btv = findViewById(R.id.bottom_nav2);
 
         TextView usernameview = findViewById(R.id.viewUserName);
         String fullName = sharedPreferences.getString("fullName", "");
         usernameview.setText(fullName);
+
+        //track button
+        trackbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("trackbutton lick");
+                startActivity(new Intent(User_Profile_Activity.this, ReportTrack.class));
+            }
+        });
 
         // user edit BMI
         bmibtn.setOnClickListener(new View.OnClickListener() {

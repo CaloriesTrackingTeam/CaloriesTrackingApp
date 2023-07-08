@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
@@ -17,20 +16,23 @@
         android:theme="@style/Theme.CaloriesTracking"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <service android:name=".config.MyJobSchedule"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity
+            android:name=".ReportTrack"
+            android:exported="false" />
+
+        <service
+            android:name=".config.MyJobSchedule"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <activity
             android:name=".UpdateBMR_Activity"
-             android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".HowToBuyPremium"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".ProfileActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".UpdateTargetActivity"
             android:exported="false" />
@@ -72,7 +74,7 @@
             android:exported="false" />
         <activity
             android:name=".Home"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ActivityDetailFavourite"
             android:exported="false" />
@@ -108,9 +110,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".GetStarted3Activity"
             android:exported="false" />
